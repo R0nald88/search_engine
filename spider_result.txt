@@ -1,0 +1,1227 @@
+Page 1
+Title: Test page
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 603
+Keywords:
+	- "test" with frequency: 2
+	- "page" with frequency: 2
+	- "crawler" with frequency: 1
+	- "get" with frequency: 1
+	- "admiss" with frequency: 1
+	- "cse" with frequency: 1
+	- "depart" with frequency: 1
+	- "hkust" with frequency: 1
+	- "," with frequency: 1
+	- "read" with frequency: 1
+	- "intern" with frequency: 1
+	- "news" with frequency: 1
+	- "book" with frequency: 1
+	- "." with frequency: 1
+	- "movi" with frequency: 1
+	- "list" with frequency: 1
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 2
+Title: CSE department of HKUST
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 392
+Keywords:
+	- "cse" with frequency: 2
+	- "depart" with frequency: 2
+	- "hkust" with frequency: 2
+	- "pg" with frequency: 1
+	- "admiss" with frequency: 2
+	- "ug" with frequency: 1
+	- "main" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/UG.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/UG.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+-----------------------------------
+Page 3
+Title: News
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 384
+Keywords:
+	- "news" with frequency: 4
+	- "bbc" with frequency: 1
+	- "cnn" with frequency: 1
+	- "main" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+-----------------------------------
+Page 4
+Title: books
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 601
+Keywords:
+	- "book" with frequency: 2
+	- "articl" with frequency: 1
+	- "read" with frequency: 1
+	- "autom" with frequency: 1
+	- "keyword" with frequency: 1
+	- "classif" with frequency: 1
+	- "inform" with frequency: 1
+	- "retriev" with frequency: 1
+	- "gener" with frequency: 1
+	- "machine-read" with frequency: 1
+	- "data" with frequency: 1
+	- "base" with frequency: 1
+	- "note" with frequency: 1
+	- "pseudo-mathemat" with frequency: 1
+	- "relev" with frequency: 1
+	- "main" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book2.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book3.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book2.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book3.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+-----------------------------------
+Page 5
+Title: Movie Index Page
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Last Modified Date: 2023-05-16 05:09:22
+Page Size: 19541
+Keywords:
+	- "movi" with frequency: 5
+	- "index" with frequency: 1
+	- "page" with frequency: 1
+	- "list" with frequency: 1
+	- "main" with frequency: 2
+	- "dinosaur" with frequency: 1
+	- "planet" with frequency: 3
+	- "(" with frequency: 282
+	- "2003" with frequency: 24
+	- ")" with frequency: 282
+	- "isl" with frequency: 1
+	- "tt" with frequency: 1
+	- "2004" with frequency: 33
+	- "review" with frequency: 1
+	- "charact" with frequency: 1
+	- "1997" with frequency: 10
+	- "paula" with frequency: 1
+	- "abdul" with frequency: 1
+	- "'s" with frequency: 16
+	- "danc" with frequency: 2
+	- "1994" with frequency: 4
+	- "rise" with frequency: 1
+	- "fall" with frequency: 2
+	- "ecw" with frequency: 2
+	- "sick" with frequency: 1
+	- "8" with frequency: 1
+	- "1992" with frequency: 6
+	- "#" with frequency: 1
+	- "$" with frequency: 1
+	- "*" with frequency: 1
+	- "!" with frequency: 3
+	- "?" with frequency: 1
+	- "class" with frequency: 1
+	- "nuke" with frequency: 1
+	- "'em" with frequency: 1
+	- "2" with frequency: 13
+	- "1991" with frequency: 3
+	- "fighter" with frequency: 1
+	- "2001" with frequency: 19
+	- "frame" with frequency: 1
+	- ":" with frequency: 101
+	- "documentari" with frequency: 1
+	- "short" with frequency: 1
+	- "1999" with frequency: 10
+	- "favorit" with frequency: 1
+	- "brunett" with frequency: 1
+	- "1947" with frequency: 2
+	- "lord" with frequency: 2
+	- "ring" with frequency: 1
+	- "return" with frequency: 1
+	- "king" with frequency: 1
+	- "extend" with frequency: 1
+	- "edit" with frequency: 2
+	- "bonu" with frequency: 5
+	- "materi" with frequency: 5
+	- "natur" with frequency: 2
+	- "antarctica" with frequency: 2
+	- "1982" with frequency: 5
+	- "neil" with frequency: 1
+	- "diamond" with frequency: 1
+	- "hit" with frequency: 1
+	- "live" with frequency: 9
+	- "1988" with frequency: 3
+	- "screamer" with frequency: 1
+	- "1996" with frequency: 12
+	- "7" with frequency: 1
+	- "2005" with frequency: 10
+	- "immort" with frequency: 1
+	- "belov" with frequency: 1
+	- "dawn" with frequency: 1
+	- "light" with frequency: 2
+	- "2000" with frequency: 24
+	- "seeta" with frequency: 1
+	- "aur" with frequency: 1
+	- "geeta" with frequency: 1
+	- "1972" with frequency: 2
+	- "strang" with frequency: 1
+	- "relat" with frequency: 1
+	- "2002" with frequency: 26
+	- "chump" with frequency: 1
+	- "chang" with frequency: 1
+	- "clifford" with frequency: 3
+	- "save" with frequency: 1
+	- "day" with frequency: 3
+	- "/" with frequency: 3
+	- "fluffiest" with frequency: 1
+	- "friend" with frequency: 1
+	- "cleo" with frequency: 1
+	- "bloodi" with frequency: 1
+	- "valentin" with frequency: 1
+	- "1981" with frequency: 3
+	- "inspector" with frequency: 1
+	- "mors" with frequency: 1
+	- "31" with frequency: 1
+	- "death" with frequency: 3
+	- "neighbour" with frequency: 1
+	- "die" with frequency: 1
+	- "sesam" with frequency: 1
+	- "street" with frequency: 3
+	- "elmo" with frequency: 1
+	- "world" with frequency: 3
+	- "1962" with frequency: 2
+	- "lilo" with frequency: 1
+	- "stitch" with frequency: 1
+	- "boycott" with frequency: 1
+	- "ta" with frequency: 1
+	- "classic" with frequency: 1
+	- "album" with frequency: 1
+	- "meat" with frequency: 1
+	- "loaf" with frequency: 1
+	- "bat" with frequency: 1
+	- "hell" with frequency: 2
+	- "abc" with frequency: 1
+	- "primetim" with frequency: 1
+	- "mel" with frequency: 1
+	- "gibson" with frequency: 1
+	- "passion" with frequency: 1
+	- "christ" with frequency: 1
+	- "aqua" with frequency: 1
+	- "teen" with frequency: 1
+	- "hunger" with frequency: 1
+	- "forc" with frequency: 1
+	- "vol" with frequency: 1
+	- "." with frequency: 2
+	- "1" with frequency: 10
+	- "ashtanga" with frequency: 1
+	- "yoga" with frequency: 2
+	- "beginn" with frequency: 1
+	- "practic" with frequency: 1
+	- "nicki" with frequency: 1
+	- "doan" with frequency: 1
+	- "ferngulli" with frequency: 1
+	- "magic" with frequency: 1
+	- "rescu" with frequency: 1
+	- "ladi" with frequency: 1
+	- "chatterley" with frequency: 1
+	- "zatoichi" with frequency: 1
+	- "conspiraci" with frequency: 1
+	- "1973" with frequency: 4
+	- "daydream" with frequency: 1
+	- "obsess" with frequency: 2
+	- "love" with frequency: 3
+	- "reinvent" with frequency: 1
+	- "pitcher" with frequency: 1
+	- "pin-up" with frequency: 1
+	- "horror" with frequency: 1
+	- "vision" with frequency: 2
+	- "search" with frequency: 1
+	- "paradis" with frequency: 1
+	- "silent" with frequency: 1
+	- "servic" with frequency: 1
+	- "spitfir" with frequency: 1
+	- "grill" with frequency: 1
+	- "letter" with frequency: 1
+	- "rudolph" with frequency: 1
+	- "red-nos" with frequency: 1
+	- "reindeer" with frequency: 1
+	- "1964" with frequency: 2
+	- "bad" with frequency: 1
+	- "beauti" with frequency: 4
+	- "1952" with frequency: 3
+	- "justic" with frequency: 1
+	- "leagu" with frequency: 1
+	- "devo" with frequency: 1
+	- "complet" with frequency: 2
+	- "truth" with frequency: 2
+	- "de-evolut" with frequency: 1
+	- "yank" with frequency: 1
+	- "r.a.f" with frequency: 1
+	- "1941" with frequency: 1
+	- "jonah" with frequency: 1
+	- "veggietal" with frequency: 1
+	- "weather" with frequency: 1
+	- "underground" with frequency: 1
+	- "bonesett" with frequency: 1
+	- "'re" with frequency: 1
+	- "marri" with frequency: 1
+	- "jade" with frequency: 1
+	- "1995" with frequency: 8
+	- "carandiru" with frequency: 1
+	- "richard" with frequency: 2
+	- "iii" with frequency: 1
+	- "dragonheart" with frequency: 1
+	- "sex" with frequency: 2
+	- "libertin" with frequency: 1
+	- "1969" with frequency: 1
+	- "ricki" with frequency: 1
+	- "martin" with frequency: 1
+	- "night" with frequency: 2
+	- "ken" with frequency: 1
+	- "burn" with frequency: 1
+	- "'" with frequency: 1
+	- "america" with frequency: 1
+	- "empir" with frequency: 2
+	- "air" with frequency: 1
+	- "crash" with frequency: 1
+	- "dive" with frequency: 1
+	- "1943" with frequency: 2
+	- "outsid" with frequency: 1
+	- "law" with frequency: 1
+	- "lost" with frequency: 3
+	- "persh" with frequency: 1
+	- "hotel" with frequency: 1
+	- "barbarian" with frequency: 1
+	- "queen" with frequency: 1
+	- "1989" with frequency: 7
+	- "vampir" with frequency: 3
+	- "journal" with frequency: 1
+	- "invad" with frequency: 1
+	- "zim" with frequency: 1
+	- "wwe" with frequency: 2
+	- "armageddon" with frequency: 1
+	- "tai" with frequency: 1
+	- "chi" with frequency: 1
+	- "24" with frequency: 1
+	- "form" with frequency: 1
+	- "maya" with frequency: 1
+	- "lin" with frequency: 1
+	- "strong" with frequency: 1
+	- "home" with frequency: 2
+	- "stranger" with frequency: 1
+	- "1974" with frequency: 2
+	- "davi" with frequency: 1
+	- "crockett" with frequency: 1
+	- "50th" with frequency: 1
+	- "anniversari" with frequency: 1
+	- "doubl" with frequency: 2
+	- "featur" with frequency: 1
+	- "1954" with frequency: 1
+	- "6ixtynin9" with frequency: 1
+	- "grind" with frequency: 1
+	- "luci" with frequency: 1
+	- "season" with frequency: 12
+	- "congo" with frequency: 1
+	- "jingl" with frequency: 1
+	- "kill" with frequency: 2
+	- "1956" with frequency: 1
+	- "winter" with frequency: 1
+	- "1979" with frequency: 2
+	- "imax" with frequency: 1
+	- "frogmen" with frequency: 1
+	- "1951" with frequency: 2
+	- "silkwood" with frequency: 1
+	- "1983" with frequency: 4
+	- "powerpuff" with frequency: 1
+	- "girl" with frequency: 1
+	- "elfen" with frequency: 1
+	- "lie" with frequency: 3
+	- "iron" with frequency: 2
+	- "monkey" with frequency: 1
+	- "louder" with frequency: 1
+	- "bomb" with frequency: 1
+	- "record" with frequency: 1
+	- "lodoss" with frequency: 1
+	- "war" with frequency: 2
+	- "chronicl" with frequency: 1
+	- "heroic" with frequency: 1
+	- "knight" with frequency: 1
+	- "1998" with frequency: 8
+	- "chain" with frequency: 2
+	- "command" with frequency: 2
+	- "lemon" with frequency: 1
+	- "drop" with frequency: 1
+	- "kid" with frequency: 1
+	- "royal" with frequency: 1
+	- "rumbl" with frequency: 1
+	- "cyberslam" with frequency: 1
+	- "'99" with frequency: 1
+	- "g3" with frequency: 1
+	- "concert" with frequency: 2
+	- "dona" with frequency: 1
+	- "herlinda" with frequency: 1
+	- "son" with frequency: 2
+	- "1985" with frequency: 5
+	- "insid" with frequency: 1
+	- "space" with frequency: 2
+	- "station" with frequency: 1
+	- "martha" with frequency: 1
+	- "battl" with frequency: 1
+	- "algier" with frequency: 1
+	- "1965" with frequency: 2
+	- "fishi" with frequency: 1
+	- "stori" with frequency: 1
+	- "sam" with frequency: 1
+	- "bridg" with frequency: 1
+	- "1993" with frequency: 3
+	- "shaman" with frequency: 1
+	- "princess" with frequency: 2
+	- "notr" with frequency: 2
+	- "musiqu" with frequency: 1
+	- "sanford" with frequency: 1
+	- "6" with frequency: 1
+	- "1976" with frequency: 2
+	- "race" with frequency: 1
+	- "stevi" with frequency: 1
+	- "ray" with frequency: 1
+	- "vaughan" with frequency: 1
+	- "troubl" with frequency: 1
+	- "montreux" with frequency: 1
+	- "magnolia" with frequency: 1
+	- "spartan" with frequency: 1
+	- "scandal" with frequency: 1
+	- "duplex" with frequency: 1
+	- "widescreen" with frequency: 1
+	- "eye" with frequency: 1
+	- "vichi" with frequency: 1
+	- "bruce" with frequency: 1
+	- "lee" with frequency: 1
+	- "warrior" with frequency: 2
+	- "journey" with frequency: 1
+	- "dominion" with frequency: 1
+	- "tank" with frequency: 1
+	- "polic" with frequency: 1
+	- "peter" with frequency: 3
+	- "wimsey" with frequency: 1
+	- "murder" with frequency: 3
+	- "advertis" with frequency: 1
+	- "bear" with frequency: 1
+	- "cub" with frequency: 1
+	- "silk" with frequency: 1
+	- "stock" with frequency: 1
+	- "1957" with frequency: 2
+	- "rambo" with frequency: 1
+	- "blood" with frequency: 5
+	- "ii" with frequency: 3
+	- "travel" with frequency: 1
+	- "train" with frequency: 1
+	- "africa" with frequency: 1
+	- "plain" with frequency: 1
+	- "dirti" with frequency: 1
+	- "beyonc" with frequency: 1
+	- "wembley" with frequency: 1
+	- "cube" with frequency: 1
+	- "hypercub" with frequency: 1
+	- "fool" with frequency: 1
+	- "cold" with frequency: 2
+	- "nighthawk" with frequency: 1
+	- "effect" with frequency: 2
+	- "aka" with frequency: 1
+	- "twin" with frequency: 1
+	- "fatal" with frequency: 1
+	- "1987" with frequency: 2
+	- "mr." with frequency: 1
+	- "darkwolf" with frequency: 1
+	- "drown" with frequency: 1
+	- "dri" with frequency: 1
+	- "land" with frequency: 2
+	- "arachnid" with frequency: 1
+	- "lucio" with frequency: 1
+	- "fulci" with frequency: 1
+	- "beyond" with frequency: 2
+	- "viva" with frequency: 1
+	- "la" with frequency: 1
+	- "bam" with frequency: 1
+	- "spirit" with frequency: 1
+	- "gto" with frequency: 1
+	- "teacher" with frequency: 1
+	- "onizuka" with frequency: 1
+	- "set" with frequency: 1
+	- "cat" with frequency: 1
+	- "canari" with frequency: 1
+	- "1927" with frequency: 1
+	- "nake" with frequency: 1
+	- "star" with frequency: 3
+	- "trek" with frequency: 2
+	- "voyag" with frequency: 2
+	- "allergi" with frequency: 1
+	- "approach" with frequency: 1
+	- "wild" with frequency: 1
+	- "goddess" with frequency: 1
+	- "merci" with frequency: 1
+	- "tricki" with frequency: 1
+	- "master" with frequency: 1
+	- "game" with frequency: 1
+	- "deepak" with frequency: 1
+	- "chopra" with frequency: 1
+	- "wizard" with frequency: 1
+	- "alchemi" with frequency: 1
+	- "handkerchief" with frequency: 1
+	- "1978" with frequency: 2
+	- "cannib" with frequency: 1
+	- "women" with frequency: 1
+	- "avocado" with frequency: 1
+	- "jungl" with frequency: 1
+	- "sleep" with frequency: 1
+	- "dog" with frequency: 3
+	- "sweet" with frequency: 1
+	- "novemb" with frequency: 1
+	- "edward" with frequency: 1
+	- "r." with frequency: 1
+	- "murrow" with frequency: 1
+	- "collect" with frequency: 1
+	- "firetrap" with frequency: 1
+	- "sleepov" with frequency: 1
+	- "nightmar" with frequency: 1
+	- "littl" with frequency: 2
+	- "mtv" with frequency: 2
+	- "demon" with frequency: 1
+	- "koji" with frequency: 1
+	- "strongest" with frequency: 1
+	- "1975" with frequency: 1
+	- "husband" with frequency: 1
+	- "wive" with frequency: 1
+	- "laird" with frequency: 1
+	- "white" with frequency: 1
+	- "knuckl" with frequency: 1
+	- "extrem" with frequency: 1
+	- "killer" with frequency: 2
+	- "gentlemen" with frequency: 1
+	- "fortun" with frequency: 1
+	- "1971" with frequency: 2
+	- "gormenghast" with frequency: 1
+	- "ninotchka" with frequency: 1
+	- "1939" with frequency: 1
+	- "john" with frequency: 1
+	- "clees" with frequency: 1
+	- "irrit" with frequency: 1
+	- "peopl" with frequency: 1
+	- "1968" with frequency: 4
+	- "band" with frequency: 1
+	- "pryor" with frequency: 1
+	- "sunset" with frequency: 1
+	- "strip" with frequency: 1
+	- "fame" with frequency: 1
+	- "1980" with frequency: 2
+	- "choru" with frequency: 1
+	- "smokey" with frequency: 1
+	- "bandit" with frequency: 1
+	- "3" with frequency: 2
+	- "cartoon" with frequency: 3
+	- "network" with frequency: 1
+	- "halloween" with frequency: 1
+	- "9" with frequency: 1
+	- "creepi" with frequency: 1
+	- "caper" with frequency: 1
+	- "tomorrow" with frequency: 1
+	- "funni" with frequency: 1
+	- "jack" with frequency: 1
+	- "devil" with frequency: 1
+	- "brigad" with frequency: 1
+	- "adam-12" with frequency: 1
+	- "reservoir" with frequency: 1
+	- "histori" with frequency: 1
+	- "channel" with frequency: 1
+	- "troy" with frequency: 2
+	- "unearth" with frequency: 1
+	- "legend" with frequency: 2
+	- "pressur" with frequency: 2
+	- "regular" with frequency: 1
+	- "guy" with frequency: 1
+	- "bollywood" with frequency: 1
+	- "bound" with frequency: 1
+	- "scratch" with frequency: 1
+	- "shot" with frequency: 1
+	- "mobi" with frequency: 1
+	- "play" with frequency: 1
+	- "ifilm" with frequency: 1
+	- "derang" with frequency: 1
+	- "billi" with frequency: 1
+	- "blank" with frequency: 1
+	- "tae" with frequency: 1
+	- "bo" with frequency: 1
+	- "cardio" with frequency: 1
+	- "circuit" with frequency: 1
+	- "miss" with frequency: 2
+	- "action" with frequency: 2
+	- "begin" with frequency: 1
+	- "braddock" with frequency: 1
+	- "panic" with frequency: 1
+	- "1950" with frequency: 1
+	- "smoochi" with frequency: 1
+	- "dead" with frequency: 1
+	- "bird" with frequency: 1
+	- "airplan" with frequency: 1
+	- "sequel" with frequency: 1
+	- "sand" with frequency: 1
+	- "x2" with frequency: 1
+	- "x-men" with frequency: 1
+	- "unit" with frequency: 1
+	- "soultak" with frequency: 1
+	- "marilyn" with frequency: 1
+	- "manson" with frequency: 1
+	- "fear" with frequency: 1
+	- "satan" with frequency: 1
+	- "arliss" with frequency: 2
+	- "chase" with frequency: 1
+	- "freedom" with frequency: 1
+	- "tosh" with frequency: 1
+	- "step" with frequency: 1
+	- "razor" with frequency: 1
+	- "red" with frequency: 1
+	- "take" with frequency: 1
+	- "gupt" with frequency: 1
+	- "deer" with frequency: 1
+	- "hunter" with frequency: 2
+	- "roman" with frequency: 1
+	- "rubi" with frequency: 1
+	- "bucket" with frequency: 1
+	- "sport" with frequency: 1
+	- "illustr" with frequency: 1
+	- "swimsuit" with frequency: 1
+	- "venu" with frequency: 1
+	- "boyz" with frequency: 1
+	- "unconstitut" with frequency: 1
+	- "civil" with frequency: 1
+	- "liberti" with frequency: 1
+	- "denis" with frequency: 1
+	- "austin" with frequency: 1
+	- "ultim" with frequency: 1
+	- "fat" with frequency: 1
+	- "burner" with frequency: 1
+	- "stoog" with frequency: 1
+	- "sing" with frequency: 1
+	- "song" with frequency: 2
+	- "six" with frequency: 1
+	- "pant" with frequency: 1
+	- "deep" with frequency: 1
+	- "nine" with frequency: 1
+	- "5" with frequency: 1
+	- "onmyoji" with frequency: 1
+	- "agronomist" with frequency: 1
+	- "querel" with frequency: 1
+	- "dinner" with frequency: 1
+	- "rush" with frequency: 1
+	- "read-along" with frequency: 1
+	- "beast" with frequency: 1
+	- "'70" with frequency: 1
+	- "impostor" with frequency: 1
+	- "cherri" with frequency: 1
+	- "triumph" with frequency: 1
+	- "festiv" with frequency: 1
+	- "neon" with frequency: 2
+	- "bibl" with frequency: 1
+	- "winston" with frequency: 1
+	- "churchil" with frequency: 1
+	- "wilder" with frequency: 1
+	- "yellow" with frequency: 1
+	- "chappel" with frequency: 1
+	- "midsom" with frequency: 2
+	- "cookout" with frequency: 1
+	- "henri" with frequency: 1
+	- "portrait" with frequency: 1
+	- "serial" with frequency: 1
+	- "carol" with frequency: 1
+	- "burnett" with frequency: 1
+	- "stopper" with frequency: 1
+	- "butch" with frequency: 1
+	- "sundanc" with frequency: 1
+	- "gabriel" with frequency: 1
+	- "grow" with frequency: 1
+	- "unsolv" with frequency: 1
+	- "mysteri" with frequency: 1
+	- "psychic" with frequency: 1
+	- "maroon" with frequency: 1
+	- "iraq" with frequency: 1
+	- "gross" with frequency: 1
+	- "anatomi" with frequency: 1
+	- "chato" with frequency: 1
+	- "anim" with frequency: 2
+	- "winsor" with frequency: 1
+	- "mccay" with frequency: 1
+	- "1921" with frequency: 1
+	- "unhook" with frequency: 1
+	- "crazi" with frequency: 2
+	- "sci-fi" with frequency: 1
+	- "broken" with frequency: 1
+	- "blossom" with frequency: 1
+	- "1918" with frequency: 1
+	- "led" with frequency: 1
+	- "zeppelin" with frequency: 1
+	- "remain" with frequency: 1
+	- "winni" with frequency: 1
+	- "pooh" with frequency: 1
+	- "springtim" with frequency: 1
+	- "roo" with frequency: 1
+	- "woman" with frequency: 1
+	- "1942" with frequency: 1
+	- "north" with frequency: 1
+	- "northwest" with frequency: 1
+	- "1959" with frequency: 1
+	- "genesi" with frequency: 1
+	- "evangelion" with frequency: 2
+	- "stellvia" with frequency: 1
+	- "road" with frequency: 1
+	- "dogz" with frequency: 1
+	- "boston" with frequency: 1
+	- "strangler" with frequency: 2
+	- "oleanna" with frequency: 1
+	- "michael" with frequency: 1
+	- "moor" with frequency: 1
+	- "aw" with frequency: 1
+	- "1958" with frequency: 1
+	- "cast" with frequency: 1
+	- "giant" with frequency: 1
+	- "shadow" with frequency: 1
+	- "1966" with frequency: 1
+	- "wood" with frequency: 1
+	- "stuart" with frequency: 1
+	- "opera" with frequency: 1
+	- "1935" with frequency: 1
+	- "westend" with frequency: 1
+	- "hunchback" with frequency: 1
+	- "dame" with frequency: 1
+	- "ghost" with frequency: 1
+	- "samurai" with frequency: 1
+	- "charlott" with frequency: 1
+	- "web" with frequency: 1
+	- "mann" with frequency: 1
+	- "marat" with frequency: 1
+	- "sade" with frequency: 1
+	- "1967" with frequency: 1
+	- "clock" with frequency: 1
+	- "1948" with frequency: 1
+	- "herbi" with frequency: 1
+	- "ride" with frequency: 1
+	- "dragon" with frequency: 1
+	- "ball" with frequency: 1
+	- "tournament" with frequency: 1
+	- "saga" with frequency: 1
+	- "angelina" with frequency: 1
+	- "ballerina" with frequency: 1
+	- "jeff" with frequency: 1
+	- "corwin" with frequency: 1
+	- "experi" with frequency: 1
+	- "costa" with frequency: 1
+	- "rica" with frequency: 1
+	- "amazon" with frequency: 1
+	- "saudad" with frequency: 1
+	- "futuro" with frequency: 1
+	- "touch" with frequency: 1
+	- "angel" with frequency: 1
+	- "final" with frequency: 1
+	- "countdown" with frequency: 1
+	- "parenthood" with frequency: 1
+	- "citi" with frequency: 1
+	- "4" with frequency: 1
+	- "saludo" with frequency: 1
+	- "amigo" with frequency: 1
+	- "femal" with frequency: 1
+	- "yakuza" with frequency: 1
+	- "tale" with frequency: 1
+	- "taxi" with frequency: 1
+	- "evelyn" with frequency: 1
+	- "harvest" with frequency: 1
+	- "enigma" with frequency: 1
+	- "mcmxc" with frequency: 1
+	- "a.d" with frequency: 1
+	- "100" with frequency: 1
+	- "1990" with frequency: 1
+	- "micki" with frequency: 1
+	- "maud" with frequency: 1
+	- "1984" with frequency: 1
+	- "sarah" with frequency: 1
+	- "brightman" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/1.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/2.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/3.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/4.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/5.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/6.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/7.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/8.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/9.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/10.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/11.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/12.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/13.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/14.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/15.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/16.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/17.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/18.html
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/1.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/2.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/3.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/4.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/5.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/6.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/7.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/8.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/9.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/10.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/11.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/12.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/13.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/14.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/15.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/16.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/17.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/18.html
+-----------------------------------
+Page 6
+Title: PG
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm
+Last Modified Date: 2023-05-16 05:03:46
+Page Size: 3267
+Keywords:
+	- "pg" with frequency: 2
+	- "program" with frequency: 8
+	- "applic" with frequency: 7
+	- "admiss" with frequency: 8
+	- "postgradu" with frequency: 9
+	- "requir" with frequency: 6
+	- "complet" with frequency: 2
+	- "," with frequency: 11
+	- "time" with frequency: 2
+	- "enter" with frequency: 1
+	- "hkust" with frequency: 1
+	- "bachelor" with frequency: 1
+	- "'s" with frequency: 3
+	- "degre" with frequency: 2
+	- "comput" with frequency: 8
+	- "scienc" with frequency: 7
+	- "relat" with frequency: 1
+	- "engin" with frequency: 1
+	- "field" with frequency: 1
+	- "." with frequency: 12
+	- "student" with frequency: 6
+	- "admit" with frequency: 5
+	- "demonstr" with frequency: 3
+	- "compet" with frequency: 4
+	- "follow" with frequency: 1
+	- "core" with frequency: 2
+	- ":" with frequency: 4
+	- "organ" with frequency: 1
+	- "principl" with frequency: 2
+	- "languag" with frequency: 4
+	- "system" with frequency: 2
+	- "softwar" with frequency: 1
+	- "(" with frequency: 7
+	- "oper" with frequency: 1
+	- ")" with frequency: 7
+	- "design" with frequency: 1
+	- "analysi" with frequency: 1
+	- "algorithm" with frequency: 1
+	- "addit" with frequency: 2
+	- "phd" with frequency: 2
+	- "theori" with frequency: 1
+	- "apprais" with frequency: 1
+	- "process" with frequency: 1
+	- "formal" with frequency: 1
+	- "background" with frequency: 1
+	- "deem" with frequency: 2
+	- "inadequ" with frequency: 1
+	- "provision" with frequency: 1
+	- "basi" with frequency: 1
+	- "remedi" with frequency: 1
+	- "cours" with frequency: 3
+	- "prescrib" with frequency: 1
+	- "studi" with frequency: 4
+	- "committe" with frequency: 1
+	- "obtain" with frequency: 1
+	- "grade" with frequency: 1
+	- "stipul" with frequency: 1
+	- "individu" with frequency: 1
+	- "offer" with frequency: 1
+	- "defici" with frequency: 1
+	- "concurr" with frequency: 1
+	- "submit" with frequency: 4
+	- "offici" with frequency: 1
+	- "certifi" with frequency: 1
+	- "academ" with frequency: 2
+	- "transcript" with frequency: 1
+	- "undergradu" with frequency: 1
+	- ";" with frequency: 5
+	- "result" with frequency: 4
+	- "subject" with frequency: 2
+	- "graduat" with frequency: 2
+	- "record" with frequency: 3
+	- "gre" with frequency: 2
+	- "english" with frequency: 6
+	- "profici" with frequency: 4
+	- "test" with frequency: 3
+	- "below" with frequency: 1
+	- "letter" with frequency: 1
+	- "recommend" with frequency: 1
+	- "one-pag" with frequency: 1
+	- "statement" with frequency: 1
+	- "plan" with frequency: 1
+	- "form" with frequency: 1
+	- "msc" with frequency: 1
+	- "mphil" with frequency: 1
+	- "standard" with frequency: 1
+	- "examin" with frequency: 2
+	- "help" with frequency: 1
+	- "determin" with frequency: 1
+	- "suitabl" with frequency: 1
+	- "supplementari" with frequency: 1
+	- "inform" with frequency: 1
+	- "avail" with frequency: 1
+	- "suffici" with frequency: 1
+	- "previou" with frequency: 1
+	- "institut" with frequency: 1
+	- "primari" with frequency: 1
+	- "instruct" with frequency: 1
+	- "toefl" with frequency: 1
+	- "notwithstand" with frequency: 1
+	- "depart" with frequency: 3
+	- "newli" with frequency: 1
+	- "undergo" with frequency: 1
+	- "assess" with frequency: 1
+	- "enhanc" with frequency: 1
+	- "base" with frequency: 1
+	- "research" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+-----------------------------------
+Page 7
+Title: UG
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/UG.htm
+Last Modified Date: 2023-05-16 05:03:46
+Page Size: 4070
+Keywords:
+	- "ug" with frequency: 1
+	- "program" with frequency: 16
+	- "inform" with frequency: 4
+	- "depart" with frequency: 5
+	- "comput" with frequency: 13
+	- "scienc" with frequency: 7
+	- "hkust" with frequency: 5
+	- "offer" with frequency: 3
+	- "degre" with frequency: 2
+	- "student" with frequency: 7
+	- "learn" with frequency: 1
+	- "technolog" with frequency: 1
+	- ":" with frequency: 12
+	- "1." with frequency: 1
+	- "comp" with frequency: 2
+	- "beng" with frequency: 3
+	- "undergradu" with frequency: 2
+	- "provid" with frequency: 3
+	- "broad" with frequency: 1
+	- "educ" with frequency: 1
+	- "." with frequency: 12
+	- "2." with frequency: 1
+	- "csie" with frequency: 4
+	- "(" with frequency: 2
+	- "engin" with frequency: 6
+	- ")" with frequency: 2
+	- "special" with frequency: 2
+	- "focus" with frequency: 1
+	- "multimedia" with frequency: 1
+	- "network" with frequency: 1
+	- "hong" with frequency: 2
+	- "kong" with frequency: 2
+	- "closer" with frequency: 1
+	- "electr" with frequency: 3
+	- "electron" with frequency: 3
+	- "," with frequency: 18
+	- "uniqu" with frequency: 1
+	- "emphasi" with frequency: 2
+	- "softwar" with frequency: 2
+	- "satisfi" with frequency: 1
+	- "requir" with frequency: 2
+	- "typic" with frequency: 1
+	- "care" with frequency: 1
+	- "design" with frequency: 1
+	- "specif" with frequency: 2
+	- "mind" with frequency: 1
+	- "besid" with frequency: 2
+	- "jointli" with frequency: 1
+	- "spectrum" with frequency: 3
+	- "it-rel" with frequency: 1
+	- "view" with frequency: 1
+	- "follow" with frequency: 2
+	- "<" with frequency: 1
+	- "--" with frequency: 11
+	- "-" with frequency: 1
+	- ">" with frequency: 1
+	- "hardwar" with frequency: 1
+	- "cpeg" with frequency: 1
+	- "eeic" with frequency: 1
+	- "elec" with frequency: 1
+	- "speak" with frequency: 1
+	- "shift" with frequency: 1
+	- "``" with frequency: 2
+	- "soft" with frequency: 1
+	- "''" with frequency: 2
+	- "hard" with frequency: 1
+	- "move" with frequency: 1
+	- "suit" with frequency: 1
+	- "job" with frequency: 3
+	- "market" with frequency: 1
+	- "demand" with frequency: 1
+	- "opportun" with frequency: 2
+	- "regular" with frequency: 1
+	- "studi" with frequency: 6
+	- "enjoy" with frequency: 1
+	- "includ" with frequency: 3
+	- "oversea" with frequency: 2
+	- "exchang" with frequency: 1
+	- "one-year" with frequency: 2
+	- "full-tim" with frequency: 2
+	- "pay" with frequency: 1
+	- "'s" with frequency: 1
+	- "tuition" with frequency: 1
+	- "fee" with frequency: 1
+	- "work-studi" with frequency: 1
+	- "outsid" with frequency: 1
+	- "industri" with frequency: 1
+	- "train" with frequency: 5
+	- "modul" with frequency: 1
+	- "winter" with frequency: 1
+	- "summer" with frequency: 1
+	- "break" with frequency: 1
+	- "practic" with frequency: 1
+	- "skill" with frequency: 2
+	- "english" with frequency: 2
+	- "intens" with frequency: 1
+	- "written" with frequency: 1
+	- "convers" with frequency: 1
+	- "present" with frequency: 1
+	- "final" with frequency: 1
+	- "project" with frequency: 2
+	- "guidanc" with frequency: 1
+	- "faculti" with frequency: 1
+	- "advisor" with frequency: 1
+	- "tutor" with frequency: 1
+	- "third" with frequency: 1
+	- "helper" with frequency: 1
+	- "help" with frequency: 1
+	- "first-year" with frequency: 1
+	- "cours" with frequency: 1
+	- "graduat" with frequency: 5
+	- "20" with frequency: 1
+	- "%" with frequency: 1
+	- "choos" with frequency: 2
+	- "pursu" with frequency: 1
+	- "postgradu" with frequency: 1
+	- "immedi" with frequency: 1
+	- "stay" with frequency: 1
+	- "mphil" with frequency: 1
+	- "master" with frequency: 1
+	- "philosophi" with frequency: 1
+	- "abroad" with frequency: 1
+	- "top" with frequency: 1
+	- "univers" with frequency: 6
+	- "stanford" with frequency: 1
+	- "southern" with frequency: 1
+	- "california" with frequency: 1
+	- "toronto" with frequency: 1
+	- "texa" with frequency: 1
+	- "austin" with frequency: 1
+	- "illinoi" with frequency: 1
+	- "urbana-champaign" with frequency: 1
+	- "found" with frequency: 1
+	- "excel" with frequency: 1
+	- "relat" with frequency: 3
+	- "disciplin" with frequency: 1
+	- "look" with frequency: 1
+	- "advantag" with frequency: 1
+	- "complet" with frequency: 1
+	- "comprehens" with frequency: 1
+	- "solid" with frequency: 1
+	- "fundament" with frequency: 1
+	- "emerg" with frequency: 1
+	- "inquiri" with frequency: 1
+	- "advic" with frequency: 1
+	- "assist" with frequency: 1
+	- "applic" with frequency: 1
+	- "procedur" with frequency: 1
+	- "choic" with frequency: 1
+	- "entranc" with frequency: 1
+	- "matter" with frequency: 1
+	- "welcom" with frequency: 1
+	- "contact" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
+-----------------------------------
+Page 8
+Title: BBC news
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+Last Modified Date: 2023-05-16 05:03:44
+Page Size: 499
+Keywords:
+	- "bbc" with frequency: 2
+	- "news" with frequency: 3
+	- "fifth" with frequency: 1
+	- "nest" with frequency: 1
+	- "rare" with frequency: 1
+	- "bird" with frequency: 1
+	- "project" with frequency: 1
+	- "mp" with frequency: 1
+	- "urg" with frequency: 1
+	- "bt" with frequency: 1
+	- "goonhilli" with frequency: 1
+	- "commit" with frequency: 1
+	- "west" with frequency: 1
+	- "ham" with frequency: 1
+	- "2-1" with frequency: 1
+	- "blackburn" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+-----------------------------------
+Page 9
+Title: CNN news
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+Last Modified Date: 2023-05-16 05:03:44
+Page Size: 448
+Keywords:
+	- "cnn" with frequency: 2
+	- "news" with frequency: 3
+	- "sauerkraut" with frequency: 1
+	- "capit" with frequency: 1
+	- "sweet" with frequency: 1
+	- "accordion" with frequency: 1
+	- "warm" with frequency: 1
+	- "'may" with frequency: 1
+	- "caus" with frequency: 1
+	- "econom" with frequency: 1
+	- "chao" with frequency: 1
+	- "'" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
+-----------------------------------
+Page 10
+Title: book1
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 1617
+Keywords:
+	- "book1" with frequency: 1
+	- "autom" with frequency: 1
+	- "keyword" with frequency: 2
+	- "classif" with frequency: 1
+	- "inform" with frequency: 3
+	- "retriev" with frequency: 5
+	- "book" with frequency: 2
+	- "primarili" with frequency: 1
+	- "research" with frequency: 1
+	- "monograph" with frequency: 1
+	- "," with frequency: 13
+	- "discuss" with frequency: 1
+	- "main" with frequency: 2
+	- "topic" with frequency: 2
+	- "broaden" with frequency: 1
+	- "relat" with frequency: 2
+	- "surround" with frequency: 1
+	- "context" with frequency: 1
+	- ";" with frequency: 3
+	- "textbook" with frequency: 1
+	- "attempt" with frequency: 1
+	- "justifi" with frequency: 1
+	- "choic" with frequency: 1
+	- "account" with frequency: 1
+	- "concept" with frequency: 1
+	- "provid" with frequency: 1
+	- "elementari" with frequency: 1
+	- "descript" with frequency: 3
+	- "." with frequency: 3
+	- "instanc" with frequency: 1
+	- "chapter" with frequency: 2
+	- "1" with frequency: 1
+	- "assum" with frequency: 1
+	- "reader" with frequency: 1
+	- "familiar" with frequency: 1
+	- "idea" with frequency: 1
+	- "use" with frequency: 1
+	- ":" with frequency: 1
+	- "consid" with frequency: 1
+	- "devic" with frequency: 1
+	- "control" with frequency: 1
+	- "thesauru" with frequency: 1
+	- "descriptor" with frequency: 1
+	- "set" with frequency: 1
+	- "simpl" with frequency: 1
+	- "class" with frequency: 1
+	- "list" with frequency: 1
+	- "document" with frequency: 1
+	- "syntact" with frequency: 1
+	- "structur" with frequency: 1
+	- "exampl" with frequency: 1
+	- "equal" with frequency: 1
+	- "2" with frequency: 1
+	- "recall/precis" with frequency: 1
+	- "ratio" with frequency: 2
+	- "mean" with frequency: 2
+	- "characteris" with frequency: 1
+	- "perform" with frequency: 1
+	- "justif" with frequency: 1
+	- "argument" with frequency: 1
+	- "am" with frequency: 1
+	- "unawar" with frequency: 1
+	- "difficulti" with frequency: 1
+	- "do" with frequency: 1
+	- "attent" with frequency: 1
+	- "devot" with frequency: 1
+	- "controversi" with frequency: 1
+	- "rage" with frequency: 1
+	- "round" with frequency: 1
+	- "subject" with frequency: 1
+	- "simpli" with frequency: 1
+	- "view" with frequency: 1
+	- "purpos" with frequency: 1
+	- "reason" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+Parent:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+-----------------------------------
