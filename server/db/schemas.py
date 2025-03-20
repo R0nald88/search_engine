@@ -17,16 +17,23 @@ class Relationship(Base):
         Integer, ForeignKey('webpage.webpage_id'), index=True, nullable=False)
     child_id: Mapped[int] = mapped_column(
         Integer, ForeignKey('webpage.webpage_id'), index=True, nullable=False)
-    is_active: Mapped[bool] = mapped_column(Boolean, nullable=True, default=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
     @staticmethod
-    def to_basic_dict(obj: Any, all_active: bool = True) -> dict[str, Any]:
+    def to_basic_dict(obj: Any) -> dict[str, Any]:
         return {
             'parent_id': obj.parent_id,
             'child_id': obj.child_id,
             'relate_id': obj.relate_id,
-            'is_active': True if all_active else obj.is_active,
+            'is_active': obj.is_active,
         }
+    
+    def __eq__(self, value):
+        if not isinstance(value, Relationship): return False
+        return value.parent_id == self.parent_id and value.child_id == self.child_id
+    
+    def __hash__(self):
+        return hash(f'{self.parent_id}-{self.child_id}')
 
 class Index(Base):
     __tablename__ = "index"
@@ -52,6 +59,13 @@ class Index(Base):
             'is_title': obj.is_title,
             'index_id': obj.index_id,
         }
+    
+    def __eq__(self, value):
+        if not isinstance(value, Index): return False
+        return value.word_id == self.word_id and value.webpage_id == self.webpage_id
+    
+    def __hash__(self):
+        return hash(f'{self.webpage_id}-{self.word_id}')
 
 class Webpage(Base):
     __tablename__ = "webpage"
@@ -60,23 +74,24 @@ class Webpage(Base):
         Integer, primary_key=True, unique=True, 
         autoincrement=True, nullable=False)
     url: Mapped[str] = mapped_column(String(length=255), index=True, unique=True, nullable=False)
-    title: Mapped[str] = mapped_column(String(length=255), nullable=False)
+    title: Mapped[str] = mapped_column(String(length=255), nullable=True)
     last_modified_date: Mapped[datetime] = mapped_column(DateTime, default=func.now(), nullable=True)
-    size: Mapped[int] = mapped_column(Integer, nullable=False)
-    is_active: Mapped[bool] = mapped_column(Boolean, nullable=True, default=True)
+    size: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    is_crawled: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
     children: Mapped[list['Webpage']] = relationship(
         'Webpage', secondary=Relationship.__table__,
         primaryjoin=webpage_id==Relationship.parent_id,
         secondaryjoin=webpage_id==Relationship.child_id, 
     )
-    children_relation: Mapped[list[Relationship]] = relationship(
-        'Relationship', backref='parent',
-        primaryjoin=webpage_id==Relationship.child_id,
-    )
     parent_relation: Mapped[list[Relationship]] = relationship(
-        'Relationship', backref='child',
+        'Relationship', backref='parent',
         primaryjoin=webpage_id==Relationship.parent_id,
+    )
+    child_relation: Mapped[list[Relationship]] = relationship(
+        'Relationship', backref='child',
+        primaryjoin=webpage_id==Relationship.child_id,
     )
     indexes: Mapped[list['Index']] = relationship('Index', back_populates='webpage')
     keywords: Mapped[list['Keyword']] = relationship(
@@ -84,14 +99,22 @@ class Webpage(Base):
     )
 
     @staticmethod
-    def to_basic_dict(obj: Any, all_active: bool = True) -> dict[str, Any]:
+    def to_basic_dict(obj: Any) -> dict[str, Any]:
         return {
             'url': obj.url,
             'title': obj.title,
             'last_modified_date': obj.last_modified_date,
             'size': obj.size,
-            'is_active': True if all_active else obj.is_active
+            'is_active': obj.is_active,
+            'is_crawled': obj.is_crawled,
         }
+    
+    def __eq__(self, value):
+        if not isinstance(value, Webpage): return False
+        return value.url == self.url
+    
+    def __hash__(self):
+        return hash(self.url)
 
 class Keyword(Base):
     __tablename__ = "keyword"
@@ -110,3 +133,10 @@ class Keyword(Base):
         return {
             'word': obj.word if not isinstance(obj, str) else obj.strip(),
         }
+    
+    def __eq__(self, value):
+        if not isinstance(value, Keyword): return False
+        return value.word == self.word
+    
+    def __hash__(self):
+        return hash(self.word)

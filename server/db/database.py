@@ -13,20 +13,22 @@ def create_database(restore: bool = False):
     if restore: Base().metadata.drop_all(bind=engine)
     Base().metadata.create_all(bind=engine)
 
-def set_inverted_index(
+def set_index(
     indexes: list[Index], 
+    ignore: bool = False,
     delete_unindexed_words: bool = False, 
     db = Session()) -> None:
     
-    for i in indexes: i.index_id = f'{i.webpage_id}-{i.word_id}'
+    for i in indexes: i.index_id = f'{i.webpage_id}-{i.word_id}-{1 if i.is_title else 0}'
 
     upsert(
         sess=db, cls=Index, inputs=indexes,
         func=Index.to_basic_dict,
+        ignore=ignore,
         conflict_items=[Index.index_id],
     )
 
-        # if webpage id found but corresponding keyword is not found, set the frequency to 0
+    # if webpage id found but corresponding keyword is not found, set the frequency to 0
     where_clause = None
     if delete_unindexed_words:
         where_clause = not_(Index.index_id.in_([index.index_id for index in indexes]))
@@ -52,6 +54,7 @@ def set_keyword(keywords: list[str | Keyword], db = Session()) -> dict[str, int]
 
 def set_relationship(
     relationship: list[Relationship],
+    ignore: bool = False,
     delete_unfounded_relationship: bool = False,
     db = Session()) -> None:
 
@@ -60,10 +63,10 @@ def set_relationship(
     upsert(
         sess=db, cls=Relationship, inputs=relationship,
         func=Relationship.to_basic_dict,
-        conflict_items=[Relationship.relate_id]
+        conflict_items=[Relationship.relate_id],
+        ignore=ignore,
     )
 
-    
     where_clause = None
     if delete_unfounded_relationship:
         where_clause = not_(Relationship.relate_id.in_([r.relate_id for r in relationship]))
@@ -79,29 +82,25 @@ def set_relationship(
     db.commit()
 
 def set_webpage(
-    webpages: list[Webpage], 
-    inactive_links: list[str] = [],
+    webpages: list[Webpage],
+    ignore: bool = False,
     delete_unfounded_page: bool = False, 
     db = Session()) -> dict[str, int]:
 
     mapping: list[tuple[int, str]] = upsert(
         sess=db, cls=Webpage, inputs=webpages,
         func=Webpage.to_basic_dict,
+        ignore=ignore,
         conflict_items=[Webpage.url],
         returning=(Webpage.webpage_id, Webpage.url)
     )
 
-    where_clause = None
     if delete_unfounded_page:
-        where_clause = or_(
-            not_(Webpage.url.in_([page.url for page in webpages])),
-            Webpage.url.in_(inactive_links)
-        )
-    else: where_clause = Webpage.url.in_(inactive_links)
-
-    query = update(Webpage).where(where_clause).values(is_active=False)
-    db.execute(query)
-    db.commit()
+        query = update(Webpage).where(
+            not_(Webpage.url.in_([page.url for page in webpages]))
+        ).values(is_active=False)
+        db.execute(query)
+        db.commit()
 
     return {t[1]: t[0] for t in mapping}
 
@@ -110,14 +109,18 @@ def upsert(
     cls, inputs: list[Any], 
     func: Callable[[Any], dict[str, Any]],
     conflict_items: list[str],
+    ignore: bool = False,
     returning: tuple | None = None, sess = Session()) -> list[tuple] | None:
 
     new_inputs: list[dict[str, Any]] = [func(a) for a in inputs]
     query = sqlite.insert(cls).values(new_inputs)
-    query = query.on_conflict_do_update(
-        index_elements=conflict_items,
-        set_=func(query.excluded)
-    )
+    if ignore:
+        query = query.on_conflict_do_nothing(index_elements=conflict_items)
+    else:
+        query = query.on_conflict_do_update(
+            index_elements=conflict_items,
+            set_=func(query.excluded)
+        )
     
     if returning is not None: 
         query = query.returning(*returning)
@@ -144,8 +147,14 @@ def search_webpage_by_keyword(words: list[str], limit: int = -1, db = Session())
 
     return webpages
 
-def write_webpage_infos(limit: int = -1, db = Session(), filename: str = 'spider_result.txt'):
-    webpages = db.query(Webpage).filter(Webpage.is_active == True)
+def write_webpage_infos(
+    limit: int = -1, db = Session(), write_parent: bool = True,
+    filename: str = 'spider_result.txt'):
+
+    webpages = db.query(Webpage).filter(and_(
+        Webpage.is_active == True,
+        Webpage.is_crawled == True
+    ))
     if limit > 0: webpages = webpages.limit(limit)
     webpages = webpages.all()
     seperator = '-----------------------------------'
@@ -153,19 +162,36 @@ def write_webpage_infos(limit: int = -1, db = Session(), filename: str = 'spider
     result = ''
 
     for i, page in enumerate(webpages):
-        output = f'Page {i + 1}\nTitle: {page.title}\nURL: {page.url}\nLast Modified Date: {page.last_modified_date}\nPage Size: {page.size}\nKeywords:\n'
+        output = f'Page {i + 1}\nTitle: {page.title}\nURL: {page.url}\nLast Modified Date: {page.last_modified_date}\nPage Size: {page.size}\n'
+        output += 'Title Keywords:\n'
         for index in page.indexes:
+            if not index.is_title: continue
             output += f'\t- \"{index.keyword.word}\" with frequency: {index.frequency}\n'
+
+        output += 'Body Keywords:\n'
+        for index in page.indexes:
+            if index.is_title: continue
+            output += f'\t- \"{index.keyword.word}\" with frequency: {index.frequency}\n'
+
         output += 'Children:\n'
-        for child in page.children_relation:
+        is_none = True
+        for child in page.parent_relation:
             if child.is_active and child.child.is_active:
                 output += f'\t- {child.child.url}\n'
-        output += 'Parent:\n'
-        for parent in page.parent_relation:
-            if parent.is_active and parent.parent.is_active:
-                output += f'\t- {parent.parent.url}\n'
+                is_none = False
+        if is_none: output += '\tNo Children Found\n'
+        
+        if write_parent:
+            output += 'Parent:\n'
+            is_none = True
+            for parent in page.child_relation:
+                if parent.is_active and parent.parent.is_active:
+                    output += f'\t- {parent.parent.url}\n'
+                    is_none = False
+            if is_none: output += '\tNo Parent Found\n'
+        
         output += seperator + '\n'
         result += output
     
-    with open(filename, 'w') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         f.write(result)
