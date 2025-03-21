@@ -14,7 +14,7 @@ def is_url_valid(url: str) -> bool:
         return all([result.scheme, result.netloc])
     except:
         return False
-
+# pip install sqlalchemy requests nltk rake-nltk beautifulsoup4 --user
 def str_to_date(date: str): return datetime.strptime(date, '%a, %d %b %Y %H:%M:%S %Z')
     
 def normalize_url(url: str, parent_url: str) -> str | None:

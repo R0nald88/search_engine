@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 from utils import *
 from db.schemas import *
-from collections import deque, Counter
+from collections import deque
 from db.database import *
 from typing import Iterable
 
