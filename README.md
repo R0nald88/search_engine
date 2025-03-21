@@ -45,3 +45,6 @@ Storing the data of keywords in webpages that are used during searching. Used as
 - `word_id`: ID of keyword. Foreign key from Keyword table.
 - `frequency`: Frequency of the keyword in the webpage. Zero frequency is seen as safe-deleted and would not use in searching.
 - `is_title`: Check if current keyword is retrieved from page body or title.
+
+### Entity Relationship Diagram
+![4321_p1_erd](https://github.com/user-attachments/assets/ddb7238f-f30d-4460-8014-a8b6e88f5ddb)
