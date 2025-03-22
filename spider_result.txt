@@ -5,33 +5,24 @@ Last Modified Date: 2023-05-16 05:03:16
 Page Size: 603
 Title Keywords:
 	- "test page" with frequency: 1
-	- "page" with frequency: 1
 	- "test" with frequency: 1
+	- "page" with frequency: 1
 Body Keywords:
-	- "list" with frequency: 1
-	- "intern news" with frequency: 1
-	- "news" with frequency: 1
 	- "(" with frequency: 1
-	- "cse depart" with frequency: 1
-	- "cse" with frequency: 1
-	- "read" with frequency: 1
-	- ")" with frequency: 1
-	- "crawler" with frequency: 1
-	- "." with frequency: 1
-	- "depart" with frequency: 1
-	- "," with frequency: 1
-	- "hkust" with frequency: 1
-	- "intern" with frequency: 1
-	- "admiss" with frequency: 1
-	- "book" with frequency: 1
-	- "get" with frequency: 1
-	- "movi" with frequency: 1
 	- "movi list" with frequency: 1
+	- "depart" with frequency: 1
+	- "movi" with frequency: 1
+	- "intern news" with frequency: 1
+	- "read" with frequency: 1
+	- "crawler" with frequency: 1
+	- "intern" with frequency: 1
+	- "page" with frequency: 2
+	- "admiss" with frequency: 1
 Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
 	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
 	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
 -----------------------------------
 Page 2
 Title: CSE department of HKUST
@@ -39,913 +30,26 @@ URL: https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
 Last Modified Date: 2023-05-16 05:03:16
 Page Size: 392
 Title Keywords:
-	- "cse" with frequency: 1
 	- "cse depart" with frequency: 1
 	- "hkust" with frequency: 1
 	- "depart" with frequency: 1
+	- "cse" with frequency: 1
 Body Keywords:
-	- "pg" with frequency: 1
-	- "hkust cse depart" with frequency: 2
-	- "main" with frequency: 1
+	- "cse" with frequency: 2
+	- "depart" with frequency: 2
+	- "hkust" with frequency: 2
 	- "admiss" with frequency: 2
+	- "pg" with frequency: 1
+	- "main" with frequency: 1
+	- "cse depart" with frequency: 2
+	- "hkust cse depart" with frequency: 2
 	- "ug" with frequency: 1
 Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
 	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm
 	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/UG.htm
 -----------------------------------
 Page 3
-Title: books
-URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
-Last Modified Date: 2023-05-16 05:03:16
-Page Size: 601
-Title Keywords:
-	- "book" with frequency: 1
-Body Keywords:
-	- "retriev" with frequency: 1
-	- "book book" with frequency: 2
-	- "keyword" with frequency: 1
-	- "autom" with frequency: 1
-	- "relev" with frequency: 1
-	- "classif" with frequency: 1
-	- "inform" with frequency: 1
-	- "pseudo-mathemat" with frequency: 1
-	- "inform retriev gener" with frequency: 1
-	- "read" with frequency: 1
-	- "articl" with frequency: 1
-	- "main" with frequency: 1
-	- "gener" with frequency: 1
-	- "note" with frequency: 1
-	- "machine-read" with frequency: 1
-	- "data" with frequency: 1
-	- "base" with frequency: 1
-Children:
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book3.htm
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/books/book2.htm
------------------------------------
-Page 4
-Title: Movie Index Page
-URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
-Last Modified Date: 2023-05-16 05:09:22
-Page Size: 19541
-Title Keywords:
-	- "movi" with frequency: 1
-	- "movi index page" with frequency: 1
-	- "index" with frequency: 1
-	- "page" with frequency: 1
-Body Keywords:
-	- "hotel" with frequency: 1
-	- "gross" with frequency: 1
-	- "northwest" with frequency: 1
-	- "sequel" with frequency: 1
-	- "queen" with frequency: 1
-	- "concert" with frequency: 2
-	- "handkerchief" with frequency: 1
-	- "master" with frequency: 1
-	- "grind" with frequency: 1
-	- "tournament saga" with frequency: 1
-	- "wwe" with frequency: 2
-	- "home" with frequency: 2
-	- "teacher" with frequency: 1
-	- "wilder" with frequency: 1
-	- "led" with frequency: 1
-	- "31" with frequency: 1
-	- "peter" with frequency: 3
-	- "1980" with frequency: 2
-	- "onizuka" with frequency: 1
-	- "kill" with frequency: 2
-	- "evangelion" with frequency: 2
-	- "maya" with frequency: 1
-	- "ladi chatterley" with frequency: 1
-	- "broken blossom" with frequency: 1
-	- "cube 2" with frequency: 1
-	- "notr" with frequency: 2
-	- "1939" with frequency: 1
-	- "1995" with frequency: 8
-	- "1993" with frequency: 3
-	- "mors" with frequency: 1
-	- "bam" with frequency: 1
-	- "deer hunter" with frequency: 1
-	- "bandit 3" with frequency: 1
-	- "yank" with frequency: 1
-	- "zatoichi" with frequency: 1
-	- "satan planet" with frequency: 1
-	- "austin" with frequency: 1
-	- "hit" with frequency: 1
-	- "carandiru" with frequency: 1
-	- "daydream obsess" with frequency: 1
-	- "winston" with frequency: 1
-	- "plain dirti" with frequency: 1
-	- "aw truth" with frequency: 1
-	- "fear" with frequency: 1
-	- "winsor" with frequency: 1
-	- "channel" with frequency: 1
-	- "stuart" with frequency: 1
-	- "armageddon" with frequency: 1
-	- "circuit" with frequency: 1
-	- "beginn" with frequency: 1
-	- "ride" with frequency: 1
-	- "reservoir" with frequency: 1
-	- "1996" with frequency: 12
-	- "imax" with frequency: 1
-	- "1950" with frequency: 1
-	- "clees" with frequency: 1
-	- "lucio" with frequency: 1
-	- "truth" with frequency: 2
-	- "?" with frequency: 1
-	- "tale" with frequency: 1
-	- "smokey" with frequency: 1
-	- "/" with frequency: 3
-	- "unsolv mysteri" with frequency: 1
-	- "neon genesi evangelion" with frequency: 1
-	- "anim legend" with frequency: 2
-	- "seeta" with frequency: 1
-	- "!" with frequency: 3
-	- "irrit" with frequency: 1
-	- "blood ii" with frequency: 3
-	- "stevi ray vaughan" with frequency: 1
-	- "road" with frequency: 1
-	- "mtv" with frequency: 2
-	- "diamond" with frequency: 1
-	- "tricki master" with frequency: 1
-	- "song" with frequency: 2
-	- "rush" with frequency: 1
-	- "2001" with frequency: 19
-	- "underground" with frequency: 1
-	- "cyberslam" with frequency: 1
-	- "killer" with frequency: 2
-	- "red" with frequency: 1
-	- "justic leagu" with frequency: 1
-	- "dona herlinda" with frequency: 1
-	- "serial killer 2" with frequency: 1
-	- ")" with frequency: 282
-	- "invad" with frequency: 1
-	- "cold harvest" with frequency: 1
-	- "powerpuff" with frequency: 1
-	- "death" with frequency: 3
-	- "cold" with frequency: 2
-	- "immort belov" with frequency: 1
-	- "ultim fat burner" with frequency: 1
-	- "barbarian queen 2" with frequency: 1
-	- "season 4" with frequency: 1
-	- "murrow collect" with frequency: 1
-	- "chang" with frequency: 1
-	- "ashtanga yoga" with frequency: 1
-	- "'re" with frequency: 1
-	- "1989" with frequency: 7
-	- "tai" with frequency: 1
-	- "loaf" with frequency: 1
-	- "cardio circuit 1" with frequency: 1
-	- "cherri" with frequency: 1
-	- "season" with frequency: 12
-	- "(" with frequency: 282
-	- "extend edit" with frequency: 1
-	- "horror" with frequency: 1
-	- "pressur" with frequency: 2
-	- "2003" with frequency: 24
-	- "north" with frequency: 1
-	- "bloodi valentin" with frequency: 1
-	- "fat" with frequency: 1
-	- "wild" with frequency: 1
-	- "hunchback" with frequency: 1
-	- "fishi stori" with frequency: 1
-	- "crockett" with frequency: 1
-	- "bound" with frequency: 1
-	- "fulci" with frequency: 1
-	- "elmo" with frequency: 1
-	- "friend" with frequency: 1
-	- "hell" with frequency: 2
-	- "scandal" with frequency: 1
-	- "jonah" with frequency: 1
-	- "elfen" with frequency: 1
-	- "miss" with frequency: 2
-	- "bloodi" with frequency: 1
-	- "panic" with frequency: 1
-	- "teacher onizuka" with frequency: 1
-	- "roman empir" with frequency: 1
-	- "dawn" with frequency: 1
-	- "martin" with frequency: 1
-	- "blossom" with frequency: 1
-	- "zim" with frequency: 1
-	- "1935" with frequency: 1
-	- "spitfir" with frequency: 1
-	- "carol burnett" with frequency: 1
-	- "royal rumbl 2005" with frequency: 1
-	- "knight" with frequency: 1
-	- "mr." with frequency: 1
-	- "silk stock" with frequency: 1
-	- "mccay" with frequency: 1
-	- "law" with frequency: 1
-	- "heroic knight" with frequency: 1
-	- "chase" with frequency: 1
-	- "love reinvent" with frequency: 1
-	- "frame" with frequency: 1
-	- "costa" with frequency: 1
-	- "100" with frequency: 1
-	- "ecw" with frequency: 2
-	- "dinner" with frequency: 1
-	- "road dogz" with frequency: 1
-	- "beyond" with frequency: 2
-	- "nake lie" with frequency: 1
-	- "charlott" with frequency: 1
-	- "sing" with frequency: 1
-	- "brunett" with frequency: 1
-	- "teen" with frequency: 1
-	- "iron" with frequency: 2
-	- "sesam street" with frequency: 1
-	- "insid" with frequency: 1
-	- "lodoss war" with frequency: 1
-	- "peter tosh" with frequency: 1
-	- "1972" with frequency: 2
-	- "train" with frequency: 1
-	- "sade" with frequency: 1
-	- "bridg" with frequency: 1
-	- "air" with frequency: 1
-	- "boston" with frequency: 1
-	- "home movi" with frequency: 2
-	- "season 5" with frequency: 1
-	- "irrit peopl" with frequency: 1
-	- "remain" with frequency: 1
-	- "chase freedom" with frequency: 1
-	- "aur" with frequency: 1
-	- "passion" with frequency: 1
-	- "100 day" with frequency: 1
-	- "femal yakuza tale" with frequency: 1
-	- "r.a.f" with frequency: 1
-	- "cannib" with frequency: 1
-	- "song remain" with frequency: 1
-	- "burner" with frequency: 1
-	- "boyz" with frequency: 1
-	- "lemon" with frequency: 1
-	- "henri" with frequency: 1
-	- "invad zim" with frequency: 1
-	- "1965" with frequency: 2
-	- "mann" with frequency: 1
-	- "1956" with frequency: 1
-	- "cold blood" with frequency: 2
-	- "game" with frequency: 1
-	- "scratch" with frequency: 1
-	- "cardio" with frequency: 1
-	- "lin" with frequency: 1
-	- "novemb" with frequency: 1
-	- "doan" with frequency: 1
-	- "festiv" with frequency: 1
-	- "cherri 2000" with frequency: 1
-	- "ricki" with frequency: 1
-	- "saludo" with frequency: 1
-	- "illustr" with frequency: 1
-	- "day" with frequency: 3
-	- "histori" with frequency: 1
-	- "network" with frequency: 1
-	- "paradis" with frequency: 1
-	- "set" with frequency: 1
-	- "agronomist" with frequency: 1
-	- "herbi" with frequency: 1
-	- "1947" with frequency: 2
-	- "final" with frequency: 1
-	- "murder" with frequency: 3
-	- "form" with frequency: 1
-	- "anatomi" with frequency: 1
-	- "silkwood" with frequency: 1
-	- "deep" with frequency: 1
-	- "isl" with frequency: 1
-	- "zeppelin" with frequency: 1
-	- "wizard" with frequency: 1
-	- "season 1" with frequency: 10
-	- "winter kill" with frequency: 1
-	- "winsor mccay" with frequency: 1
-	- ":" with frequency: 101
-	- "neil" with frequency: 1
-	- "voyag" with frequency: 2
-	- "angelina ballerina" with frequency: 1
-	- "2005" with frequency: 10
-	- "step razor" with frequency: 1
-	- "1984" with frequency: 1
-	- "5" with frequency: 1
-	- "richard" with frequency: 2
-	- "sundanc" with frequency: 1
-	- "dragon" with frequency: 1
-	- "ii" with frequency: 3
-	- "choru" with frequency: 1
-	- "ninotchka" with frequency: 1
-	- "swimsuit" with frequency: 1
-	- "lucio fulci" with frequency: 1
-	- "bonu materi" with frequency: 5
-	- "lie" with frequency: 3
-	- "justic" with frequency: 1
-	- "smoochi" with frequency: 1
-	- "." with frequency: 2
-	- "unearth" with frequency: 1
-	- "futuro" with frequency: 1
-	- "ferngulli 2" with frequency: 1
-	- "doubl" with frequency: 2
-	- "luci" with frequency: 1
-	- "1994" with frequency: 4
-	- "vision" with frequency: 2
-	- "sunset strip" with frequency: 1
-	- "churchil" with frequency: 1
-	- "countdown" with frequency: 1
-	- "pooh" with frequency: 1
-	- "cat" with frequency: 1
-	- "tt" with frequency: 1
-	- "sesam" with frequency: 1
-	- "letter" with frequency: 1
-	- "monkey" with frequency: 1
-	- "cub" with frequency: 1
-	- "murrow" with frequency: 1
-	- "1982" with frequency: 5
-	- "africa" with frequency: 1
-	- "ifilm" with frequency: 1
-	- "ghost" with frequency: 1
-	- "yakuza" with frequency: 1
-	- "neil diamond" with frequency: 1
-	- "sleep dog lie" with frequency: 1
-	- "deer" with frequency: 1
-	- "experi" with frequency: 1
-	- "ball" with frequency: 1
-	- "world" with frequency: 3
-	- "iron bridg" with frequency: 1
-	- "1" with frequency: 10
-	- "approach" with frequency: 1
-	- "moor" with frequency: 1
-	- "1958" with frequency: 1
-	- "3" with frequency: 2
-	- "opera" with frequency: 1
-	- "strang relat" with frequency: 1
-	- "girl" with frequency: 1
-	- "peter gabriel" with frequency: 1
-	- "bonu" with frequency: 5
-	- "serial" with frequency: 1
-	- "caper" with frequency: 1
-	- "stopper" with frequency: 1
-	- "forc" with frequency: 1
-	- "cartoon network halloween" with frequency: 1
-	- "natur" with frequency: 2
-	- "stuart littl 2" with frequency: 1
-	- "doubl troubl" with frequency: 1
-	- "class" with frequency: 1
-	- "1921" with frequency: 1
-	- "unit" with frequency: 1
-	- "1975" with frequency: 1
-	- "primetim" with frequency: 1
-	- "nighthawk" with frequency: 1
-	- "notr dame ii" with frequency: 1
-	- "horror vision" with frequency: 1
-	- "ultim" with frequency: 1
-	- "rubi" with frequency: 1
-	- "strip" with frequency: 1
-	- "play" with frequency: 1
-	- "funni" with frequency: 1
-	- "woman" with frequency: 1
-	- "dirti" with frequency: 1
-	- "shadow" with frequency: 1
-	- "saludo amigo" with frequency: 1
-	- "jingl" with frequency: 1
-	- "star trek" with frequency: 2
-	- "documentari" with frequency: 1
-	- "clock" with frequency: 1
-	- "micki" with frequency: 1
-	- "journal" with frequency: 1
-	- "main dinosaur planet" with frequency: 1
-	- "dri" with frequency: 1
-	- "tai chi" with frequency: 1
-	- "bird" with frequency: 1
-	- "ballerina" with frequency: 1
-	- "devo" with frequency: 1
-	- "1957" with frequency: 2
-	- "wive" with frequency: 1
-	- "harvest" with frequency: 1
-	- "cannib women" with frequency: 1
-	- "neighbour" with frequency: 1
-	- "cookout" with frequency: 1
-	- "sleepov" with frequency: 1
-	- "midsom murder" with frequency: 2
-	- "bad" with frequency: 1
-	- "sick" with frequency: 1
-	- "effect" with frequency: 2
-	- "darkwolf" with frequency: 1
-	- "satan" with frequency: 1
-	- "razor" with frequency: 1
-	- "six" with frequency: 1
-	- "1990" with frequency: 1
-	- "9" with frequency: 1
-	- "blank" with frequency: 1
-	- "querel" with frequency: 1
-	- "strangler" with frequency: 2
-	- "'s" with frequency: 16
-	- "mel" with frequency: 1
-	- "de-evolut" with frequency: 1
-	- "veggietal" with frequency: 1
-	- "1971" with frequency: 2
-	- "algier" with frequency: 1
-	- "chump" with frequency: 1
-	- "album" with frequency: 1
-	- "season 6" with frequency: 1
-	- "winter" with frequency: 1
-	- "1918" with frequency: 1
-	- "space station" with frequency: 1
-	- "christ" with frequency: 1
-	- "crash" with frequency: 1
-	- "allergi" with frequency: 1
-	- "belov" with frequency: 1
-	- "maya lin" with frequency: 1
-	- "drop" with frequency: 1
-	- "1967" with frequency: 1
-	- "halloween" with frequency: 1
-	- "seeta aur geeta" with frequency: 1
-	- "6" with frequency: 1
-	- "obsess" with frequency: 2
-	- "impostor" with frequency: 1
-	- "winni" with frequency: 1
-	- "cartoon" with frequency: 3
-	- "abdul" with frequency: 1
-	- "bonesett" with frequency: 1
-	- "fighter" with frequency: 1
-	- "war" with frequency: 2
-	- "1959" with frequency: 1
-	- "search" with frequency: 1
-	- "vampir effect" with frequency: 2
-	- "50th" with frequency: 1
-	- "firetrap" with frequency: 1
-	- "white" with frequency: 1
-	- "six pant" with frequency: 1
-	- "sand" with frequency: 1
-	- "aw" with frequency: 1
-	- "complet truth" with frequency: 2
-	- "main" with frequency: 2
-	- "lilo" with frequency: 1
-	- "2004" with frequency: 33
-	- "lord" with frequency: 2
-	- "materi" with frequency: 5
-	- "weather" with frequency: 1
-	- "brightman" with frequency: 1
-	- "chopra" with frequency: 1
-	- "avocado jungl" with frequency: 1
-	- "abc primetim" with frequency: 1
-	- "barbarian" with frequency: 1
-	- "fishi" with frequency: 1
-	- "legend" with frequency: 2
-	- "dive" with frequency: 1
-	- "stranger" with frequency: 1
-	- "dri land" with frequency: 1
-	- "frogmen" with frequency: 1
-	- "triumph" with frequency: 1
-	- "ken" with frequency: 1
-	- "richard pryor" with frequency: 1
-	- "spirit lost" with frequency: 1
-	- "meat" with frequency: 1
-	- "lee" with frequency: 1
-	- "iraq" with frequency: 1
-	- "clifford save" with frequency: 1
-	- "beauti" with frequency: 4
-	- "ricki martin" with frequency: 1
-	- "sci-fi" with frequency: 1
-	- "neon" with frequency: 2
-	- "2002" with frequency: 26
-	- "space" with frequency: 2
-	- "giant" with frequency: 1
-	- "g3" with frequency: 1
-	- "paula" with frequency: 1
-	- "season 2" with frequency: 12
-	- "tomorrow" with frequency: 1
-	- "unconstitut" with frequency: 1
-	- "dame" with frequency: 1
-	- "strongest" with frequency: 1
-	- "koji" with frequency: 1
-	- "1968" with frequency: 4
-	- "abc" with frequency: 1
-	- "rise" with frequency: 1
-	- "elfen lie" with frequency: 1
-	- "1988" with frequency: 3
-	- "merci" with frequency: 1
-	- "mtv yoga" with frequency: 2
-	- "dead bird" with frequency: 1
-	- "chain" with frequency: 2
-	- "star" with frequency: 3
-	- "advertis" with frequency: 1
-	- "silent servic" with frequency: 1
-	- "1981" with frequency: 3
-	- "marri" with frequency: 1
-	- "blood" with frequency: 5
-	- "x-men" with frequency: 1
-	- "shot" with frequency: 1
-	- "libertin" with frequency: 1
-	- "cube" with frequency: 1
-	- "fatal beauti" with frequency: 1
-	- "sam" with frequency: 1
-	- "unhook" with frequency: 1
-	- "love" with frequency: 3
-	- "2000" with frequency: 24
-	- "roo" with frequency: 1
-	- "white knuckl extrem" with frequency: 1
-	- "john clees" with frequency: 1
-	- "crash dive" with frequency: 1
-	- "vampir" with frequency: 3
-	- "rumbl" with frequency: 1
-	- "princess" with frequency: 2
-	- "fool" with frequency: 1
-	- "evelyn" with frequency: 1
-	- "persh hotel" with frequency: 1
-	- "veggietal movi" with frequency: 1
-	- "1927" with frequency: 1
-	- "love luci" with frequency: 1
-	- "dona" with frequency: 1
-	- "neon bibl" with frequency: 1
-	- "adam-12" with frequency: 1
-	- "7" with frequency: 1
-	- "street" with frequency: 3
-	- "bibl" with frequency: 1
-	- "heroic" with frequency: 1
-	- "portrait" with frequency: 1
-	- "michael moor" with frequency: 1
-	- "action 2" with frequency: 2
-	- "husband" with frequency: 1
-	- "michael" with frequency: 1
-	- "eye" with frequency: 1
-	- "1969" with frequency: 1
-	- "angelina" with frequency: 1
-	- "1974" with frequency: 2
-	- "anim" with frequency: 2
-	- "'70" with frequency: 1
-	- "wembley" with frequency: 1
-	- "bear" with frequency: 1
-	- "aka twin effect" with frequency: 1
-	- "vaughan" with frequency: 1
-	- "mcmxc" with frequency: 1
-	- "fatal" with frequency: 1
-	- "bruce" with frequency: 1
-	- "complet" with frequency: 2
-	- "montreux" with frequency: 1
-	- "gupt" with frequency: 1
-	- "1964" with frequency: 2
-	- "taxi" with frequency: 1
-	- "gabriel" with frequency: 1
-	- "notr musiqu" with frequency: 1
-	- "empir" with frequency: 2
-	- "pitcher" with frequency: 1
-	- "wimsey" with frequency: 1
-	- "nine" with frequency: 1
-	- "8" with frequency: 1
-	- "midsom" with frequency: 2
-	- "sarah brightman" with frequency: 1
-	- "tank" with frequency: 1
-	- "journey" with frequency: 1
-	- "stevi" with frequency: 1
-	- "costa rica" with frequency: 1
-	- "x2" with frequency: 1
-	- "6ixtynin9" with frequency: 1
-	- "gentlemen" with frequency: 1
-	- "bandit" with frequency: 1
-	- "rambo" with frequency: 1
-	- "stoog" with frequency: 1
-	- "corwin" with frequency: 1
-	- "silk" with frequency: 1
-	- "magnolia" with frequency: 1
-	- "brigad" with frequency: 1
-	- "soultak" with frequency: 1
-	- "civil liberti" with frequency: 1
-	- "murder advertis" with frequency: 1
-	- "goddess" with frequency: 1
-	- "amazon" with frequency: 1
-	- "planet" with frequency: 3
-	- "drown" with frequency: 1
-	- "1997" with frequency: 10
-	- "sleepov nightmar" with frequency: 1
-	- "touch" with frequency: 1
-	- "1985" with frequency: 5
-	- "littl" with frequency: 2
-	- "race" with frequency: 1
-	- "red-nos" with frequency: 1
-	- "mysteri" with frequency: 1
-	- "crazi" with frequency: 2
-	- "24 form" with frequency: 1
-	- "nightmar" with frequency: 1
-	- "take" with frequency: 1
-	- "ladi" with frequency: 1
-	- "nuke" with frequency: 1
-	- "band" with frequency: 1
-	- "tae" with frequency: 1
-	- "review" with frequency: 1
-	- "kid" with frequency: 1
-	- "ghost dog" with frequency: 1
-	- "sleep" with frequency: 1
-	- "rica" with frequency: 1
-	- "gibson" with frequency: 1
-	- "venu boyz" with frequency: 1
-	- "martha" with frequency: 1
-	- "rudolph" with frequency: 1
-	- "ken burn" with frequency: 1
-	- "giant shadow" with frequency: 1
-	- "braddock" with frequency: 1
-	- "herbi ride" with frequency: 1
-	- "america" with frequency: 1
-	- "station" with frequency: 1
-	- "1952" with frequency: 3
-	- "jade" with frequency: 1
-	- "winston churchil" with frequency: 1
-	- "cast" with frequency: 1
-	- "troubl" with frequency: 1
-	- "clifford" with frequency: 3
-	- "nicki doan" with frequency: 1
-	- "spirit" with frequency: 1
-	- "samurai" with frequency: 1
-	- "ta" with frequency: 1
-	- "tricki" with frequency: 1
-	- "spitfir grill" with frequency: 1
-	- "widescreen" with frequency: 1
-	- "bucket" with frequency: 1
-	- "'99" with frequency: 1
-	- "grow" with frequency: 1
-	- "stori" with frequency: 1
-	- "nake" with frequency: 1
-	- "regular guy" with frequency: 1
-	- "valentin" with frequency: 1
-	- "bollywood bound" with frequency: 1
-	- "duplex" with frequency: 1
-	- "read-along" with frequency: 1
-	- "fluffiest" with frequency: 1
-	- "anniversari" with frequency: 1
-	- "extend" with frequency: 1
-	- "practic" with frequency: 1
-	- "peopl" with frequency: 1
-	- "musiqu" with frequency: 1
-	- "1991" with frequency: 3
-	- "iii" with frequency: 1
-	- "4" with frequency: 1
-	- "light" with frequency: 2
-	- "inspector" with frequency: 1
-	- "dead" with frequency: 1
-	- "band 2" with frequency: 1
-	- "burnett" with frequency: 1
-	- "viva la bam" with frequency: 1
-	- "1962" with frequency: 2
-	- "psychic" with frequency: 1
-	- "chato" with frequency: 1
-	- "chump chang" with frequency: 1
-	- "viva" with frequency: 1
-	- "'" with frequency: 1
-	- "carol" with frequency: 1
-	- "bollywood" with frequency: 1
-	- "bomb" with frequency: 1
-	- "final countdown" with frequency: 1
-	- "1992" with frequency: 6
-	- "hypercub" with frequency: 1
-	- "chronicl" with frequency: 1
-	- "bruce lee" with frequency: 1
-	- "classic album" with frequency: 1
-	- "record" with frequency: 1
-	- "screamer" with frequency: 1
-	- "movi list" with frequency: 1
-	- "congo" with frequency: 1
-	- "dogz" with frequency: 1
-	- "polic" with frequency: 1
-	- "enigma" with frequency: 1
-	- "strang" with frequency: 1
-	- "boycott" with frequency: 1
-	- "femal" with frequency: 1
-	- "1954" with frequency: 1
-	- "2" with frequency: 13
-	- "denis" with frequency: 1
-	- "louder" with frequency: 1
-	- "deepak chopra" with frequency: 1
-	- "vichi" with frequency: 1
-	- "montreux 1982" with frequency: 1
-	- "tae bo" with frequency: 1
-	- "chatterley" with frequency: 1
-	- "sex" with frequency: 2
-	- "royal" with frequency: 1
-	- "iron monkey 2" with frequency: 1
-	- "dragonheart" with frequency: 1
-	- "la" with frequency: 1
-	- "deepak" with frequency: 1
-	- "avocado" with frequency: 1
-	- "save" with frequency: 1
-	- "dinner rush" with frequency: 1
-	- "1942" with frequency: 1
-	- "ashtanga" with frequency: 1
-	- "1951" with frequency: 2
-	- "broken" with frequency: 1
-	- "paula abdul" with frequency: 1
-	- "command" with frequency: 2
-	- "ferngulli" with frequency: 1
-	- "oleanna" with frequency: 1
-	- "amigo" with frequency: 1
-	- "favorit" with frequency: 1
-	- "edit" with frequency: 2
-	- "saga" with frequency: 1
-	- "creepi" with frequency: 1
-	- "sarah" with frequency: 1
-	- "aka" with frequency: 1
-	- "featur" with frequency: 1
-	- "westend" with frequency: 1
-	- "persh" with frequency: 1
-	- "women" with frequency: 1
-	- "inspector mors 31" with frequency: 1
-	- "1978" with frequency: 2
-	- "marilyn" with frequency: 1
-	- "tosh" with frequency: 1
-	- "alchemi" with frequency: 1
-	- "marilyn manson" with frequency: 1
-	- "magic" with frequency: 1
-	- "burn" with frequency: 1
-	- "lemon drop kid" with frequency: 1
-	- "angel" with frequency: 1
-	- "short" with frequency: 1
-	- "sunset" with frequency: 1
-	- "take live" with frequency: 1
-	- "herlinda" with frequency: 1
-	- "1943" with frequency: 2
-	- "classic" with frequency: 1
-	- "travel" with frequency: 1
-	- "lord peter wimsey" with frequency: 1
-	- "hit live" with frequency: 1
-	- "*" with frequency: 1
-	- "#" with frequency: 1
-	- "strong vision" with frequency: 1
-	- "yellow" with frequency: 1
-	- "fluffiest friend cleo" with frequency: 1
-	- "parenthood" with frequency: 1
-	- "fame" with frequency: 1
-	- "billi" with frequency: 1
-	- "demon warrior koji" with frequency: 1
-	- "jeff corwin experi" with frequency: 1
-	- "histori channel" with frequency: 1
-	- "beast" with frequency: 1
-	- "dinosaur" with frequency: 1
-	- "gormenghast" with frequency: 1
-	- "guy" with frequency: 1
-	- "liberti" with frequency: 1
-	- "action" with frequency: 2
-	- "devil" with frequency: 1
-	- "r." with frequency: 1
-	- "marat" with frequency: 1
-	- "favorit brunett" with frequency: 1
-	- "list" with frequency: 1
-	- "ray" with frequency: 1
-	- "maroon" with frequency: 1
-	- "sweet novemb" with frequency: 1
-	- "extrem" with frequency: 1
-	- "davi" with frequency: 1
-	- "1999" with frequency: 10
-	- "1979" with frequency: 2
-	- "reindeer" with frequency: 1
-	- "dominion" with frequency: 1
-	- "troy" with frequency: 2
-	- "plain" with frequency: 1
-	- "spartan" with frequency: 1
-	- "meat loaf" with frequency: 1
-	- "step" with frequency: 1
-	- "yoga" with frequency: 2
-	- "freedom" with frequency: 1
-	- "begin" with frequency: 1
-	- "love letter" with frequency: 1
-	- "littl princess" with frequency: 2
-	- "'em" with frequency: 1
-	- "mel gibson" with frequency: 1
-	- "conspiraci" with frequency: 1
-	- "stock" with frequency: 1
-	- "roman" with frequency: 1
-	- "ring" with frequency: 1
-	- "cleo" with frequency: 1
-	- "boston strangler" with frequency: 1
-	- "relat" with frequency: 1
-	- "dragon ball" with frequency: 1
-	- "hunter" with frequency: 2
-	- "battl" with frequency: 1
-	- "warrior" with frequency: 2
-	- "1966" with frequency: 1
-	- "rescu" with frequency: 1
-	- "beyonc" with frequency: 1
-	- "billi blank" with frequency: 1
-	- "davi crockett" with frequency: 1
-	- "reservoir dog" with frequency: 1
-	- "springtim" with frequency: 1
-	- "john" with frequency: 1
-	- "armageddon 2003" with frequency: 1
-	- "live" with frequency: 9
-	- "land" with frequency: 2
-	- "sport" with frequency: 1
-	- "return" with frequency: 1
-	- "natur approach" with frequency: 1
-	- "danc" with frequency: 2
-	- "unsolv" with frequency: 1
-	- "shaman" with frequency: 1
-	- "canari" with frequency: 1
-	- "trek" with frequency: 2
-	- "servic" with frequency: 1
-	- "genesi" with frequency: 1
-	- "jungl" with frequency: 1
-	- "web" with frequency: 1
-	- "chappel" with frequency: 1
-	- "wood" with frequency: 1
-	- "stitch" with frequency: 1
-	- "1941" with frequency: 1
-	- "reinvent" with frequency: 1
-	- "complet shaman princess" with frequency: 1
-	- "twin" with frequency: 1
-	- "pant" with frequency: 1
-	- "jeff" with frequency: 1
-	- "tournament" with frequency: 1
-	- "night" with frequency: 2
-	- "jack" with frequency: 1
-	- "magic rescu" with frequency: 1
-	- "geeta" with frequency: 1
-	- "king" with frequency: 1
-	- "$" with frequency: 1
-	- "1983" with frequency: 4
-	- "charact" with frequency: 1
-	- "1948" with frequency: 1
-	- "action 3" with frequency: 2
-	- "bo" with frequency: 1
-	- "pryor" with frequency: 1
-	- "1976" with frequency: 2
-	- "arachnid" with frequency: 1
-	- "tt 2004 review" with frequency: 1
-	- "hunger" with frequency: 1
-	- "sweet" with frequency: 1
-	- "demon" with frequency: 1
-	- "edward" with frequency: 1
-	- "documentari short" with frequency: 1
-	- "set 2" with frequency: 1
-	- "mobi" with frequency: 1
-	- "chi" with frequency: 1
-	- "bat" with frequency: 1
-	- "saudad" with frequency: 1
-	- "leagu" with frequency: 1
-	- "knuckl" with frequency: 1
-	- "onmyoji" with frequency: 1
-	- "airplan ii" with frequency: 1
-	- "derang" with frequency: 1
-	- "pin-up" with frequency: 1
-	- "vol" with frequency: 1
-	- "24" with frequency: 1
-	- "venu" with frequency: 1
-	- "weather underground" with frequency: 1
-	- "collect" with frequency: 1
-	- "citi" with frequency: 1
-	- "silent" with frequency: 1
-	- "immort" with frequency: 1
-	- "lodoss" with frequency: 1
-	- "aqua" with frequency: 1
-	- "fortun" with frequency: 1
-	- "nicki" with frequency: 1
-	- "denis austin" with frequency: 1
-	- "son" with frequency: 2
-	- "led zeppelin" with frequency: 1
-	- "airplan" with frequency: 1
-	- "dog" with frequency: 3
-	- "vampir journal" with frequency: 1
-	- "daydream" with frequency: 1
-	- "grill" with frequency: 1
-	- "strong" with frequency: 1
-	- "1987" with frequency: 2
-	- "gross anatomi" with frequency: 1
-	- "butch" with frequency: 1
-	- "powerpuff girl movi" with frequency: 1
-	- "lost" with frequency: 3
-	- "a.d" with frequency: 1
-	- "home stranger" with frequency: 1
-	- "bear cub" with frequency: 1
-	- "stellvia" with frequency: 1
-	- "laird" with frequency: 1
-	- "deep space nine" with frequency: 1
-	- "richard iii" with frequency: 1
-	- "gto" with frequency: 1
-	- "outsid" with frequency: 1
-	- "manson" with frequency: 1
-	- "1973" with frequency: 4
-	- "antarctica" with frequency: 2
-	- "1998" with frequency: 8
-	- "sanford" with frequency: 1
-	- "civil" with frequency: 1
-	- "arliss" with frequency: 2
-	- "fall" with frequency: 2
-	- "regular" with frequency: 1
-	- "die" with frequency: 1
-	- "maud" with frequency: 1
-Children:
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/229.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/200.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/206.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/122.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/90.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/24.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/195.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/91.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/109.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/209.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/58.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/256.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/105.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/34.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/84.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/160.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/114.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/275.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/272.html
-	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/13.html
------------------------------------
-Page 5
 Title: News
 URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
 Last Modified Date: 2023-05-16 05:03:16
@@ -953,11 +57,68 @@ Page Size: 384
 Title Keywords:
 	- "news" with frequency: 1
 Body Keywords:
+	- "news" with frequency: 4
 	- "main" with frequency: 1
-	- "cnn" with frequency: 1
 	- "bbc" with frequency: 1
+	- "cnn" with frequency: 1
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+-----------------------------------
+Page 4
+Title: Movie Index Page
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Last Modified Date: 2023-05-16 05:09:22
+Page Size: 19541
+Title Keywords:
+	- "movi index page" with frequency: 1
+	- "page" with frequency: 1
+	- "index" with frequency: 1
+	- "movi" with frequency: 1
+Body Keywords:
+	- "canari" with frequency: 1
+	- "command" with frequency: 2
+	- "bibl" with frequency: 1
+	- "1954" with frequency: 1
+	- "charact" with frequency: 1
+	- "cannib" with frequency: 1
+	- "broken blossom" with frequency: 1
+	- "blank" with frequency: 1
+	- "cherri" with frequency: 1
+	- "red-nos" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/123.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/153.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/111.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/261.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/42.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/196.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/137.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/257.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/5.html
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/231.html
+-----------------------------------
+Page 5
+Title: books
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 601
+Title Keywords:
+	- "book" with frequency: 1
+Body Keywords:
+	- "data" with frequency: 1
+	- "note" with frequency: 1
+	- "autom" with frequency: 1
+	- "classif" with frequency: 1
+	- "machine-read" with frequency: 1
+	- "gener" with frequency: 1
+	- "inform retriev gener" with frequency: 1
+	- "relev" with frequency: 1
+	- "inform" with frequency: 1
+	- "book" with frequency: 2
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm
 -----------------------------------
 Page 6
 Title: UG
@@ -967,207 +128,18 @@ Page Size: 4070
 Title Keywords:
 	- "ug" with frequency: 1
 Body Keywords:
-	- "demand" with frequency: 1
-	- "20" with frequency: 1
-	- "shift" with frequency: 1
-	- "tutor" with frequency: 1
-	- "inquiri" with frequency: 1
-	- "comp" with frequency: 2
-	- "emphasi" with frequency: 2
-	- "graduat" with frequency: 5
-	- "specif" with frequency: 2
-	- "philosophi" with frequency: 1
-	- "top univers" with frequency: 1
-	- "enjoy" with frequency: 1
-	- "comprehens" with frequency: 1
-	- "focus" with frequency: 1
-	- "solid" with frequency: 1
 	- "depart" with frequency: 5
-	- "fundament" with frequency: 1
-	- "inform engin" with frequency: 4
-	- "mphil" with frequency: 1
-	- "care design" with frequency: 1
-	- "assist" with frequency: 1
-	- "hkust enjoy" with frequency: 1
-	- "care" with frequency: 1
-	- "present" with frequency: 1
-	- "applic procedur" with frequency: 1
-	- "offer" with frequency: 3
-	- "program" with frequency: 16
-	- "hard" with frequency: 1
-	- "contact" with frequency: 1
-	- "studi" with frequency: 6
-	- "english" with frequency: 2
-	- "inform technolog" with frequency: 1
-	- "program offer" with frequency: 3
-	- "urbana-champaign" with frequency: 1
-	- "relat matter" with frequency: 1
-	- "fee" with frequency: 1
-	- "tuition fee" with frequency: 1
-	- "hong kong" with frequency: 2
-	- "program suit student" with frequency: 1
-	- "regular" with frequency: 1
-	- "multimedia comput" with frequency: 1
-	- "move" with frequency: 1
-	- "intens train" with frequency: 1
-	- "undergradu" with frequency: 2
-	- "excel" with frequency: 1
-	- "educ" with frequency: 1
-	- "spectrum" with frequency: 3
-	- "typic" with frequency: 1
-	- "suit" with frequency: 1
-	- "csie" with frequency: 4
-	- "2." with frequency: 1
-	- "view" with frequency: 1
-	- "austin" with frequency: 1
-	- "eeic" with frequency: 1
-	- "work-studi" with frequency: 1
-	- "closer" with frequency: 1
-	- "," with frequency: 18
-	- "outsid" with frequency: 1
-	- "beng" with frequency: 3
-	- "advisor" with frequency: 1
-	- "final" with frequency: 1
-	- "studi industri train" with frequency: 1
-	- "emphasi shift" with frequency: 1
-	- "inform" with frequency: 4
-	- "besid" with frequency: 2
-	- "follow" with frequency: 2
-	- "degre" with frequency: 2
-	- "faculti" with frequency: 1
-	- ":" with frequency: 12
-	- "oversea" with frequency: 2
-	- "relat program" with frequency: 3
-	- "speak" with frequency: 1
-	- "pursu" with frequency: 1
-	- "choos" with frequency: 2
-	- "``" with frequency: 2
-	- "comput engin" with frequency: 6
-	- "entranc" with frequency: 1
-	- "convers" with frequency: 1
-	- "first-year" with frequency: 1
-	- "found excel job" with frequency: 1
-	- "comput scienc graduat" with frequency: 5
-	- "cours" with frequency: 1
-	- "<" with frequency: 1
-	- "uniqu" with frequency: 1
-	- "mind" with frequency: 1
-	- "univers" with frequency: 6
-	- "emerg" with frequency: 1
-	- "toronto" with frequency: 1
-	- "1." with frequency: 1
-	- "found" with frequency: 1
-	- "california" with frequency: 1
-	- "provid solid train" with frequency: 1
-	- "job market demand" with frequency: 1
-	- "soft" with frequency: 1
-	- "inquiri student" with frequency: 1
-	- "disciplin" with frequency: 1
-	- "elec" with frequency: 1
-	- "full-tim" with frequency: 2
-	- "satisfi" with frequency: 1
-	- "softwar" with frequency: 2
-	- "hardwar" with frequency: 1
-	- "look" with frequency: 1
-	- "intens" with frequency: 1
-	- "graduat choos" with frequency: 2
-	- "--" with frequency: 11
-	- "helper" with frequency: 1
-	- "advic" with frequency: 1
-	- "illinoi" with frequency: 1
-	- "stay" with frequency: 1
-	- "kong" with frequency: 2
-	- "undergradu program" with frequency: 2
-	- "requir" with frequency: 2
-	- "skill" with frequency: 2
-	- "master" with frequency: 1
-	- "scienc" with frequency: 7
-	- "project" with frequency: 2
-	- "train modul" with frequency: 1
 	- "comprehens program" with frequency: 1
-	- "student" with frequency: 7
-	- "welcom" with frequency: 1
-	- "csie program" with frequency: 4
-	- "procedur" with frequency: 1
-	- "%" with frequency: 1
-	- "matter" with frequency: 1
-	- "job" with frequency: 3
-	- "tuition" with frequency: 1
-	- "''" with frequency: 2
-	- "special" with frequency: 2
-	- "applic" with frequency: 1
-	- "." with frequency: 12
-	- "practic" with frequency: 1
-	- "top" with frequency: 1
-	- "immedi" with frequency: 1
-	- "written" with frequency: 1
-	- "comput relat job" with frequency: 3
-	- "provid" with frequency: 3
-	- "abroad" with frequency: 1
-	- "design" with frequency: 1
-	- "modul" with frequency: 1
-	- "relat disciplin look" with frequency: 1
-	- "break" with frequency: 1
-	- "regular studi program" with frequency: 1
-	- ">" with frequency: 1
-	- "help" with frequency: 1
-	- "learn" with frequency: 1
-	- "hkust" with frequency: 5
-	- "technolog" with frequency: 1
-	- "oversea exchang program" with frequency: 1
+	- "demand" with frequency: 1
+	- "disciplin" with frequency: 1
+	- "solid" with frequency: 1
+	- "ug" with frequency: 1
+	- "intens" with frequency: 1
+	- "besid" with frequency: 2
 	- "comput network" with frequency: 1
-	- "hong" with frequency: 2
-	- "comput scienc student" with frequency: 7
-	- "exchang" with frequency: 1
-	- "postgradu" with frequency: 1
-	- "jointli" with frequency: 1
-	- "includ stanford univers" with frequency: 1
-	- "studi program" with frequency: 6
-	- "advantag" with frequency: 1
-	- "cpeg" with frequency: 1
-	- "inform engin program" with frequency: 4
-	- "summer" with frequency: 1
-	- "provid broad educ" with frequency: 1
-	- "stanford" with frequency: 1
-	- "convers english" with frequency: 1
-	- "industri" with frequency: 1
-	- "electron" with frequency: 3
-	- "network" with frequency: 1
-	- "(" with frequency: 2
-	- "it-rel" with frequency: 1
-	- "guidanc" with frequency: 1
-	- "third" with frequency: 1
-	- "ug program inform" with frequency: 1
-	- "broad" with frequency: 1
-	- "pay" with frequency: 1
-	- "electr" with frequency: 3
-	- "choic" with frequency: 1
-	- "summer break" with frequency: 1
-	- "train" with frequency: 5
-	- "one-year" with frequency: 2
-	- "texa" with frequency: 1
-	- "relat" with frequency: 3
-	- ")" with frequency: 2
-	- "'s" with frequency: 1
-	- "comput scienc" with frequency: 7
-	- "electron engin" with frequency: 3
-	- "complet" with frequency: 1
-	- "opportun" with frequency: 2
-	- "follow spectrum" with frequency: 2
-	- "winter" with frequency: 1
-	- "-" with frequency: 1
-	- "csie program satisfi" with frequency: 1
-	- "includ" with frequency: 3
-	- "southern california" with frequency: 1
-	- "opportun besid" with frequency: 2
-	- "entranc requir" with frequency: 1
-	- "market" with frequency: 1
-	- "southern" with frequency: 1
-	- "engin" with frequency: 6
-	- "multimedia" with frequency: 1
-	- "comput" with frequency: 13
+	- "csie" with frequency: 4
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
 -----------------------------------
 Page 7
 Title: PG
@@ -1177,487 +149,1288 @@ Page Size: 3267
 Title Keywords:
 	- "pg" with frequency: 1
 Body Keywords:
-	- "student" with frequency: 6
-	- "enter" with frequency: 1
-	- "gre" with frequency: 2
-	- "," with frequency: 11
-	- "languag" with frequency: 4
-	- "deem inadequ" with frequency: 1
-	- "offici" with frequency: 1
-	- "recommend" with frequency: 1
-	- "test" with frequency: 3
-	- "addit" with frequency: 2
-	- "mphil" with frequency: 1
-	- "previou" with frequency: 1
-	- "hkust" with frequency: 1
-	- "relat" with frequency: 1
-	- "studi" with frequency: 4
-	- "postgradu studi committe" with frequency: 1
-	- "admit" with frequency: 5
-	- ")" with frequency: 7
-	- "bachelor" with frequency: 1
-	- "deem" with frequency: 2
-	- "comput scienc" with frequency: 7
-	- "time" with frequency: 2
-	- "degre" with frequency: 2
-	- "student admit" with frequency: 5
-	- "enhanc" with frequency: 1
-	- "comput organ principl" with frequency: 1
-	- "program languag principl" with frequency: 2
-	- "core" with frequency: 2
-	- "analysi" with frequency: 1
-	- "prescrib" with frequency: 1
-	- "principl" with frequency: 2
-	- "complet" with frequency: 2
-	- "core comput scienc" with frequency: 2
-	- "postgradu admiss" with frequency: 8
-	- "comput" with frequency: 8
-	- "." with frequency: 12
-	- "notwithstand" with frequency: 1
-	- "primari languag" with frequency: 1
 	- "apprais" with frequency: 1
-	- "follow" with frequency: 1
-	- "english" with frequency: 6
-	- "inadequ" with frequency: 1
-	- "program" with frequency: 8
-	- "individu offer" with frequency: 1
-	- "obtain" with frequency: 1
-	- "one-pag" with frequency: 1
-	- "suffici" with frequency: 1
-	- "depart" with frequency: 3
-	- "provision" with frequency: 1
-	- "remedi cours prescrib" with frequency: 1
-	- "newli" with frequency: 1
-	- "scienc" with frequency: 7
-	- "process" with frequency: 1
-	- "academ record" with frequency: 2
-	- "postgradu studi" with frequency: 4
-	- "formal" with frequency: 1
-	- "submit" with frequency: 4
-	- "committe" with frequency: 1
-	- "undergradu studi" with frequency: 1
-	- "individu" with frequency: 1
-	- "basi" with frequency: 1
+	- "admit" with frequency: 5
+	- "cours" with frequency: 3
+	- "addit" with frequency: 2
+	- "core" with frequency: 2
 	- "english profici test" with frequency: 3
 	- "addit requir" with frequency: 2
-	- "oper" with frequency: 1
-	- "record" with frequency: 3
-	- "supplementari" with frequency: 1
-	- "admiss" with frequency: 8
-	- "demonstr" with frequency: 3
-	- "enter hkust" with frequency: 1
-	- "organ" with frequency: 1
-	- "determin" with frequency: 1
-	- "system" with frequency: 2
-	- "mphil program" with frequency: 1
-	- "provision basi" with frequency: 1
-	- "complet applic form" with frequency: 1
-	- "institut" with frequency: 1
-	- "certifi" with frequency: 1
-	- "research" with frequency: 1
-	- "system softwar" with frequency: 1
-	- "cours" with frequency: 3
-	- "phd applic" with frequency: 2
-	- "standard examin" with frequency: 1
-	- "concurr" with frequency: 1
-	- "statement" with frequency: 1
-	- "below" with frequency: 1
-	- "suitabl" with frequency: 1
-	- "subject" with frequency: 2
-	- "base" with frequency: 1
-	- "defici" with frequency: 1
-	- "examin" with frequency: 2
-	- "algorithm" with frequency: 1
-	- "offer" with frequency: 1
-	- "softwar" with frequency: 1
-	- "plan" with frequency: 1
-	- "stipul" with frequency: 1
-	- "supplementari inform" with frequency: 1
-	- "comput compet" with frequency: 4
-	- "primari" with frequency: 1
-	- "academ" with frequency: 2
-	- "instruct" with frequency: 1
-	- "admiss process" with frequency: 1
-	- "undergradu" with frequency: 1
-	- "field" with frequency: 1
-	- "letter" with frequency: 1
-	- ";" with frequency: 5
-	- "(" with frequency: 7
-	- "undergo" with frequency: 1
-	- "profici" with frequency: 4
-	- "postgradu program" with frequency: 8
-	- "transcript" with frequency: 1
-	- "help" with frequency: 1
-	- "requir" with frequency: 6
-	- "compet" with frequency: 4
-	- "form" with frequency: 1
-	- "graduat" with frequency: 2
-	- "assess" with frequency: 1
-	- "phd" with frequency: 2
-	- "oper system" with frequency: 1
-	- "background" with frequency: 1
-	- "inform" with frequency: 1
-	- "student previou degre" with frequency: 1
-	- "avail" with frequency: 1
-	- "standard" with frequency: 1
-	- "msc" with frequency: 1
-	- "grade" with frequency: 1
-	- "applic" with frequency: 7
-	- ":" with frequency: 4
-	- "'s" with frequency: 3
-	- "remedi" with frequency: 1
-	- "determin suitabl" with frequency: 1
-	- "theori" with frequency: 1
-	- "relat scienc" with frequency: 1
-	- "engin field" with frequency: 1
-	- "postgradu" with frequency: 9
-	- "engin" with frequency: 1
 	- "toefl" with frequency: 1
-	- "design" with frequency: 1
-	- "result" with frequency: 4
+	- "." with frequency: 12
+	- "process" with frequency: 1
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm
 -----------------------------------
 Page 8
-Title: book1
-URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm
-Last Modified Date: 2023-05-16 05:03:16
-Page Size: 1617
+Title: CNN news
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+Last Modified Date: 2023-05-16 05:03:44
+Page Size: 448
 Title Keywords:
-	- "book1" with frequency: 1
+	- "news" with frequency: 1
+	- "cnn" with frequency: 1
+	- "cnn news" with frequency: 1
 Body Keywords:
-	- "descriptor set" with frequency: 1
-	- "rage" with frequency: 1
-	- "2" with frequency: 1
-	- "perform" with frequency: 1
-	- "set" with frequency: 1
-	- "attent" with frequency: 1
-	- "elementari" with frequency: 1
-	- "purpos" with frequency: 1
-	- "." with frequency: 3
-	- "monograph" with frequency: 1
-	- "book" with frequency: 2
-	- "retriev" with frequency: 5
-	- "control thesauru" with frequency: 1
-	- "1" with frequency: 1
-	- "elementari descript" with frequency: 1
-	- "provid" with frequency: 1
-	- "subject" with frequency: 1
-	- "consid" with frequency: 1
-	- "round" with frequency: 1
-	- "chapter" with frequency: 2
-	- "research" with frequency: 1
-	- "am" with frequency: 1
-	- "," with frequency: 13
-	- "reader" with frequency: 1
-	- "equal" with frequency: 1
-	- "attempt" with frequency: 1
-	- "research monograph" with frequency: 1
-	- "document" with frequency: 1
-	- "inform" with frequency: 3
-	- "devot" with frequency: 1
-	- "simpl class list" with frequency: 1
-	- "topic" with frequency: 2
-	- "mean" with frequency: 2
-	- "recall/precis" with frequency: 1
-	- "list" with frequency: 1
-	- "simpli" with frequency: 1
-	- "surround" with frequency: 1
-	- "autom" with frequency: 1
-	- "document descript" with frequency: 1
-	- "keyword" with frequency: 2
-	- ":" with frequency: 1
-	- "syntact" with frequency: 1
-	- "surround context" with frequency: 1
-	- ";" with frequency: 3
-	- "assum" with frequency: 1
-	- "retriev devic" with frequency: 1
-	- "instanc" with frequency: 1
-	- "concept" with frequency: 1
-	- "discuss" with frequency: 1
-	- "do" with frequency: 1
-	- "control" with frequency: 1
-	- "rage round" with frequency: 1
-	- "class" with frequency: 1
-	- "characteris retriev perform" with frequency: 1
-	- "view" with frequency: 1
-	- "chapter 2" with frequency: 1
-	- "broaden" with frequency: 1
-	- "devic" with frequency: 1
-	- "primarili" with frequency: 1
-	- "use keyword" with frequency: 1
-	- "relat" with frequency: 2
-	- "simpl" with frequency: 1
-	- "classif" with frequency: 1
-	- "idea" with frequency: 1
-	- "structur" with frequency: 1
-	- "reason" with frequency: 1
-	- "exampl" with frequency: 1
-	- "justif" with frequency: 1
-	- "difficulti" with frequency: 1
-	- "account" with frequency: 1
-	- "justifi" with frequency: 1
-	- "controversi" with frequency: 1
-	- "familiar" with frequency: 1
-	- "descriptor" with frequency: 1
-	- "characteris" with frequency: 1
-	- "thesauru" with frequency: 1
-	- "use" with frequency: 1
-	- "choic" with frequency: 1
-	- "descript" with frequency: 3
-	- "syntact structur" with frequency: 1
-	- "argument" with frequency: 1
-	- "inform retriev" with frequency: 3
-	- "chapter 1" with frequency: 1
-	- "main topic" with frequency: 2
-	- "main purpos" with frequency: 1
-	- "main" with frequency: 2
-	- "ratio" with frequency: 2
-	- "unawar" with frequency: 1
-	- "textbook" with frequency: 1
-	- "context" with frequency: 1
+	- "news" with frequency: 3
+	- "econom" with frequency: 1
+	- "capit" with frequency: 1
+	- "caus" with frequency: 1
+	- "cnn" with frequency: 2
+	- "caus econom chao" with frequency: 1
+	- "chao" with frequency: 1
+	- "accordion" with frequency: 1
+	- "warm" with frequency: 1
+	- "'may" with frequency: 1
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
 -----------------------------------
 Page 9
-Title: book3
-URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books/book3.htm
-Last Modified Date: 2023-05-16 05:03:16
-Page Size: 1994
+Title: BBC news
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+Last Modified Date: 2023-05-16 05:03:44
+Page Size: 499
 Title Keywords:
-	- "book3" with frequency: 1
+	- "bbc" with frequency: 1
+	- "news" with frequency: 1
+	- "bbc news" with frequency: 1
 Body Keywords:
-	- "agreement" with frequency: 2
-	- "inform system" with frequency: 2
-	- "''" with frequency: 1
-	- "hand" with frequency: 1
-	- "document" with frequency: 2
-	- "mathemat definit" with frequency: 1
-	- "admittedli subject" with frequency: 1
-	- "equat" with frequency: 2
-	- "provid" with frequency: 2
-	- "relev mean" with frequency: 3
-	- "report deal" with frequency: 1
-	- "mathemat formul" with frequency: 1
-	- "recent" with frequency: 1
-	- "," with frequency: 21
-	- "retriev" with frequency: 1
-	- "subject" with frequency: 2
-	- "mathemat valu" with frequency: 1
-	- "mathemat valid" with frequency: 1
-	- "advanc" with frequency: 1
-	- "notion" with frequency: 1
-	- "alic" with frequency: 1
-	- "secur" with frequency: 1
-	- "individu user" with frequency: 1
-	- "fix" with frequency: 1
-	- "curv" with frequency: 1
-	- "situat" with frequency: 1
-	- "percentag" with frequency: 1
-	- "term" with frequency: 6
-	- "exist" with frequency: 1
-	- "grow agreement" with frequency: 1
-	- "note" with frequency: 1
-	- "deal" with frequency: 1
-	- "system" with frequency: 5
-	- "admittedli" with frequency: 1
-	- "formal relationship exist" with frequency: 1
-	- "distinct mean" with frequency: 1
-	- "doctrin" with frequency: 2
-	- "littl agreement" with frequency: 1
-	- "ancient" with frequency: 1
-	- "relev recent" with frequency: 1
-	- "recal perform" with frequency: 1
-	- "pseudo-mathemat" with frequency: 1
-	- "nevertheless" with frequency: 1
-	- "singl" with frequency: 1
-	- "measur" with frequency: 1
-	- "." with frequency: 7
-	- "relationship" with frequency: 1
-	- "attribut" with frequency: 1
-	- "phenomenon" with frequency: 1
-	- "articl" with frequency: 1
-	- "relev" with frequency: 6
-	- "mere careless ambigu" with frequency: 1
-	- "numer" with frequency: 1
-	- "distinct" with frequency: 1
-	- "mean" with frequency: 3
-	- "shift" with frequency: 1
-	- "doubt" with frequency: 1
-	- "frankli" with frequency: 1
-	- "formal" with frequency: 1
-	- "forth" with frequency: 1
-	- "littl" with frequency: 1
-	- "legisl" with frequency: 1
-	- "cover" with frequency: 1
-	- "grow" with frequency: 1
-	- "depend" with frequency: 1
-	- "cours" with frequency: 1
-	- "non-mathemat" with frequency: 1
-	- "ambigu" with frequency: 1
-	- "user" with frequency: 2
-	- "degre" with frequency: 1
-	- "usag" with frequency: 1
-	- "repres" with frequency: 1
-	- "careless" with frequency: 1
-	- "mere" with frequency: 1
-	- "quantifi" with frequency: 1
-	- "frankli subject notion" with frequency: 1
-	- "especi" with frequency: 1
-	- "mathemat term" with frequency: 4
-	- "evalu" with frequency: 1
-	- "i.e." with frequency: 1
-	- "probabl" with frequency: 1
-	- "recal" with frequency: 2
-	- "accept" with frequency: 1
-	- "perform" with frequency: 1
-	- "parallel" with frequency: 1
-	- "ancient parallel" with frequency: 1
-	- "characterist" with frequency: 1
-	- "seriou situat" with frequency: 1
-	- "individu" with frequency: 1
-	- "mathemat" with frequency: 4
-	- "presum" with frequency: 1
-	- "design" with frequency: 1
-	- "valid" with frequency: 1
-	- "inform" with frequency: 2
-	- "literatur" with frequency: 1
-	- "definit" with frequency: 1
-	- "report" with frequency: 2
-	- "formul" with frequency: 1
-	- "book" with frequency: 2
-	- "singl term" with frequency: 1
-	- "seriou" with frequency: 1
-	- "master" with frequency: 1
-	- "discuss" with frequency: 1
-	- "valu" with frequency: 1
-	- "relev characterist" with frequency: 1
-	- "``" with frequency: 1
+	- "nest" with frequency: 1
+	- "news" with frequency: 3
+	- "rare" with frequency: 1
+	- "2-1" with frequency: 1
+	- "fifth" with frequency: 1
+	- "bbc" with frequency: 2
+	- "goonhilli" with frequency: 1
+	- "blackburn" with frequency: 1
+	- "commit" with frequency: 1
+	- "mp" with frequency: 1
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
 -----------------------------------
 Page 10
-Title: book2
-URL: https://www.cse.ust.hk/~kwtleung/COMP4321/books/book2.htm
-Last Modified Date: 2023-05-16 05:03:16
-Page Size: 2084
+Title: The Eye of Vichy (1993)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/112.html
+Last Modified Date: 2023-05-16 05:03:18
+Page Size: 7500
 Title Keywords:
-	- "book2" with frequency: 1
+	- "eye" with frequency: 1
+	- "vichi" with frequency: 1
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+	- "1993" with frequency: 1
 Body Keywords:
-	- "organ" with frequency: 1
-	- "element" with frequency: 1
-	- "bibliograph data base" with frequency: 3
-	- "et" with frequency: 1
-	- "miniatur hardwar" with frequency: 1
-	- "updat consist primarili" with frequency: 1
-	- "william" with frequency: 2
-	- "abstract" with frequency: 1
-	- "book2 gener" with frequency: 1
-	- "phototypeset" with frequency: 1
-	- "primarili" with frequency: 2
-	- "regard" with frequency: 1
-	- "servic" with frequency: 1
-	- "inform" with frequency: 5
-	- "research" with frequency: 1
-	- "39" with frequency: 1
-	- "paper" with frequency: 1
-	- "exclud" with frequency: 2
-	- "milen" with frequency: 1
-	- "public" with frequency: 1
-	- "product" with frequency: 1
-	- "and/or" with frequency: 2
-	- "1974" with frequency: 1
-	- "inform retriev" with frequency: 3
-	- "storag" with frequency: 2
-	- "(" with frequency: 6
-	- "bibliograph materi" with frequency: 2
-	- "retriev" with frequency: 3
-	- "al." with frequency: 1
-	- "common" with frequency: 1
-	- "e.g." with frequency: 1
-	- "'s" with frequency: 1
-	- "data base gener" with frequency: 4
-	- "numer" with frequency: 1
-	- "data element common" with frequency: 1
-	- "choic" with frequency: 1
-	- "public via phototypeset" with frequency: 1
-	- "constraint preclud coverag" with frequency: 1
-	- "156" with frequency: 1
-	- "boundari" with frequency: 1
-	- "coverag" with frequency: 2
-	- "bibliograph" with frequency: 3
-	- "nonbibliograph" with frequency: 1
-	- "chapter continu" with frequency: 2
-	- "inform storag" with frequency: 2
-	- "data" with frequency: 11
-	- "product oper" with frequency: 1
-	- "," with frequency: 12
-	- "prepar" with frequency: 1
-	- "initi" with frequency: 1
-	- "navi" with frequency: 1
-	- "report" with frequency: 1
-	- "system consult" with frequency: 1
-	- "updat" with frequency: 1
-	- "data base" with frequency: 9
-	- "applic" with frequency: 1
-	- "consist" with frequency: 1
-	- "structur" with frequency: 1
-	- "system" with frequency: 2
-	- "shipboard environ" with frequency: 1
-	- "base" with frequency: 9
-	- "chemic abstract servic" with frequency: 1
-	- "via" with frequency: 1
-	- ")" with frequency: 6
-	- "machine-read" with frequency: 3
-	- "includ" with frequency: 1
-	- "178" with frequency: 1
-	- "chapter" with frequency: 2
-	- "document-rel" with frequency: 1
-	- "record" with frequency: 1
-	- "progress" with frequency: 1
-	- "chemic" with frequency: 2
-	- "ca regard progress" with frequency: 1
-	- "registri" with frequency: 2
-	- "consult" with frequency: 1
-	- "hardwar" with frequency: 1
-	- "index" with frequency: 1
-	- "environ" with frequency: 1
-	- "." with frequency: 10
-	- "contain" with frequency: 1
-	- "112" with frequency: 1
-	- "build" with frequency: 1
-	- "textual" with frequency: 1
-	- "1974 materi" with frequency: 1
-	- "definit" with frequency: 1
-	- "volum 9" with frequency: 2
-	- "nonbibliograph inform" with frequency: 1
-	- "similarli" with frequency: 1
-	- "chemic structur" with frequency: 1
-	- "scope" with frequency: 1
-	- "book" with frequency: 1
-	- "consid" with frequency: 4
-	- "compil" with frequency: 1
-	- "miniatur" with frequency: 1
-	- "gener" with frequency: 4
-	- "registri system" with frequency: 2
-	- "inc" with frequency: 1
-	- "9" with frequency: 2
-	- "collect" with frequency: 1
-	- "oper" with frequency: 1
-	- "inaugur" with frequency: 1
-	- "organ collect" with frequency: 1
-	- "initi compil" with frequency: 1
-	- "volum" with frequency: 2
-	- "shipboard" with frequency: 1
-	- "final" with frequency: 1
-	- "materi" with frequency: 2
-	- "concern" with frequency: 2
-	- "preclud" with frequency: 1
-	- "inc report" with frequency: 1
-	- "continu" with frequency: 2
-	- "constraint" with frequency: 1
-	- "accord" with frequency: 1
-	- "ca" with frequency: 2
+	- "chabrolwrit" with frequency: 1
+	- "monsieur lacond ..." with frequency: 1
+	- "listingstop" with frequency: 1
+	- "georg" with frequency: 2
+	- "help" with frequency: 1
+	- "frehel" with frequency: 1
+	- "episodesmi" with frequency: 1
+	- "josef goebbel ..." with frequency: 1
+	- "internet" with frequency: 1
+	- "you.an" with frequency: 1
 Children:
-	No Children Found
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 11
+Title: Chain of Fools (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/123.html
+Last Modified Date: 2023-05-16 05:03:18
+Page Size: 7193
+Title Keywords:
+	- "fool" with frequency: 1
+	- "chain" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "2000" with frequency: 1
+Body Keywords:
+	- "dougla" with frequency: 1
+	- "averag schlocki comedi" with frequency: 1
+	- "outlin" with frequency: 1
+	- "mikeydavid" with frequency: 1
+	- "1" with frequency: 1
+	- "index" with frequency: 2
+	- "british columbia" with frequency: 1
+	- "imdb messag board" with frequency: 1
+	- "cast overview" with frequency: 1
+	- "eventhough" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 12
+Title: GTO: Great Teacher Onizuka: Set 2 (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/135.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 2706
+Title Keywords:
+	- "2" with frequency: 1
+	- "(" with frequency: 1
+	- "teacher onizuka" with frequency: 1
+	- "1998" with frequency: 1
+	- "set" with frequency: 1
+	- ")" with frequency: 1
+	- "set 2" with frequency: 1
+	- "gto" with frequency: 1
+	- "onizuka" with frequency: 1
+	- ":" with frequency: 2
+Body Keywords:
+	- "playingmovie/tv" with frequency: 1
+	- "biographies•" with frequency: 1
+	- "|photo" with frequency: 1
+	- "characters•" with frequency: 1
+	- "link" with frequency: 1
+	- "trial" with frequency: 1
+	- "1998" with frequency: 2
+	- "them.en" with frequency: 1
+	- "titl" with frequency: 5
+	- "tv seri" with frequency: 2
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 13
+Title: Funny Face (1957)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/171.html
+Last Modified Date: 2023-05-16 05:03:22
+Page Size: 7988
+Title Keywords:
+	- "1957" with frequency: 1
+	- "funni" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+Body Keywords:
+	- "fred astair" with frequency: 1
+	- "enchant" with frequency: 1
+	- "crewcompani" with frequency: 1
+	- "peopl" with frequency: 1
+	- "info-merchandis" with frequency: 1
+	- "offer" with frequency: 1
+	- "mono" with frequency: 1
+	- "romanc complic" with frequency: 1
+	- "film" with frequency: 5
+	- "record" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 14
+Title: Neon Bible (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/219.html
+Last Modified Date: 2023-05-16 05:03:28
+Page Size: 6911
+Title Keywords:
+	- "neon bibl" with frequency: 1
+	- "1995" with frequency: 1
+	- ")" with frequency: 1
+	- "neon" with frequency: 1
+	- "(" with frequency: 1
+	- "bibl" with frequency: 1
+Body Keywords:
+	- "overview" with frequency: 1
+	- "|brows" with frequency: 1
+	- "frisch" with frequency: 1
+	- "filmawards:2" with frequency: 1
+	- "links-trailers-ful" with frequency: 1
+	- "reviews-newsgroup" with frequency: 1
+	- "scarwid" with frequency: 1
+	- "messag boardplot" with frequency: 1
+	- "process.hom" with frequency: 1
+	- "americana" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 15
+Title: Sex and the Beauties (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/59.html
+Last Modified Date: 2023-05-16 05:03:40
+Page Size: 6428
+Title Keywords:
+	- "beauti" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "sex" with frequency: 1
+	- "2003" with frequency: 1
+Body Keywords:
+	- "andyhui look hot" with frequency: 1
+	- "carina lau" with frequency: 3
+	- "movi lack newidea" with frequency: 1
+	- "star" with frequency: 3
+	- ">" with frequency: 1
+	- "dangermem" with frequency: 1
+	- "reviews-awards-us" with frequency: 1
+	- "care" with frequency: 1
+	- "pinki cheung dad" with frequency: 1
+	- "detailsful" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 16
+Title: Touched by an Angel: Season 1 (1994)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/267.html
+Last Modified Date: 2023-05-16 05:03:32
+Page Size: 3937
+Title Keywords:
+	- ":" with frequency: 1
+	- "1" with frequency: 1
+	- ")" with frequency: 1
+	- "touch" with frequency: 1
+	- "1994" with frequency: 1
+	- "season" with frequency: 1
+	- "angel" with frequency: 1
+	- "(" with frequency: 1
+	- "season 1" with frequency: 1
+Body Keywords:
+	- "1000 match" with frequency: 1
+	- "popular resultspopular titl" with frequency: 1
+	- "1000" with frequency: 1
+	- "link" with frequency: 1
+	- "you.an" with frequency: 1
+	- "|independ" with frequency: 1
+	- "episodesmi" with frequency: 1
+	- "note" with frequency: 1
+	- "|gamebas" with frequency: 1
+	- "sexual fantasi" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 17
+Title: Complete Shamanic Princess (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/101.html
+Last Modified Date: 2023-05-16 05:03:16
+Page Size: 3166
+Title Keywords:
+	- "complet shaman princess" with frequency: 1
+	- ")" with frequency: 1
+	- "complet" with frequency: 1
+	- "1997" with frequency: 1
+	- "(" with frequency: 1
+	- "princess" with frequency: 1
+	- "shaman" with frequency: 1
+Body Keywords:
+	- ":" with frequency: 6
+	- "princess" with frequency: 7
+	- "avail" with frequency: 1
+	- "improv" with frequency: 1
+	- "characters•" with frequency: 1
+	- "complet" with frequency: 10
+	- "ticketsimdbproimdb" with frequency: 1
+	- "|gamebas" with frequency: 1
+	- "princess•" with frequency: 1
+	- "playingmovie/tv" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 18
+Title: MTV Yoga (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/153.html
+Last Modified Date: 2023-05-16 05:03:22
+Page Size: 3576
+Title Keywords:
+	- "mtv" with frequency: 1
+	- ")" with frequency: 1
+	- "mtv yoga" with frequency: 1
+	- "yoga" with frequency: 1
+	- "2002" with frequency: 1
+	- "(" with frequency: 1
+Body Keywords:
+	- "boardsshowtim" with frequency: 1
+	- "3" with frequency: 1
+	- "1991" with frequency: 1
+	- "road" with frequency: 1
+	- "nude yoga" with frequency: 1
+	- "1998" with frequency: 1
+	- "trailer" with frequency: 1
+	- "1988" with frequency: 1
+	- "'s" with frequency: 2
+	- "kest" with frequency: 2
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 19
+Title: Never Die Alone (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/26.html
+Last Modified Date: 2023-05-16 05:03:32
+Page Size: 7213
+Title Keywords:
+	- "die" with frequency: 1
+	- "2004" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+Body Keywords:
+	- "|helpalltitles-" with frequency: 1
+	- "game" with frequency: 1
+	- "recent" with frequency: 1
+	- "juanita" with frequency: 1
+	- "articlesoffici" with frequency: 1
+	- "watch" with frequency: 2
+	- "davidmichael" with frequency: 1
+	- "pull" with frequency: 1
+	- "imdb user rate" with frequency: 6
+	- "process.hom" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 20
+Title: Devo: The Complete Truth About De-evolution (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/49.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 2866
+Title Keywords:
+	- "de-evolut" with frequency: 1
+	- ")" with frequency: 1
+	- "complet" with frequency: 1
+	- "complet truth" with frequency: 1
+	- "(" with frequency: 1
+	- "2003" with frequency: 1
+	- "truth" with frequency: 1
+	- ":" with frequency: 1
+	- "devo" with frequency: 1
+Body Keywords:
+	- "de-evolution•" with frequency: 1
+	- "2005" with frequency: 1
+	- "|independ" with frequency: 1
+	- "areonli" with frequency: 1
+	- "playingmovie/tv" with frequency: 1
+	- "improv" with frequency: 1
+	- "home" with frequency: 1
+	- "provid" with frequency: 1
+	- "1000" with frequency: 1
+	- ".there" with frequency: 2
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 21
+Title: Bruce Lee: A Warrior's Journey (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/113.html
+Last Modified Date: 2023-05-16 05:03:18
+Page Size: 6989
+Title Keywords:
+	- "'s" with frequency: 1
+	- "bruce" with frequency: 1
+	- "journey" with frequency: 1
+	- "bruce lee" with frequency: 1
+	- "2000" with frequency: 1
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+	- ":" with frequency: 1
+	- "lee" with frequency: 1
+	- "warrior" with frequency: 1
+Body Keywords:
+	- "love" with frequency: 1
+	- "recommend" with frequency: 2
+	- "content.back" with frequency: 1
+	- "datestechn" with frequency: 1
+	- "..." with frequency: 33
+	- "everseen" with frequency: 1
+	- "help" with frequency: 1
+	- "details-literatur" with frequency: 1
+	- "argentina" with frequency: 1
+	- "previou film" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 22
+Title: At Home Among Strangers (1974)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/72.html
+Last Modified Date: 2023-05-16 05:03:40
+Page Size: 4027
+Title Keywords:
+	- "home stranger" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "home" with frequency: 1
+	- "1974" with frequency: 1
+	- "stranger" with frequency: 1
+Body Keywords:
+	- "mini" with frequency: 1
+	- "addit" with frequency: 2
+	- "," with frequency: 16
+	- "morelik" with frequency: 1
+	- "newsmi" with frequency: 1
+	- "search prefer home" with frequency: 2
+	- "playingmovie/tv" with frequency: 1
+	- "note" with frequency: 1
+	- "episod" with frequency: 2
+	- "nick drake" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 23
+Title: Marooned in Iraq (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/231.html
+Last Modified Date: 2023-05-16 05:03:28
+Page Size: 6311
+Title Keywords:
+	- "2002" with frequency: 1
+	- "maroon" with frequency: 1
+	- "(" with frequency: 1
+	- "iraq" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "moretaglin" with frequency: 1
+	- "onto" with frequency: 1
+	- "weekwhi" with frequency: 1
+	- "n't" with frequency: 1
+	- "say" with frequency: 1
+	- "cinematographi" with frequency: 1
+	- "deal" with frequency: 1
+	- "info-merchandis" with frequency: 1
+	- "amazon.comamazon.caamazon.co.ukamazon.deamazon.frdvdvhscdalldvdvhscdalldvdvhscdalldvdvhscdalldvdvhscdallimdb" with frequency: 1
+	- "sites-miscellaneous-photographs-sound" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 24
+Title: Billy Blanks: Tae Bo: Cardio Circuit 1 (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/184.html
+Last Modified Date: 2023-05-16 05:03:24
+Page Size: 2611
+Title Keywords:
+	- "billi blank" with frequency: 1
+	- "1" with frequency: 1
+	- "billi" with frequency: 1
+	- "tae" with frequency: 1
+	- "cardio" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "2004" with frequency: 1
+	- ":" with frequency: 2
+	- "cardio circuit 1" with frequency: 1
+Body Keywords:
+	- "offic" with frequency: 1
+	- "recommendationsbox offic" with frequency: 1
+	- "follow result" with frequency: 1
+	- "special" with frequency: 1
+	- "resultsyour" with frequency: 1
+	- "," with frequency: 2
+	- "top" with frequency: 1
+	- "content.back" with frequency: 1
+	- "follow link" with frequency: 1
+	- "polici" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 25
+Title: Duplex (Widescreen) (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/111.html
+Last Modified Date: 2023-05-16 05:03:18
+Page Size: 2478
+Title Keywords:
+	- "widescreen" with frequency: 1
+	- "duplex" with frequency: 1
+	- "2003" with frequency: 1
+	- "(" with frequency: 2
+	- ")" with frequency: 2
+Body Keywords:
+	- "movi" with frequency: 5
+	- "titles.episod" with frequency: 1
+	- "found" with frequency: 1
+	- "searchestitlesthes search" with frequency: 1
+	- "search.mor" with frequency: 1
+	- "categori" with frequency: 1
+	- "chang" with frequency: 1
+	- "©" with frequency: 1
+	- "play" with frequency: 1
+	- "free trial" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 26
+Title: The Big Clock (1948)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/261.html
+Last Modified Date: 2023-05-16 05:03:32
+Page Size: 6735
+Title Keywords:
+	- "1948" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "clock" with frequency: 1
+Body Keywords:
+	- "black" with frequency: 1
+	- "burtmargaret" with frequency: 1
+	- "film" with frequency: 1
+	- "amazon.comamazon.caamazon.co.ukamazon.deamazon.frdvdvhscdalldvdvhscdalldvdvhscdalldvdvhscdalldvdvhscdallimdb" with frequency: 1
+	- "links-trailers-ful" with frequency: 1
+	- "moviesnamescompanieskeywordscharactersquotesbiosplotsmor" with frequency: 1
+	- "cordetteharri" with frequency: 1
+	- "return" with frequency: 1
+	- "empti" with frequency: 1
+	- "connections-faqoth" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 27
+Title: Naked Lies (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/137.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 5926
+Title Keywords:
+	- ")" with frequency: 1
+	- "1998" with frequency: 1
+	- "nake lie" with frequency: 1
+	- "nake" with frequency: 1
+	- "(" with frequency: 1
+	- "lie" with frequency: 1
+Body Keywords:
+	- "ofth kind" with frequency: 1
+	- "mexican" with frequency: 1
+	- "honest withyou" with frequency: 1
+	- "decid" with frequency: 1
+	- "iceland:16/" with frequency: 1
+	- "'ve" with frequency: 1
+	- "117" with frequency: 1
+	- "messag" with frequency: 1
+	- "offer" with frequency: 1
+	- "méxico" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 28
+Title: Barbarian Queen 2 (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/66.html
+Last Modified Date: 2023-05-16 05:03:40
+Page Size: 3663
+Title Keywords:
+	- "queen" with frequency: 1
+	- "barbarian" with frequency: 1
+	- "(" with frequency: 1
+	- "1989" with frequency: 1
+	- "barbarian queen 2" with frequency: 1
+	- "2" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "titlesearchnow" with frequency: 1
+	- "usanezni" with frequency: 1
+	- "biographies•" with frequency: 1
+	- "searchestitlesthes search" with frequency: 1
+	- "episodesmi" with frequency: 1
+	- "resultsimdb" with frequency: 1
+	- "barbarian ii" with frequency: 3
+	- "tv episodesmi moviesnamescompanieskeywordscharactersquotesbiosplotsmor" with frequency: 1
+	- "barbarian reveng" with frequency: 3
+	- "region" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 29
+Title: Jingle All the Way (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/78.html
+Last Modified Date: 2023-05-16 05:03:40
+Page Size: 8021
+Title Keywords:
+	- "1996" with frequency: 1
+	- "(" with frequency: 1
+	- "jingl" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "timeeeeee" with frequency: 2
+	- "ladyjustin" with frequency: 1
+	- "messag boardplot" with frequency: 1
+	- "larabe" with frequency: 2
+	- "|brows" with frequency: 1
+	- "toy" with frequency: 4
+	- "doll" with frequency: 1
+	- "comment use" with frequency: 2
+	- "short" with frequency: 1
+	- "stuff-trivia-goofs-soundtrack" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 30
+Title: Viva La Bam: Season 1 (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/133.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 7109
+Title Keywords:
+	- "viva" with frequency: 1
+	- ":" with frequency: 1
+	- "season" with frequency: 1
+	- "2003" with frequency: 1
+	- ")" with frequency: 1
+	- "la" with frequency: 1
+	- "season 1" with frequency: 1
+	- "1" with frequency: 1
+	- "bam" with frequency: 1
+	- "(" with frequency: 1
+Body Keywords:
+	- "add" with frequency: 3
+	- "locat" with frequency: 1
+	- "15 episod" with frequency: 1
+	- "dicamillo" with frequency: 1
+	- "april" with frequency: 1
+	- "peopl" with frequency: 2
+	- "galleryaward" with frequency: 1
+	- "|brows" with frequency: 1
+	- "boardplot" with frequency: 1
+	- "polici" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 31
+Title: The Final Countdown (1980)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/268.html
+Last Modified Date: 2023-05-16 05:03:32
+Page Size: 3837
+Title Keywords:
+	- "countdown" with frequency: 1
+	- "final" with frequency: 1
+	- ")" with frequency: 1
+	- "final countdown" with frequency: 1
+	- "(" with frequency: 1
+	- "1980" with frequency: 1
+Body Keywords:
+	- "y2k" with frequency: 1
+	- "video" with frequency: 1
+	- "1993" with frequency: 1
+	- "favor" with frequency: 1
+	- "eminem" with frequency: 1
+	- "titles.episod" with frequency: 1
+	- "servic" with frequency: 1
+	- "imdb" with frequency: 3
+	- "2005" with frequency: 2
+	- "wfa" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 32
+Title: A Fishy Story (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/99.html
+Last Modified Date: 2023-05-16 05:03:44
+Page Size: 3271
+Title Keywords:
+	- "fishi" with frequency: 1
+	- "fishi stori" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "1989" with frequency: 1
+	- "stori" with frequency: 1
+Body Keywords:
+	- "love" with frequency: 1
+	- "resultsyour" with frequency: 1
+	- "region" with frequency: 1
+	- "16" with frequency: 1
+	- "choos" with frequency: 1
+	- "seri" with frequency: 2
+	- "fish" with frequency: 8
+	- "love stori" with frequency: 1
+	- "moviesdvd/videoimdbtvmessag" with frequency: 1
+	- "quotesmor" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 33
+Title: A Yank in the R.A.F. (1941)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/50.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 7217
+Title Keywords:
+	- "yank" with frequency: 1
+	- ")" with frequency: 1
+	- "1941" with frequency: 1
+	- "r.a.f" with frequency: 1
+	- "(" with frequency: 1
+	- "." with frequency: 1
+Body Keywords:
+	- "uk" with frequency: 1
+	- "cmdr" with frequency: 1
+	- "movi connect" with frequency: 1
+	- "easi charm" with frequency: 1
+	- "connections-faqoth" with frequency: 1
+	- "warplot summari" with frequency: 1
+	- "moviesdvd/videoimdbtvmessag" with frequency: 1
+	- "century-fox" with frequency: 1
+	- "film.wa" with frequency: 1
+	- "green" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 34
+Title: Star Trek: Voyager: Season 1 (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/138.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 4116
+Title Keywords:
+	- "1995" with frequency: 1
+	- "voyag" with frequency: 1
+	- "(" with frequency: 1
+	- ":" with frequency: 2
+	- "season 1" with frequency: 1
+	- "star" with frequency: 1
+	- ")" with frequency: 1
+	- "season" with frequency: 1
+	- "1" with frequency: 1
+	- "trek" with frequency: 1
+Body Keywords:
+	- "follow" with frequency: 2
+	- "titlesearcha" with frequency: 1
+	- "resumecopyright" with frequency: 1
+	- "newsmi" with frequency: 1
+	- "areonli" with frequency: 1
+	- "aka" with frequency: 9
+	- "usastar" with frequency: 2
+	- "tv titl" with frequency: 5
+	- "usastar trek" with frequency: 2
+	- "1959" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 35
+Title: Cold Harvest (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/276.html
+Last Modified Date: 2023-05-16 05:03:34
+Page Size: 5918
+Title Keywords:
+	- "1998" with frequency: 1
+	- "harvest" with frequency: 1
+	- ")" with frequency: 1
+	- "cold" with frequency: 1
+	- "(" with frequency: 1
+	- "cold harvest" with frequency: 1
+Body Keywords:
+	- "cabl" with frequency: 1
+	- "duka" with frequency: 1
+	- "germany:81" with frequency: 1
+	- "hooker" with frequency: 2
+	- "summary-memor" with frequency: 1
+	- "3 april 2001author" with frequency: 1
+	- "process.hom" with frequency: 1
+	- "step-by-step" with frequency: 1
+	- "connections-faqoth" with frequency: 1
+	- "moreplot" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 36
+Title: Stuart Little 2 (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/252.html
+Last Modified Date: 2023-05-16 05:03:30
+Page Size: 8171
+Title Keywords:
+	- "stuart" with frequency: 1
+	- ")" with frequency: 1
+	- "littl" with frequency: 1
+	- "stuart littl 2" with frequency: 1
+	- "2" with frequency: 1
+	- "(" with frequency: 1
+	- "2002" with frequency: 1
+Body Keywords:
+	- "time.hesur" with frequency: 1
+	- "awesome.i" with frequency: 1
+	- "morediscuss" with frequency: 1
+	- "trailer" with frequency: 2
+	- "vertigo" with frequency: 1
+	- "moresound" with frequency: 1
+	- "film locat" with frequency: 1
+	- "'" with frequency: 1
+	- "recommendationsy report error" with frequency: 1
+	- "carri stuart" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 37
+Title: Ruby's Bucket of Blood (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/202.html
+Last Modified Date: 2023-05-16 05:03:26
+Page Size: 6495
+Title Keywords:
+	- "'s" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "2001" with frequency: 1
+	- "bucket" with frequency: 1
+	- "blood" with frequency: 1
+	- "rubi" with frequency: 1
+Body Keywords:
+	- "links-trailers-ful" with frequency: 1
+	- "pretti" with frequency: 1
+	- "redeemedsometh" with frequency: 1
+	- "plot outlin" with frequency: 1
+	- "sabian" with frequency: 2
+	- "rate" with frequency: 7
+	- "abouthomosexu" with frequency: 1
+	- "delacroixglenn" with frequency: 1
+	- "mincountri" with frequency: 1
+	- "jtur88" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 38
+Title: Davy Crockett: 50th Anniversary Double Feature (1954)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/73.html
+Last Modified Date: 2023-05-16 05:03:40
+Page Size: 2667
+Title Keywords:
+	- ":" with frequency: 1
+	- "(" with frequency: 1
+	- "featur" with frequency: 1
+	- "davi" with frequency: 1
+	- "crockett" with frequency: 1
+	- "1954" with frequency: 1
+	- "doubl" with frequency: 1
+	- "50th" with frequency: 1
+	- "anniversari" with frequency: 1
+	- "davi crockett" with frequency: 1
+Body Keywords:
+	- "ticketsimdbproimdb" with frequency: 1
+	- "(" with frequency: 2
+	- "them.en" with frequency: 1
+	- "licens" with frequency: 1
+	- "particular episod" with frequency: 1
+	- "episode.or" with frequency: 1
+	- "quotesmor" with frequency: 1
+	- "``" with frequency: 5
+	- "crockett" with frequency: 7
+	- "search" with frequency: 12
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 39
+Title: The Rise and Fall of ECW (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/5.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 3928
+Title Keywords:
+	- "2004" with frequency: 1
+	- ")" with frequency: 1
+	- "rise" with frequency: 1
+	- "fall" with frequency: 1
+	- "ecw" with frequency: 1
+	- "(" with frequency: 1
+Body Keywords:
+	- "imdb" with frequency: 3
+	- "," with frequency: 3
+	- "montreal" with frequency: 1
+	- "resumecopyright" with frequency: 1
+	- "film" with frequency: 2
+	- "voic" with frequency: 2
+	- "variou region" with frequency: 1
+	- "origin" with frequency: 2
+	- "searchestitlesthes" with frequency: 1
+	- "advertis" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 40
+Title: Gross Anatomy (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/232.html
+Last Modified Date: 2023-05-16 05:03:28
+Page Size: 6767
+Title Keywords:
+	- "1989" with frequency: 1
+	- "anatomi" with frequency: 1
+	- "(" with frequency: 1
+	- "gross" with frequency: 1
+	- "gross anatomi" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "content.back" with frequency: 1
+	- "comment" with frequency: 4
+	- "recent post" with frequency: 1
+	- "links-showtimes-offici" with frequency: 1
+	- "step-by-step" with frequency: 1
+	- "andhoward" with frequency: 1
+	- "hill/rosenmanmoregoof" with frequency: 1
+	- "love" with frequency: 1
+	- "'re" with frequency: 1
+	- "rate" with frequency: 6
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 41
+Title: Silkwood (1983)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/83.html
+Last Modified Date: 2023-05-16 05:03:42
+Page Size: 7241
+Title Keywords:
+	- "silkwood" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "1983" with frequency: 1
+Body Keywords:
+	- "27" with frequency: 1
+	- "locations-techn" with frequency: 1
+	- "links-box" with frequency: 1
+	- "'moremovi" with frequency: 1
+	- "showtim" with frequency: 1
+	- "audit" with frequency: 1
+	- "|show" with frequency: 1
+	- "licens" with frequency: 1
+	- "possibl" with frequency: 1
+	- "details-dvd" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 42
+Title: North by Northwest (1959)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/241.html
+Last Modified Date: 2023-05-16 05:03:30
+Page Size: 9712
+Title Keywords:
+	- "north" with frequency: 1
+	- "northwest" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "1959" with frequency: 1
+Body Keywords:
+	- "hong" with frequency: 1
+	- "meet" with frequency: 1
+	- "isexcel" with frequency: 1
+	- "kendal" with frequency: 1
+	- "australia" with frequency: 2
+	- "georg kaplan" with frequency: 1
+	- "ellenstein" with frequency: 1
+	- "rating:8.6/10" with frequency: 1
+	- "recommend" with frequency: 2
+	- "1959" with frequency: 7
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 43
+Title: The SoulTaker (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/192.html
+Last Modified Date: 2023-05-16 05:03:24
+Page Size: 5077
+Title Keywords:
+	- "(" with frequency: 1
+	- "2003" with frequency: 1
+	- "soultak" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "buttonhom" with frequency: 1
+	- "recommendationsy report error" with frequency: 1
+	- "rating:7.2/10" with frequency: 1
+	- "futur updat" with frequency: 1
+	- "clips-video" with frequency: 1
+	- "clip" with frequency: 1
+	- "?" with frequency: 2
+	- "top movi" with frequency: 1
+	- "|gamebas" with frequency: 1
+	- "tv seri" with frequency: 2
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 44
+Title: Jonah: A VeggieTales Movie: Bonus Material (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/51.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 2781
+Title Keywords:
+	- ":" with frequency: 2
+	- "2002" with frequency: 1
+	- "materi" with frequency: 1
+	- "movi" with frequency: 1
+	- "(" with frequency: 1
+	- "veggietal" with frequency: 1
+	- "bonu" with frequency: 1
+	- "bonu materi" with frequency: 1
+	- ")" with frequency: 1
+	- "veggietal movi" with frequency: 1
+Body Keywords:
+	- ":" with frequency: 18
+	- "bonu materi" with frequency: 6
+	- "news" with frequency: 1
+	- "250" with frequency: 1
+	- "origin" with frequency: 2
+	- "region" with frequency: 1
+	- "showtim" with frequency: 1
+	- "regist" with frequency: 1
+	- "approx" with frequency: 1
+	- "user choos" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 45
+Title: The Edward R. Murrow Collection (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/149.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 4092
+Title Keywords:
+	- "collect" with frequency: 1
+	- "murrow" with frequency: 1
+	- "r." with frequency: 1
+	- "murrow collect" with frequency: 1
+	- "edward" with frequency: 1
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+	- "2005" with frequency: 1
+Body Keywords:
+	- "|brows" with frequency: 1
+	- "deep" with frequency: 1
+	- "complet" with frequency: 1
+	- "alternativetitl" with frequency: 1
+	- "2005" with frequency: 4
+	- "legend" with frequency: 1
+	- "leppard" with frequency: 1
+	- "origin" with frequency: 2
+	- "recommendationsbox" with frequency: 1
+	- "season" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 46
+Title: Rudolph the Red-Nosed Reindeer (1964)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/46.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 2849
+Title Keywords:
+	- "1964" with frequency: 1
+	- "rudolph" with frequency: 1
+	- "(" with frequency: 1
+	- "reindeer" with frequency: 1
+	- ")" with frequency: 1
+	- "red-nos" with frequency: 1
+Body Keywords:
+	- "|job" with frequency: 1
+	- "resultsyour origin search" with frequency: 1
+	- "." with frequency: 4
+	- "episode.or" with frequency: 1
+	- "play" with frequency: 1
+	- "biographies•" with frequency: 1
+	- "areonli" with frequency: 1
+	- "titles/nam" with frequency: 1
+	- "databas" with frequency: 1
+	- "toy" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 47
+Title: Searching for Paradise (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/42.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 6426
+Title Keywords:
+	- "search" with frequency: 1
+	- "paradis" with frequency: 1
+	- "2002" with frequency: 1
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+Body Keywords:
+	- "cast" with frequency: 5
+	- "de" with frequency: 2
+	- "gilda'sgrandpar" with frequency: 1
+	- "involv" with frequency: 1
+	- "tell" with frequency: 1
+	- "privaci" with frequency: 1
+	- "comment" with frequency: 4
+	- "credits-tv" with frequency: 1
+	- "imdb databas manag" with frequency: 1
+	- "galleryus" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 48
+Title: Charlotte's Web (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/257.html
+Last Modified Date: 2023-05-16 05:03:32
+Page Size: 7637
+Title Keywords:
+	- "'s" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "charlott" with frequency: 1
+	- "1973" with frequency: 1
+	- "web" with frequency: 1
+Body Keywords:
+	- "disney" with frequency: 1
+	- "ticketsimdbproimdb resum login" with frequency: 1
+	- "|independ" with frequency: 1
+	- "futur updat" with frequency: 1
+	- "details-combin" with frequency: 1
+	- "movi" with frequency: 7
+	- "boardsshowtim" with frequency: 1
+	- "barbera" with frequency: 1
+	- "chin" with frequency: 1
+	- "promot pledg" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 49
+Title: Female Yakuza Tale (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/272.html
+Last Modified Date: 2023-05-16 05:03:34
+Page Size: 6321
+Title Keywords:
+	- "1973" with frequency: 1
+	- "femal" with frequency: 1
+	- "yakuza" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "tale" with frequency: 1
+	- "femal yakuza tale" with frequency: 1
+Body Keywords:
+	- "flat" with frequency: 1
+	- "moregenr" with frequency: 1
+	- "..." with frequency: 7
+	- "reason bloodi" with frequency: 1
+	- "titleus rate" with frequency: 1
+	- "office/business-releas" with frequency: 1
+	- "content.back" with frequency: 1
+	- "ticketsimdbproimdb" with frequency: 1
+	- "gloriou" with frequency: 1
+	- "divert" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 50
+Title: Love Reinvented (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/39.html
+Last Modified Date: 2023-05-16 05:03:38
+Page Size: 6494
+Title Keywords:
+	- "love" with frequency: 1
+	- ")" with frequency: 1
+	- "reinvent" with frequency: 1
+	- "love reinvent" with frequency: 1
+	- "(" with frequency: 1
+	- "2000" with frequency: 1
+Body Keywords:
+	- "41 vote" with frequency: 1
+	- "french" with frequency: 2
+	- "dan" with frequency: 5
+	- "ticketsimdbproimdb" with frequency: 1
+	- "lear" with frequency: 1
+	- "noir" with frequency: 1
+	- "16" with frequency: 1
+	- "félixencoreth" with frequency: 1
+	- "specs-laserdisc" with frequency: 1
+	- "/gay" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 51
+Title: Peter Tosh: Stepping Razor: Red X (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/196.html
+Last Modified Date: 2023-05-16 05:03:24
+Page Size: 2638
+Title Keywords:
+	- "peter" with frequency: 1
+	- "peter tosh" with frequency: 1
+	- "step" with frequency: 1
+	- "step razor" with frequency: 1
+	- "tosh" with frequency: 1
+	- ")" with frequency: 1
+	- ":" with frequency: 2
+	- "(" with frequency: 1
+	- "red" with frequency: 1
+	- "1992" with frequency: 1
+Body Keywords:
+	- "''" with frequency: 5
+	- "titles.episod" with frequency: 1
+	- "free" with frequency: 1
+	- "©" with frequency: 1
+	- "choos" with frequency: 1
+	- "languages.aka" with frequency: 1
+	- "1992" with frequency: 3
+	- "imdb" with frequency: 3
+	- "tosh" with frequency: 7
+	- "1000" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 52
+Title: Get Out Your Handkerchiefs (1978)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/145.html
+Last Modified Date: 2023-05-16 05:03:20
+Page Size: 6485
+Title Keywords:
+	- "handkerchief" with frequency: 1
+	- ")" with frequency: 1
+	- "(" with frequency: 1
+	- "1978" with frequency: 1
+Body Keywords:
+	- "details-literatur" with frequency: 1
+	- "index" with frequency: 2
+	- "sex follow" with frequency: 2
+	- "empti" with frequency: 1
+	- "help" with frequency: 1
+	- "annual" with frequency: 1
+	- "night" with frequency: 1
+	- "recommendationsy" with frequency: 1
+	- "links-trailers-ful" with frequency: 1
+	- "featur" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 53
+Title: Fame (1980)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/166.html
+Last Modified Date: 2023-05-16 05:03:22
+Page Size: 8511
+Title Keywords:
+	- "(" with frequency: 1
+	- ")" with frequency: 1
+	- "fame" with frequency: 1
+	- "1980" with frequency: 1
+Body Keywords:
+	- "come" with frequency: 2
+	- "11" with frequency: 1
+	- "reviews-awards-us" with frequency: 1
+	- "actual teacher" with frequency: 2
+	- "usamoremoviemet" with frequency: 1
+	- "rfilm locat" with frequency: 1
+	- "phiil24meg" with frequency: 1
+	- "/actor" with frequency: 1
+	- "top" with frequency: 1
+	- "|tipsshop" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 54
+Title: MTV: Making the Band 2: Best of Season 1 (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/163.html
+Last Modified Date: 2023-05-16 05:03:22
+Page Size: 4086
+Title Keywords:
+	- "2" with frequency: 1
+	- "2002" with frequency: 1
+	- "season" with frequency: 1
+	- "season 1" with frequency: 1
+	- "(" with frequency: 1
+	- "mtv" with frequency: 1
+	- "1" with frequency: 1
+	- ":" with frequency: 2
+	- "band 2" with frequency: 1
+	- "band" with frequency: 1
+Body Keywords:
+	- "dwarf" with frequency: 1
+	- "imdb" with frequency: 3
+	- "2005" with frequency: 1
+	- "mean season" with frequency: 1
+	- "loui" with frequency: 1
+	- "'" with frequency: 8
+	- "|" with frequency: 16
+	- "," with frequency: 7
+	- "opera" with frequency: 1
+	- "u2" with frequency: 1
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+-----------------------------------
+Page 55
+Title: ABC Primetime: Mel Gibson's The Passion of the Christ (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/32.html
+Last Modified Date: 2023-05-16 05:03:36
+Page Size: 2716
+Title Keywords:
+	- "(" with frequency: 1
+	- "christ" with frequency: 1
+	- "mel" with frequency: 1
+	- "mel gibson" with frequency: 1
+	- "abc" with frequency: 1
+	- "'s" with frequency: 1
+	- ":" with frequency: 1
+	- ")" with frequency: 1
+	- "2004" with frequency: 1
+	- "gibson" with frequency: 1
+Body Keywords:
+	- "query.search" with frequency: 1
+	- "mel gibson" with frequency: 7
+	- "search prefer home" with frequency: 1
+	- "areonli avail" with frequency: 1
+	- "|independ" with frequency: 1
+	- "play" with frequency: 1
+	- "privaci polici" with frequency: 1
+	- "playingmovie/tv" with frequency: 1
+	- "titles.episod" with frequency: 1
+	- "gibson" with frequency: 7
+Children:
+	- https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
 -----------------------------------

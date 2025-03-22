@@ -1,6 +1,9 @@
-from sqlalchemy import create_engine, and_, not_, update, or_
+from sqlalchemy import create_engine, and_, not_, update, or_, func
 from sqlalchemy.orm import sessionmaker
-from .schemas import *
+
+try: from schemas import *
+except: from .schemas import *
+
 from typing import Callable, Any
 import sqlalchemy.dialects.sqlite as sqlite
 
@@ -112,14 +115,14 @@ def upsert(
     ignore: bool = False,
     returning: tuple | None = None, sess = Session()) -> list[tuple] | None:
 
-    new_inputs: list[dict[str, Any]] = [func(a) for a in inputs]
+    new_inputs: list[dict[str, Any]] = [cls.to_basic_dict(a) for a in inputs]
     query = sqlite.insert(cls).values(new_inputs)
     if ignore:
         query = query.on_conflict_do_nothing(index_elements=conflict_items)
     else:
         query = query.on_conflict_do_update(
             index_elements=conflict_items,
-            set_=func(query.excluded)
+            set_=cls.to_update_dict(query.excluded)
         )
     
     if returning is not None: 
@@ -131,24 +134,10 @@ def upsert(
     sess.execute(query)
     sess.commit()
 
-def search_webpage_by_keyword(words: list[str], limit: int = -1, db = Session()) -> list[Webpage]:
-    keywords = db.query(Keyword).filter(Keyword.word.in_(words))
-    if limit > 0: keywords = keywords.limit(limit)
-    keywords = keywords.all()
-
-    webpages = set()
-    for k in keywords:
-        if len(webpages) + len(k.webpages) < limit:
-            webpages = webpages.union(k.webpages)
-        elif len(webpages) < limit:
-            webpages = webpages.union(k.webpages[:(limit - len(webpages))])
-            break
-        else: break
-
-    return webpages
-
 def write_webpage_infos(
     limit: int = -1, db = Session(), write_parent: bool = True,
+    keyword_limit: int = 10,
+    relationship_limit: int = 10,
     filename: str = 'spider_result.txt'):
 
     webpages = db.query(Webpage).filter(and_(
@@ -164,31 +153,40 @@ def write_webpage_infos(
     for i, page in enumerate(webpages):
         output = f'Page {i + 1}\nTitle: {page.title}\nURL: {page.url}\nLast Modified Date: {page.last_modified_date}\nPage Size: {page.size}\n'
         output += 'Title Keywords:\n'
+
+        limit = 0
         for index in page.indexes:
+            if limit >= keyword_limit: break
             if not index.is_title: continue
             output += f'\t- \"{index.keyword.word}\" with frequency: {index.frequency}\n'
+            limit += 1
 
         output += 'Body Keywords:\n'
+        limit = 0
         for index in page.indexes:
+            if limit >= keyword_limit: break
             if index.is_title: continue
             output += f'\t- \"{index.keyword.word}\" with frequency: {index.frequency}\n'
+            limit += 1
 
         output += 'Children:\n'
-        is_none = True
+        limit = 0
         for child in page.parent_relation:
+            if limit >= relationship_limit: break
             if child.is_active and child.child.is_active:
                 output += f'\t- {child.child.url}\n'
-                is_none = False
-        if is_none: output += '\tNo Children Found\n'
+                limit += 1
+        if limit <= 0: output += '\tNo Children Found\n'
         
         if write_parent:
             output += 'Parent:\n'
-            is_none = True
+            limit = 0
             for parent in page.child_relation:
+                if limit >= relationship_limit: break
                 if parent.is_active and parent.parent.is_active:
                     output += f'\t- {parent.parent.url}\n'
-                    is_none = False
-            if is_none: output += '\tNo Parent Found\n'
+                    limit += 1
+            if limit <= 0: output += '\tNo Parent Found\n'
         
         output += seperator + '\n'
         result += output

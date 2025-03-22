@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Integer, String, DateTime, ForeignKey, Table, Column
+from sqlalchemy import Boolean, Integer, String, DateTime, ForeignKey, Float
 from sqlalchemy.orm import DeclarativeBase, relationship, mapped_column, Mapped
 from sqlalchemy.sql import func
 from datetime import datetime
@@ -28,6 +28,12 @@ class Relationship(Base):
             'is_active': obj.is_active,
         }
     
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'is_active': obj.is_active,
+        }
+    
     def __eq__(self, value):
         if not isinstance(value, Relationship): return False
         return value.parent_id == self.parent_id and value.child_id == self.child_id
@@ -44,6 +50,7 @@ class Index(Base):
         Integer, ForeignKey('keyword.word_id'), index=True, nullable=False)
     webpage_id: Mapped[int] = mapped_column(
         Integer, ForeignKey('webpage.webpage_id'), index=True, nullable=False)
+    normalized_tf: Mapped[float] = mapped_column(Float, nullable=False)
     frequency: Mapped[int] = mapped_column(Integer, nullable=False)
     is_title: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
@@ -58,6 +65,16 @@ class Index(Base):
             'frequency': obj.frequency,
             'is_title': obj.is_title,
             'index_id': obj.index_id,
+            'normalized_tf': obj.normalized_tf
+        }
+    
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'frequency': obj.frequency,
+            'is_title': obj.is_title,
+            'index_id': obj.index_id,
+            'normalized_tf': obj.normalized_tf
         }
     
     def __eq__(self, value):
@@ -65,7 +82,7 @@ class Index(Base):
         return value.word_id == self.word_id and value.webpage_id == self.webpage_id
     
     def __hash__(self):
-        return hash(f'{self.webpage_id}-{self.word_id}')
+        return hash(f'{self.webpage_id}-{self.word_id}-{1 if self.is_title else 0}')
 
 class Webpage(Base):
     __tablename__ = "webpage"
@@ -109,6 +126,10 @@ class Webpage(Base):
             'is_crawled': obj.is_crawled,
         }
     
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return Webpage.to_basic_dict(obj)
+    
     def __eq__(self, value):
         if not isinstance(value, Webpage): return False
         return value.url == self.url
@@ -133,6 +154,10 @@ class Keyword(Base):
         return {
             'word': obj.word if not isinstance(obj, str) else obj.strip(),
         }
+    
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return Keyword.to_basic_dict(obj)
     
     def __eq__(self, value):
         if not isinstance(value, Keyword): return False

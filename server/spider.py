@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as bs
 from utils import *
-from db.schemas import *
 from collections import deque
 from db.database import *
 from typing import Iterable
@@ -30,14 +29,18 @@ def extract_page_keywords(
     ) -> tuple[list[Index], set[str]]:
 
     keywords_dict = extract_keywords(text)
+    max_tf = max(keywords_dict.values())
     # return index list, keywords
     return [
-        Index(webpage=Webpage(url=url), keyword=Keyword(word=word), 
-                      frequency=freq, is_title=is_title) 
-        for word, freq in keywords_dict.items()
+        Index(
+            webpage=Webpage(url=url), keyword=Keyword(word=word), 
+            frequency=freq, is_title=is_title, 
+            normalized_tf = freq / max_tf 
+        ) for word, freq in keywords_dict.items()
     ], set(keywords_dict.keys())
     
-def extract_infos(parent_url: str, url_visited: set[str] = set()) -> \
+def extract_infos(parent_url: str, url_visited: set[str] = set(), 
+    remove_cyclic_relationship: bool = remove_cyclic_relationship,) -> \
     tuple[Webpage, list[Index], set[str], set[str]] | None: 
     # retrun webpage, parent-child relationship, index list, keywords, children links
 
@@ -91,16 +94,19 @@ def save_to_db(
             url=url, is_crawled=False, is_active=False
         ) for url in children]
 
-        child_ids = set_webpage(child_pages, ignore=True, db=sess, 
-            delete_unfounded_page=delete_unfound_item).values()
+        set_webpage(child_pages, ignore=True, db=sess, 
+            delete_unfounded_page=delete_unfound_item)
+        child_ids = sess.query(Webpage.webpage_id).filter(Webpage.url.in_(children)).all()
         relation_list: set[Relationship] = set()
 
         for child_id in child_ids:
             relation_list.add(Relationship(
                 parent_id=parent_id,
-                child_id=child_id,
+                child_id=child_id[0],
                 is_active=True
             ))
+
+        # print (webpage.url, child_ids)
         set_relationship(
             relation_list, db=sess,
             delete_unfounded_relationship=delete_unfound_item
@@ -116,6 +122,7 @@ def save_to_db(
                 word_id=word_id_dict[index.keyword.word],
                 frequency=index.frequency,
                 is_title=index.is_title,
+                normalized_tf=index.normalized_tf,
             ))
         set_index(
             index_list, db=sess, 
@@ -126,6 +133,7 @@ def bfs_crawl(
     seed_url: str = seed_url, 
     backup_url: str = backup_url,
     max_page: int = max_page,
+    remove_cyclic_relationship: bool = remove_cyclic_relationship,
     delete_unfounded_item: bool = False,
 ):
 
@@ -138,7 +146,7 @@ def bfs_crawl(
         url = url_queue.popleft()
         if url in url_visited: continue
 
-        page_info = extract_infos(url, url_visited)
+        page_info = extract_infos(url, url_visited, remove_cyclic_relationship=remove_cyclic_relationship)
         if page_info is None: 
             if url == seed_url: url_queue.append(backup_url)
             inactive_url.add(url)
@@ -162,6 +170,13 @@ def bfs_crawl(
 
 if __name__ == '__main__':
     create_database(restore=True)
-    bfs_crawl()
+    bfs_crawl(
+        remove_cyclic_relationship=False,
+        max_page=30
+    )
     with Session() as sess:
-        write_webpage_infos(db=sess, write_parent=False, limit=10)
+        write_webpage_infos(
+            db=sess, write_parent=False, 
+            limit=-1, relationship_limit=10,
+            keyword_limit=10,
+        )

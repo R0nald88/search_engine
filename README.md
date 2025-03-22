@@ -1,20 +1,49 @@
 # COMP4321 Project
 UST COMP4321 Search Engine Project
 
+## Assumption
+- Web crawler written in Python 3.11.5
+- SQLite database is used to store all data crawled
+- Children of the webpage includes all presented webpage URL in the webpage, no matter if the link redirects to the predecessor of the webpage or not.
+- Phrasal keywords from webpages contains only 2-3 single words
+- `extract_keywords_from_text` and `get_ranked_phrases` function from `rake-nltk` are used to extract phrasal keywords from webpages (For details, please visit `extract_keywords` function from `server/utils.py`)
+- `PorterStemmer` from `nltk` is used to stem single keywords from webpages (For details, please visit `extract_keywords` function from `server/utils.py`)
+
 ## Installation
 - Run `pip install -r requirements.txt` in command line to install necessary libraries and packages.
 - Run `server/spider.py` and `spider_result.txt` will be generated in root directory.
 
-### Library Used
+### Parameters
+Parameters can be adjusted in the bottom `if __name__ == '__main__':` part in `server/spider.py` to alter the `spider_result.txt` output. This includes:
+- `create_database.restore`: Set if all database tables have to be dropped before running
+- `bfs_crawl.remove_cyclic_relationship`: Set if remove all predecessor links in the child links retrieved in webpages
+- `bfs_crawl.max_page`: Set the maximum number of webpage to be crawled
+- `write_webpage_infos.write_parent`: Set if parent links of webpages has to be included in `spider_result.txt`
+- `write_webpage_infos.limit`: Set the number of webpages to be included in `spider_result.txt`
+- `write_webpage_infos.relationship_limit`: Set the maximum parent links and child links to be included for each webpages in `spider_result.txt`
+- `write_webpage_infos.keyword_limit`: Set the maximum title keywords and body kewords and their frequencies to be included for each webpages in `spider_result.txt`
+
+## Library Used
 - `nltk` for text tokenization and stemming
 - `rake-nltk` for phrasal keyword extraction
-- `sqlite` database for storing web crawling results
+- `sqlite3` database for storing web crawling results
 - `sqlalchemy` for accessing and manipulating with database
 - `requests` for requesting webpage data
 - `beautifulsoup4` for parsing webpage content
 
+## Crawler File Description
+- `server/utils.py`: Python file containing utility functions
+- `server/stopwords.txt`: Text file storing stopwords to be removed while crawling and retrieval
+- `server/spider.py`: Python file for web crawling and store to database
+- `server/db/schemas.py`: Python file defining the schemas of database
+- `server/db/database.py`: Python file containing functions interacting with the database, including inserting, updating and retrieving data
+- `server/db/project.db`: SQLite database file for storing crawled data
+
 ## Database Schemas
 All database schemas are defined in `server/db/schemas.py`.
+
+### Entity Relationship Diagram
+![ER Diagram](er_diagram.jpeg)
 
 ### Webpage Table
 Storing webpage data and mapping between webpage ID and URL. Attributes include:
@@ -46,5 +75,52 @@ Storing the data of keywords in webpages that are used during searching. Used as
 - `frequency`: Frequency of the keyword in the webpage. Zero frequency is seen as safe-deleted and would not use in searching.
 - `is_title`: Check if current keyword is retrieved from page body or title.
 
-### Entity Relationship Diagram
-![4321_p1_erd](https://github.com/user-attachments/assets/ddb7238f-f30d-4460-8014-a8b6e88f5ddb)
+## Supporting Structures
+
+### URL ⇄ Page-ID Mapping
+
+-   Implemented via the **Webpage** table's **url** and **webpage_id**
+    fields.
+
+-   Lookup Process:
+
+    -   For a given URL, query the **Webpage** table to retrieve its
+        **webpage_id**.
+
+    -   For a given **webpage_id**, retrieve the URL from the same
+        table.
+
+### Word ⇄ Word-ID Mapping
+
+-   Implemented via the **Keyword** table's **word** and **word_id**
+    fields.
+
+-   Lookup Process:
+
+    -   For a stemmed keyword, query the **Keyword** table to retrieve
+        its **word_id**.
+
+    -   For a given **word_id**, retrieve the original stemmed keyword.
+
+## Indexing Workflow
+
+### Crawling
+
+-   BFS crawler fetches pages and populates the **Webpage** and
+    **Relationship** tables.
+
+-   Cyclic links are handled by checking **is_crawled** and
+    **is_active** flags.
+
+### Keyword Extraction
+
+-   Stop words are removed, and remaining words are stemmed.
+
+-   Phrasal keywords (2-3 words) are extracted using RAKE.
+
+### Indexing
+
+-   Keywords are stored in the **Keyword** table.
+
+-   Frequencies and locations (title/body) are recorded in the
+    **Index** table.
