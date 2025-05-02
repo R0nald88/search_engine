@@ -1,12 +1,12 @@
 from urllib.parse import urlparse
 import os
 from datetime import datetime
-from typing import Any
+from typing import Any, Callable
 from collections import Counter
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from rake_nltk import Rake
-import nltk
+import nltk, string
 
 def is_url_valid(url: str) -> bool:
     try:
@@ -60,6 +60,8 @@ stemmer = PorterStemmer()
 rake = Rake()
 def extract_keywords(text: str) -> dict[str, int]:
     global stemmer, rake
+    # remove punctuation
+    text = ''.join([c for c in text if c not in string.punctuation])
     # Convert to lower case
     words: str = text.lower().strip()
     # Tokenize words
@@ -84,4 +86,53 @@ def extract_keywords(text: str) -> dict[str, int]:
         if freq <= 0: continue
         output[' '.join(w)] = freq
 
-    return {**output, **word_counts}
+    frequencies = {**output, **word_counts}
+
+    return frequencies
+
+def merge_dict(a: dict, b: dict, func: Callable[[Any, Any], Any]) -> dict:
+    n = dict()
+    for k, v in a.items():
+        if k in b:
+            t = func(v, b[k])
+            if t == None: continue
+            n[k] = t
+        else:
+            t = func(v, None)
+            if t == None: continue
+            n[k] = t
+    for k, v in b.items():
+        if k not in n:
+            t = func(None, v)
+            if t == None: continue
+            n[k] = t
+    return n
+
+def find_str_index(s: str, sub: str) -> set[int]:
+    """Find all occurrences of a substring in a string and return their starting indices."""
+    indices = set()
+    start = 0
+    while True:
+        start = s.find(sub, start)
+        if start == -1:
+            break
+        indices.add(start)
+        start += len(sub)  # Move past the last found index
+    return indices
+
+def substring_probability(substring: str, string: str) -> tuple:
+    """
+    Finds the occurrence of substring A in string S and computes the probability of finding A in S.
+    
+    :param A: Substring to find
+    :param S: String in which to search
+    :return: Tuple containing (count of A in S, probability of finding A in S)
+    """
+    if not substring or not string or len(substring) > len(string):
+        return (0, 0.0)
+    
+    count = string.count(substring)
+    total_possible_substrings = len(string) - len(substring) + 1
+    probability = count / total_possible_substrings if total_possible_substrings > 0 else 0.0
+    
+    return probability

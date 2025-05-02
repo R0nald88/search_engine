@@ -41,8 +41,8 @@ class Relationship(Base):
     def __hash__(self):
         return hash(f'{self.parent_id}-{self.child_id}')
 
-class Index(Base):
-    __tablename__ = "index"
+class TitleIndex(Base):
+    __tablename__ = "title_index"
 
     index_id: Mapped[str] = mapped_column(
         String(length=255), primary_key=True, unique=True, nullable=False)
@@ -52,10 +52,9 @@ class Index(Base):
         Integer, ForeignKey('webpage.webpage_id'), index=True, nullable=False)
     normalized_tf: Mapped[float] = mapped_column(Float, nullable=False)
     frequency: Mapped[int] = mapped_column(Integer, nullable=False)
-    is_title: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
-    keyword: Mapped['Keyword'] = relationship('Keyword', back_populates='indexes')
-    webpage: Mapped['Webpage'] = relationship('Webpage', back_populates='indexes')
+    keyword: Mapped['Keyword'] = relationship('Keyword', back_populates='title_indexes')
+    webpage: Mapped['Webpage'] = relationship('Webpage', back_populates='title_indexes')
 
     @staticmethod
     def to_basic_dict(obj: Any) -> dict[str, Any]:
@@ -63,26 +62,64 @@ class Index(Base):
             'word_id': obj.word_id,
             'webpage_id': obj.webpage_id,
             'frequency': obj.frequency,
-            'is_title': obj.is_title,
             'index_id': obj.index_id,
-            'normalized_tf': obj.normalized_tf
+            'normalized_tf': obj.normalized_tf,
         }
     
     @staticmethod
     def to_update_dict(obj: Any) -> dict[str, Any]:
         return {
             'frequency': obj.frequency,
-            'is_title': obj.is_title,
             'index_id': obj.index_id,
-            'normalized_tf': obj.normalized_tf
+            'normalized_tf': obj.normalized_tf,
         }
     
     def __eq__(self, value):
-        if not isinstance(value, Index): return False
+        if not isinstance(value, TitleIndex): return False
         return value.word_id == self.word_id and value.webpage_id == self.webpage_id
     
     def __hash__(self):
-        return hash(f'{self.webpage_id}-{self.word_id}-{1 if self.is_title else 0}')
+        return hash(f'{self.webpage_id}-{self.word_id}')
+    
+class BodyIndex(Base):
+    __tablename__ = "body_index"
+
+    index_id: Mapped[str] = mapped_column(
+        String(length=255), primary_key=True, unique=True, nullable=False)
+    word_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey('keyword.word_id'), index=True, nullable=False)
+    webpage_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey('webpage.webpage_id'), index=True, nullable=False)
+    normalized_tf: Mapped[float] = mapped_column(Float, nullable=False)
+    frequency: Mapped[int] = mapped_column(Integer, nullable=False)
+
+    keyword: Mapped['Keyword'] = relationship('Keyword', back_populates='body_indexes')
+    webpage: Mapped['Webpage'] = relationship('Webpage', back_populates='body_indexes')
+
+    @staticmethod
+    def to_basic_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'word_id': obj.word_id,
+            'webpage_id': obj.webpage_id,
+            'frequency': obj.frequency,
+            'index_id': obj.index_id,
+            'normalized_tf': obj.normalized_tf,
+        }
+    
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'frequency': obj.frequency,
+            'index_id': obj.index_id,
+            'normalized_tf': obj.normalized_tf,
+        }
+    
+    def __eq__(self, value):
+        if not isinstance(value, TitleIndex): return False
+        return value.word_id == self.word_id and value.webpage_id == self.webpage_id
+    
+    def __hash__(self):
+        return hash(f'{self.webpage_id}-{self.word_id}')
 
 class Webpage(Base):
     __tablename__ = "webpage"
@@ -94,6 +131,7 @@ class Webpage(Base):
     title: Mapped[str] = mapped_column(String(length=255), nullable=True)
     last_modified_date: Mapped[datetime] = mapped_column(DateTime, default=func.now(), nullable=True)
     size: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
+    pagerank: Mapped[float] = mapped_column(Float, nullable=True, default=1.0)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False)
     is_crawled: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
@@ -110,9 +148,13 @@ class Webpage(Base):
         'Relationship', backref='child',
         primaryjoin=webpage_id==Relationship.child_id,
     )
-    indexes: Mapped[list['Index']] = relationship('Index', back_populates='webpage')
-    keywords: Mapped[list['Keyword']] = relationship(
-        'Keyword', secondary=Index.__table__, back_populates='webpages'
+    title_indexes: Mapped[list['TitleIndex']] = relationship('TitleIndex', back_populates='webpage')
+    title_keywords: Mapped[list['Keyword']] = relationship(
+        'Keyword', secondary=TitleIndex.__table__, back_populates='title_webpages'
+    )
+    body_indexes: Mapped[list['BodyIndex']] = relationship('BodyIndex', back_populates='webpage')
+    body_keywords: Mapped[list['Keyword']] = relationship(
+        'Keyword', secondary=BodyIndex.__table__, back_populates='body_webpages'
     )
 
     @staticmethod
@@ -122,6 +164,7 @@ class Webpage(Base):
             'title': obj.title,
             'last_modified_date': obj.last_modified_date,
             'size': obj.size,
+            'pagerank': obj.pagerank,
             'is_active': obj.is_active,
             'is_crawled': obj.is_crawled,
         }
@@ -144,9 +187,13 @@ class Keyword(Base):
         Integer, primary_key=True, unique=True, 
         autoincrement=True, nullable=False)
     word: Mapped[str] = mapped_column(String(length=255), index=True, unique=True, nullable=False)
-    indexes: Mapped[list['Index']] = relationship('Index', back_populates='keyword')
-    webpages: Mapped[list['Webpage']] = relationship(
-        'Webpage', secondary=Index.__table__, back_populates='keywords'
+    title_indexes: Mapped[list['TitleIndex']] = relationship('TitleIndex', back_populates='keyword')
+    title_webpages: Mapped[list['Webpage']] = relationship(
+        'Webpage', secondary=TitleIndex.__table__, back_populates='title_keywords'
+    )
+    body_indexes: Mapped[list['BodyIndex']] = relationship('BodyIndex', back_populates='keyword')
+    body_webpages: Mapped[list['Webpage']] = relationship(
+        'Webpage', secondary=BodyIndex.__table__, back_populates='body_keywords'
     )
 
     @staticmethod
@@ -165,3 +212,31 @@ class Keyword(Base):
     
     def __hash__(self):
         return hash(self.word)
+
+class PMI(Base):
+    __tablename__ = 'pmi'
+
+    pmi_id: Mapped[str] = mapped_column(
+        String(length=255), primary_key=True, unique=True, nullable=False)
+    word1_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey('keyword.word_id'), index=True, nullable=False)
+    word2_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey('keyword.word_id'), index=True, nullable=False)
+    pmi: Mapped[float] = mapped_column(Float, nullable=False)
+
+    @staticmethod
+    def to_basic_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'word1_id': obj.word1_id,
+            'word2_id': obj.word2_id,
+            'pmi': obj.pmi,
+            'pmi_id': obj.pmi_id,
+        }
+    
+    @staticmethod
+    def to_update_dict(obj: Any) -> dict[str, Any]:
+        return {
+            'pmi': obj.pmi,
+        }
+
+    
