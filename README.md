@@ -9,9 +9,18 @@ UST COMP4321 Search Engine Project
 - `extract_keywords_from_text` and `get_ranked_phrases` function from `rake-nltk` are used to extract phrasal keywords from webpages (For details, please visit `extract_keywords` function from `server/utils.py`)
 - `PorterStemmer` from `nltk` is used to stem single keywords from webpages (For details, please visit `extract_keywords` function from `server/utils.py`)
 
-## Installation
+## Server Setup
+- Go to `server` folder by running `cd server` in command line
 - Run `pip install -r requirements.txt` in command line to install necessary libraries and packages.
-- Run `server/spider.py` and `spider_result.txt` will be generated in root directory.
+- Run `spider.py` to crawl 300 pages and computing PMI and PageRank for webpage crawled (bounus features). Normal crawling takes around 1 minute while bonus features takes several minutes.
+- Run `uvicorn main:app --reload` to start the server.
+- Record the server URL, which will be used in client setup.
+
+## Client Setup
+- Install Node.js and Next.js.
+- Go to `client` folder by running `cd client` in command line.
+- Open `utils/api.ts` file and replace `api_url` constant with the server URL.
+- Run `npm run dev` and click on the URL in the command line to view the webpage (in developer mode).
 
 ### Parameters
 Parameters can be adjusted in the bottom `if __name__ == '__main__':` part in `server/spider.py` to alter the `spider_result.txt` output. This includes:

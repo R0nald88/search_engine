@@ -9,7 +9,10 @@ import { Button } from "../ui/button"
 
 export type SearchResultTableData = {
     score: number
+    original_score: number
     detail: WebpageDetail & {
+        clicked: boolean
+        setClicked: (click: boolean, detail: WebpageDetail) => void
         likeState: 'liked' | 'none' | 'disliked'
         setLikeState: (likeState: 'liked' | 'none' | 'disliked', detail: WebpageDetail) => void
         getSimilarPage: (detail: WebpageDetail) => void
@@ -25,11 +28,22 @@ export type SearchResultTableProps = {
 const columns: ColumnDef<SearchResultTableData>[] = [
     {
         accessorKey: "score",
-        header: "Score",
+        header: "Modified Score",
         cell: ({ row }) => 
             <div className="w-full flex">
-                <Label className="text-center text-lg font-bold flex-1">
-                    {row.getValue("score")}
+                <Label className="text-center text-2xl font-bold flex-1">
+                    {(parseFloat(row.getValue("score")) * 100).toPrecision(4)}
+                </Label>
+            </div>
+            ,
+    },
+    {
+        accessorKey: "original_score",
+        header: "Original Score",
+        cell: ({ row }) => 
+            <div className="w-full flex">
+                <Label className="text-center text-2xl font-bold flex-1">
+                    {(parseFloat(row.getValue("original_score")) * 100).toPrecision(4)}
                 </Label>
             </div>
             ,
@@ -39,6 +53,8 @@ const columns: ColumnDef<SearchResultTableData>[] = [
         header: "Webpage Detail",
         cell: ({ row }) => {
             const detail: WebpageDetail & {
+                clicked: boolean
+                setClicked: (click: boolean, detail: WebpageDetail) => void
                 likeState: 'liked' | 'none' | 'disliked'
                 setLikeState: (likeState: 'liked' | 'none' | 'disliked', detail: WebpageDetail) => void
                 getSimilarPage: (detail: WebpageDetail) => void
@@ -46,21 +62,42 @@ const columns: ColumnDef<SearchResultTableData>[] = [
 
             return (
                 <div className="flex flex-col gap-3">
-                    <Label className="font-bold text-lg">{detail.title}</Label>
+                    <Label className="font-bold text-lg">
+                        <Link 
+                            href={detail.url} 
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            onClick={() => detail.setClicked(true, detail)}>
+                            <u>{detail.title}</u>
+                        </Link>
+                    </Label>
                     <Label className="text-gray-500">
-                        URL: <Link href={detail.url}>{detail.url}</Link><br/>
-                        Size: {detail.size} bytes<br/>
-                        Top Term Frequencies: {detail.top_tfs.map(([term, freq]) => `${term} (${freq})`).join(', ')}
+                        <p>
+                            URL: <Link 
+                                href={detail.url} 
+                                rel="noreferrer noopener"
+                                onClick={() => detail.setClicked(true, detail)} 
+                                target="_blank"><u>{detail.url}</u></Link><br/>
+                            Size: {detail.size} bytes<br/>
+                            Top Term Frequencies: {detail.top_tfs.map(([term, freq]) => `${term} (${freq})`).join(', ')}
+                        </p>
                     </Label>
                     {detail.parents.length > 0 && (
                         <>
                             <Label className="font-bold">Parents:</Label>
                             <Label className="text-gray-500">
-                                {detail.parents.map((parent) => (
-                                    <u>
-                                        <Link href={parent} key={parent}>{parent}</Link><br/>
-                                    </u>
-                                ))}
+                                <p>
+                                    {detail.parents.map((parent) => (
+                                        <u key={parent}>
+                                            <Link 
+                                                href={parent} 
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                key={parent}
+                                            >{parent}</Link><br/>
+                                        </u>
+                                    ))}
+                                </p>
                             </Label>
                         </>
                     )}
@@ -68,11 +105,18 @@ const columns: ColumnDef<SearchResultTableData>[] = [
                         <>
                             <Label className="font-bold">Children:</Label>
                             <Label className="text-gray-500">
-                                {detail.children.map((child) => (
-                                    <u>
-                                        <Link href={child} key={child}>{child}</Link><br/>
-                                    </u>
-                                ))}
+                                <p>
+                                    {detail.children.map((child) => (
+                                        <u key={child}>
+                                            <Link 
+                                                href={child} 
+                                                key={child}
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                            >{child}</Link><br/>
+                                        </u>
+                                    ))}
+                                </p>
                             </Label>
                         </>
                     )}

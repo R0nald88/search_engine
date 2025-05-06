@@ -1,9 +1,11 @@
+from sqlalchemy import Subquery
 from db.schemas import *
 from db.database import *
 from sqlalchemy.orm import aliased
 from utils import extract_keywords
 from math import log2, sqrt
 from utils import *
+from concurrent.futures import ThreadPoolExecutor
 import time
 
 '''
@@ -26,59 +28,57 @@ import time
 terms_ids: dict[int ,str] = dict()
 
 def search(
-    query: str,
-    title_any: set[int] = set(),
-    title_all: set[int] = set(),
-    title_not: set[int] = set(),
-    body_any: set[int] = set(),
-    body_all: set[int] = set(),
-    body_not: set[int] = set(),
-    page_any: set[int] = set(),
-    page_all: set[int] = set(),
-    page_not: set[int] = set(),
+    query: str = '',
+    title_any: list[tuple[str, int]] = list(),
+    title_all: list[tuple[str, int]] = list(),
+    title_not: list[tuple[str, int]] = list(),
+    body_any: list[tuple[str, int]] = list(),
+    body_all: list[tuple[str, int]] = list(),
+    body_not: list[tuple[str, int]] = list(),
+    page_any: list[tuple[str, int]] = list(),
+    page_all: list[tuple[str, int]] = list(),
+    page_not: list[tuple[str, int]] = list(),
     from_date: str | None = None,
     to_date: str | None = None,
-    cookies: list[dict[str, Any]] = list(),
-    db = Session()
+    cookies: list[dict[str, Any]] = list()
 ) -> tuple[
     list[tuple[dict[str, Any], float]], # webpage: score
     dict[str, tuple[int, float]], # word: (word_id, tfidf) (original query)
     dict[str, tuple[int, float]], # word: (word_id, tfidf) (modified query)
 ]:
     global terms_ids
+
+    title_all = set([a[1] for a in title_all])
+    title_any = set([a[1] for a in title_any])
+    title_not = set([a[1] for a in title_not])
+    body_all = set([a[1] for a in body_all])
+    body_any = set([a[1] for a in body_any])
+    body_not = set([a[1] for a in body_not])
+    page_any = set([a[1] for a in page_any])
+    page_all = set([a[1] for a in page_all])
+    page_not = set([a[1] for a in page_not])
+
+    db = Session()
     # get word ids
-    query_tfidfs, query_tfs, _ = compute_query_tfidf(
+    query_tfidfs, query_tfs, _, must_inc = compute_query_tfidf(
         query, db=db, fuzzy_matched=False,
         title_all=title_all, title_any=title_any, title_not=title_not,
         body_all=body_all, body_any=body_any, body_not=body_not,
-        page_all=page_all, page_any=page_any, page_not=page_not
+        page_all=page_all, page_any=page_any, page_not=page_not,
     )
+
+    page_all.update(must_inc)
+
+    if len(query_tfidfs) <= 0 or len(query_tfs) <= 0:
+        return dict(), dict(), dict()
     word_ids: set[int] = {k for k, v in query_tfidfs.items() if v >= 0}
     pmi_tfidfs = compute_co_occurence_tfidf(query_tfs, require_idf=True, db=db)
-
-    # get tfidfs
-    title_webpage_dict, title_tfidfs, title_tfs = get_webpage_tfidfs(
-        word_ids=word_ids, 
-        any_word_ids=title_any.union(page_any), 
-        all_word_ids=title_all.union(page_all), 
-        not_word_ids=title_not.union(page_not),
-        from_date=from_date, to_date=to_date,
-        is_title=True, db=db
-    )
-    body_webpage_dict, body_tfidfs, body_tfs = get_webpage_tfidfs(
-        word_ids=word_ids, 
-        any_word_ids=body_any.union(page_any), 
-        all_word_ids=body_all.union(page_all), 
-        not_word_ids=body_not.union(page_not),
-        from_date=from_date, to_date=to_date,
-        is_title=False, db=db
-    )
 
     # query weight modification
     modified_query_tfidfs: dict[int, float] = dict()
     # relevance feedback consideration
     modified_query_tfidfs, _ = compute_relevance_feedback(
-        qtfidf=query_tfidfs, cookies=cookies
+        qtfidf=query_tfidfs.copy(), cookies=cookies
     )
 
     # pmi consideration
@@ -89,71 +89,42 @@ def search(
         else:   
             modified_query_tfidfs[i] = v
 
-    # get involved webpage keyword count
-    webpage_dict = {**title_webpage_dict, **body_webpage_dict}
-
-    # compute cosine similarity
-    scores: dict[Webpage, float] = dict()
-    max_pagerank = db.query(func.max(Webpage.pagerank)).first()
-    for page_id, page in webpage_dict.items():
-        tfidf = combine_weight(
-            title_tfidfs.get(page_id, dict()), body_tfidfs.get(page_id, dict())
-        )
-        sim = compute_cosine_similarity(
-            q1=modified_query_tfidfs,
-            q2=tfidf
-        )
-        scores[page] = sim * (1 - pagerank_weight) + page.pagerank * pagerank_weight / max_pagerank[0]
-
-    output: list[tuple[dict[str, Any], float]] = list()
-
-    for page, score in scores.items():
-        if score <= 0: continue
-        top_tfs = combine_weight(title_tfs.get(page.webpage_id, dict()), body_tfs.get(page.webpage_id, dict()))
-        top_tfidfs = combine_weight(title_tfidfs.get(page.webpage_id, dict()), body_tfidfs.get(page.webpage_id, dict()))
-        
-        for i in set(top_tfidfs.keys()).union(set(top_tfs.keys())):
-            if i not in terms_ids.keys():
-                terms_ids[i] = db.query(Keyword.word).filter(Keyword.word_id == i).first()[0]
-
-        top_tfs = sorted(top_tfs.items(), key=lambda kv: kv[1], reverse=True)[:max_ranked_words]
-        top_tfidfs = sorted(top_tfidfs.items(), key=lambda kv: kv[1], reverse=True)[:max_ranked_words]
-
-        page_item = {
-            'webpage_id': page.webpage_id,
-            'url': page.url,
-            'title': page.title,
-            'last_modified_date': page.last_modified_date,
-            'size': page.size,
-            'top_tfs': [(terms_ids[i], i, j) for i, j in top_tfs],
-            'top_tfidfs': [(terms_ids[i], i, j) for i, j in top_tfidfs],
-            'parents': [],
-            'children': [],
-        }
-
-        limit = 0
-        for child in page.parent_relation:
-            if limit >= relationship_limit: break
-            if child.is_active and child.child.is_active and child.child.is_crawled:
-                page_item['children'].append(child.child.url)
-                limit += 1
-
-        limit = 0
-        for parent in page.child_relation:
-            if limit >= relationship_limit: break
-            if parent.is_active and parent.parent.is_active and parent.parent.is_crawled:
-                page_item['parents'].append(parent.parent.url)
-                limit += 1
-
-        output.append((page_item, score))
-
-
-    for i in set(modified_query_tfidfs.keys()):
-        if i not in terms_ids.keys():
-            terms_ids[i] = db.query(Keyword.word).filter(Keyword.word_id == i).first()[0]
+    words = db.query(Keyword.word, Keyword.word_id).filter(Keyword.word_id.in_(
+        set(query_tfidfs.keys()).union(set(modified_query_tfidfs.keys()))
+    )).all()
+    for s, i in words: terms_ids[i] = s
 
     original_query_vector = {terms_ids[i]: (i, j) for i, j in query_tfidfs.items()}
     modified_query_vector = {terms_ids[i]: (i, j) for i, j in modified_query_tfidfs.items()}
+
+    in_clause, notin_clause = query_webpage_id(
+        db=db,
+        title_all=title_all, title_any=title_any, title_not=title_not,
+        body_all=body_all, body_any=body_any, body_not=body_not,
+        page_all=page_all, page_any=page_any.union(word_ids), page_not=page_not,
+    )
+
+    where_clause = [Webpage.is_active == True, Webpage.is_crawled == True]
+
+    if len(in_clause) > 0:
+        where_clause += [Webpage.webpage_id.in_(a) for a in in_clause]
+    if len(notin_clause) > 0:
+        where_clause += [Webpage.webpage_id.notin_(a) for a in notin_clause]
+    if from_date is not None:
+        where_clause.append(Webpage.last_modified_date >= from_date)
+    if to_date is not None:
+        where_clause.append(Webpage.last_modified_date <= to_date)
+
+    wepage_ids = db.query(Webpage.webpage_id).filter(and_(*where_clause))
+    db.close()
+
+    output = []
+    with ThreadPoolExecutor(max_workers=max_thread_worker) as executor:
+        futures = [executor.submit(get_webpage_info, query_tfidfs, modified_query_tfidfs, a[0]) for a in wepage_ids]
+        for f in futures:
+            result = f.result()
+            if result == None: continue
+            output.append(result)
 
     # sort by similarity
     return (
@@ -164,8 +135,7 @@ def search(
 
 def joined_search(
     queries: dict[str, Any], 
-    cookies: list[dict[str, Any]] = list(), 
-    db=Session()
+    cookies: list[dict[str, Any]] = list()
 ) -> tuple[
     list[tuple[dict[str, Any], float]], 
     dict[str, tuple[int, float]],
@@ -181,22 +151,19 @@ def joined_search(
         result, q_vector = [], dict()
         if isinstance(i, dict):
             if 'queries' in i.keys():
-                result, q_vector, mq_vector = joined_search(i, cookies=cookies, db=db)
+                result, q_vector, mq_vector = joined_search(i, cookies=cookies)
             else:
                 result, q_vector, mq_vector = search(
-                    query=i['query'], 
-                    title_any=i.get('title_any', set()),
-                    title_all=i.get('title_all', set()),
-                    title_not=i.get('title_not', set()),
-                    body_any=i.get('body_any', set()),
-                    body_all=i.get('body_all', set()),
-                    body_not=i.get('body_not', set()),
-                    page_any=i.get('page_any', set()),
-                    page_all=i.get('page_all', set()),
-                    page_not=i.get('page_not', set()),
+                    query=i.get('query', ''), 
+                    title_any=i.get('title_any', list()),
+                    title_all=i.get('title_all', list()),
+                    title_not=i.get('title_not', list()),
+                    body_any=i.get('body_any', list()),
+                    body_all=i.get('body_all', list()),
+                    body_not=i.get('body_not', list()),
                     from_date=i.get('from_date', None),
                     to_date=i.get('to_date', None),
-                    cookies=cookies, db=db
+                    cookies=cookies
                 )
 
         if len(average_result) == 0:
@@ -247,11 +214,11 @@ def suggest_query(
     db = Session()
 ) -> tuple[
     list[tuple[str, int, float]], # word: (word_id, probability)
-    dict[tuple[str, int, float]], # word: (word_id, pmi)
-    dict[tuple[str, int, float]], # word: (word_id, tfidf)
-    dict[tuple[str, float]], # queries: cosine similarity
+    list[tuple[str, int, float]], # word: (word_id, pmi)
+    list[tuple[str, int, float]], # word: (word_id, tfidf)
+    list[tuple[str, float]], # queries: cosine similarity
 ]:
-    query_tfidfs, query_tfs, fuzzy_matched_keywords = compute_query_tfidf(query, fuzzy_matched=True, db=db)
+    query_tfidfs, query_tfs, fuzzy_matched_keywords, _ = compute_query_tfidf(query, fuzzy_matched=True, db=db)
     word_ids: set[int] = set(query_tfidfs.keys())
     pmi_word_ids = compute_co_occurence_tfidf(query_tfs, require_idf=True, db=db)
 
@@ -305,7 +272,7 @@ def compute_cosine_similarity(
     for word_id in q2.keys():
         q2_sum += q2[word_id] ** 2
 
-    return nominator / (sqrt(q1_sum) * sqrt(q2_sum)) if (q1_sum > 0 and q2_sum > 0) else 0
+    return nominator / (sqrt(q1_sum) * sqrt(q2_sum)) if (q1_sum != 0 and q2_sum != 0) else 0
 
 def compute_relevance_feedback(
     qtfidf: dict[int, float], 
@@ -318,7 +285,7 @@ def compute_relevance_feedback(
     non_relevant_n = 0
 
     for i, cookie in enumerate(cookies):
-        query_similarity = round(compute_cosine_similarity(qtfidf, cookie['modified_query_vector']), 3)
+        query_similarity = round(compute_cosine_similarity(qtfidf, {k: v[0] for k, v in cookie['modified_query_vector'].items()}), 3)
         if query_similarity not in query_similarities.keys():
             query_similarities[query_similarity] = [i]
         else: query_similarities[query_similarity].append(i) 
@@ -354,80 +321,223 @@ def compute_relevance_feedback(
             qtfidf[word_id] = w
 
     return qtfidf, top_queries
-
-def get_webpage_tfidfs(
-    word_ids: set[int] = set(), 
-    any_word_ids: set[int] = set(),
-    all_word_ids: set[int] = set(),
-    not_word_ids: set[int] = set(),
-    from_date: str | None = None,
-    to_date: str | None = None,
-    is_title: bool = True, 
+    
+def query_webpage_id(
+    title_any: set[int] = set(),
+    title_all: set[int] = set(),
+    title_not: set[int] = set(),
+    body_any: set[int] = set(),
+    body_all: set[int] = set(),
+    body_not: set[int] = set(),
+    page_any: set[int] = set(),
+    page_all: set[int] = set(),
+    page_not: set[int] = set(),
     db=Session()
-) -> tuple[
-    dict[int, Webpage], # webpage id: webpage
-    dict[int, dict[int, float]], # webpage id: word id: tfidf
-    dict[int, dict[int, float]], # webpage id: word id: tf
-]:
-    any_word_ids = word_ids.union(any_word_ids)
-    any_word_ids = any_word_ids.difference(not_word_ids).difference(all_word_ids)
-    all_word_ids = all_word_ids.difference(not_word_ids)
-    cls = TitleIndex if is_title else BodyIndex
+) -> tuple[list[Subquery], list[Subquery]]:
+    title_all = title_all.difference(title_not)
+    title_any = title_any.difference(title_all).difference(title_not)
+    body_all = body_all.difference(body_not)
+    body_any = body_any.difference(body_all).difference(body_not)
+    page_all = page_all.difference(page_not)
+    page_any = page_any.difference(page_all).difference(page_not).difference(body_any).difference(body_all).difference(title_any).difference(title_all)
 
-    any_subquery = db.query(Webpage.webpage_id).join(
-        cls, cls.webpage_id == Webpage.webpage_id
-    ).filter(and_(
-        cls.word_id.in_(any_word_ids),
-        cls.frequency >= 1,
-        Webpage.is_crawled == True,
+    in_clause: list[Subquery] = []
+    notin_clause: list[Subquery] = []
+
+    if len(title_any) > 0:
+        in_clause.append(
+            db.query(Webpage.webpage_id.distinct()).join(
+                TitleIndex, TitleIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                TitleIndex.word_id.in_(title_any),
+                TitleIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).subquery()
+        )
+    
+    if len(title_all) > 0:
+        in_clause.append(
+            db.query(Webpage.webpage_id).join(
+                TitleIndex, TitleIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                TitleIndex.word_id.in_(title_all),
+                TitleIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).group_by(Webpage.webpage_id).having(
+                func.count(TitleIndex.word_id.distinct()) == len(title_all)
+            ).subquery()
+        )
+
+    if len(title_not) > 0:
+        notin_clause.append(
+            db.query(Webpage.webpage_id.distinct()).join(
+                TitleIndex, TitleIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                TitleIndex.word_id.notin_(title_not),
+                TitleIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).subquery()
+        )
+
+    if len(body_any) > 0:
+        in_clause.append(
+            db.query(Webpage.webpage_id.distinct()).join(
+                BodyIndex, BodyIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                BodyIndex.word_id.in_(body_any),
+                BodyIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).subquery()
+        )
+
+    if len(body_all) > 0:
+        in_clause.append(
+            db.query(Webpage.webpage_id).join(
+                BodyIndex, BodyIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                BodyIndex.word_id.in_(body_all),
+                BodyIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).group_by(Webpage.webpage_id).having(
+                func.count(BodyIndex.word_id.distinct()) == len(body_all)
+            ).subquery()
+        )
+
+    if len(body_not) > 0:
+        notin_clause.append(
+            db.query(Webpage.webpage_id.distinct()).join(
+                BodyIndex, BodyIndex.webpage_id == Webpage.webpage_id
+            ).filter(and_(
+                BodyIndex.word_id.notin_(body_not),
+                BodyIndex.frequency >= 1,
+                Webpage.is_crawled == True,
+                Webpage.is_active == True,
+            )).subquery()
+        )
+
+    Page = select(
+        Webpage.webpage_id.label('webpage_id'), 
+        func.coalesce(TitleIndex.word_id, BodyIndex.word_id).label('word_id')
+    ).join_from(
+        TitleIndex, BodyIndex, onclause=and_(
+            TitleIndex.index_id == BodyIndex.index_id,
+            TitleIndex.frequency >= 1,
+            BodyIndex.frequency >= 1,
+        ), full=True
+    ).join(Webpage, onclause=and_(
+        Webpage.webpage_id == func.coalesce(TitleIndex.webpage_id, BodyIndex.webpage_id),
         Webpage.is_active == True,
+        Webpage.is_crawled == True,
     )).subquery()
-    where_clause = [cls.webpage_id.in_(any_subquery), cls.frequency >= 1]
 
-    if len(all_word_ids) != 0:
-        all_subquery = db.query(Webpage.webpage_id).join(
-            cls, cls.webpage_id == Webpage.webpage_id
-        ).filter(and_(
-            cls.word_id.in_(all_word_ids),
-            cls.frequency >= 1,
-            Webpage.is_crawled == True,
-            Webpage.is_active == True,
-        )).group_by(Webpage.webpage_id).having(
-            func.count(cls.word_id.distinct()) == len(all_word_ids)
-        ).subquery()
-        where_clause.append(cls.webpage_id.in_(all_subquery))
+    if len(page_any) > 0:
+        in_clause.append(
+            select(
+                Page.c.get('webpage_id').distinct()
+            ).filter(
+                Page.c.get('word_id').in_(page_any)
+            ).subquery()
+        )
 
-    if len(not_word_ids) != 0:
-        not_subquery = db.query(Webpage.webpage_id).join(
-            cls, cls.webpage_id == Webpage.webpage_id
-        ).filter(and_(
-            cls.word_id.in_(not_word_ids),
-            cls.frequency >= 1,
-            Webpage.is_crawled == True,
-            Webpage.is_active == True,
-        )).subquery()
-        where_clause.append(cls.webpage_id.notin_(not_subquery))
+    if len(page_all) > 0:
+        in_clause.append(
+            select(
+                Page.c.get('webpage_id').distinct()
+            ).filter(
+                Page.c.get('word_id').in_(page_all)
+            ).group_by(
+                Page.c.get('webpage_id')
+            ).having(
+                func.count(Page.c.get('word_id').distinct()) == len(page_all)
+            ).subquery()
+        )
 
-    if from_date is not None:
-        where_clause.append(Webpage.last_modified_date >= from_date)
-    if to_date is not None:
-        where_clause.append(Webpage.last_modified_date <= to_date)
+    if len(page_not) > 0:
+        notin_clause.append(
+            select(
+                Page.c.get('webpage_id').distinct()
+            ).filter(
+                Page.c.get('word_id').notin_(page_not)
+            ).subquery()
+        )
 
-    indexes = db.query(cls).filter(and_(*where_clause)).all()
+    return in_clause, notin_clause
 
-    tf_dict: dict[int, dict[int, TitleIndex | BodyIndex]] = dict() # webpage id: word_id: index
-    webpage_dict = {i.webpage_id: i.webpage for i in indexes}
+results = []
+def get_webpage_info(
+    original_query_tfidf: dict[int, float], 
+    modified_query_tfidfs: dict[int, float], 
+    webpage_id: int
+) -> tuple[dict[str, Any], float] | None:
+    with Session() as db:
+        title_tf = db.query(TitleIndex.word_id, TitleIndex.normalized_tf).filter(
+            and_(TitleIndex.webpage_id == webpage_id, TitleIndex.frequency > 0)
+        ).all()
+        body_tf = db.query(BodyIndex.word_id, BodyIndex.normalized_tf).filter(
+            and_(BodyIndex.webpage_id == webpage_id, BodyIndex.frequency > 0)
+        ).all()
+        if (len(title_tf) <= 0 and len(body_tf) <= 0): return
 
-    for index in indexes:
-        try: tf_dict[index.webpage_id][index.word_id] = index.normalized_tf
-        except: tf_dict[index.webpage_id] = {index.word_id: index.normalized_tf}
+        tfs = combine_weight(
+            title={a[0]: a[1] for a in title_tf},
+            body={a[0]: a[1] for a in body_tf}
+        )
 
-    tfidf_dict: dict[int, dict[int, float]] = {
-        k: compute_tfidf(v, is_title=is_title, db=db) 
-        for k, v in tf_dict.items()
-    }
+        top_tfs = sorted(tfs.items(), key=lambda a: a[1], reverse=True)[:max_ranked_words]
+        title_tfidfs = compute_tfidf({a[0]: a[1] for a in title_tf}, is_title=True, db=db)
+        body_tfidfs = compute_tfidf({a[0]: a[1] for a in body_tf}, is_title=False, db=db)
+        tfidfs = combine_weight(title=title_tfidfs, body=body_tfidfs)
 
-    return webpage_dict, tfidf_dict, tf_dict
+        max_pagerank, min_pagerank = db.query(func.max(Webpage.pagerank), func.min(Webpage.pagerank)).first()
+        webpage = db.query(Webpage).filter(Webpage.webpage_id == webpage_id).first()
+        original_score = compute_cosine_similarity(original_query_tfidf, tfidfs)
+        modified_score = compute_cosine_similarity(modified_query_tfidfs, tfidfs) * (1 - pagerank_weight) + pagerank_weight * (webpage.pagerank - min_pagerank) / (max_pagerank - min_pagerank)
+        top_tfidfs = sorted(tfidfs.items(), key=lambda a: a[1], reverse=True)[:max_ranked_words]
+
+        # for i in original_query_tfidf.keys():
+        #     results.append(tfidfs.get(i))
+        #     results.append(tfs.get(i))
+
+        words = db.query(Keyword.word, Keyword.word_id).filter(Keyword.word_id.in_(
+            set(a[0] for a in top_tfs).union(set(a[0] for a in top_tfidfs))
+        )).all()
+
+        for s, t in words: terms_ids[t] = s
+
+        page_item = {
+            'webpage_id': webpage.webpage_id,
+            'url': webpage.url,
+            'title': webpage.title,
+            'last_modified_date': webpage.last_modified_date,
+            'size': webpage.size,
+            'top_tfs': [(terms_ids[i], i, j) for i, j in top_tfs],
+            'top_tfidfs': [(terms_ids[i], i, j) for i, j in top_tfidfs],
+            'parents': [],
+            'children': [],
+            'original_score': original_score,
+            'modified_score': modified_score
+        }
+
+        limit = 0
+        for child in webpage.parent_relation:
+            if limit >= relationship_limit: break
+            if child.is_active and child.child.is_active and child.child.is_crawled:
+                page_item['children'].append(child.child.url)
+                limit += 1
+
+        limit = 0
+        for parent in webpage.child_relation:
+            if limit >= relationship_limit: break
+            if parent.is_active and parent.parent.is_active and parent.parent.is_crawled:
+                page_item['parents'].append(parent.parent.url)
+                limit += 1
+
+        return page_item, modified_score
 
 def compute_query_tfidf(
     query: str, 
@@ -444,39 +554,45 @@ def compute_query_tfidf(
     db=Session()) -> tuple[
     dict[int, float], 
     dict[int, float], 
-    dict[int, float]
+    dict[int, float],
+    set[int],
 ]:
 
     global terms_ids
+    must_inc = set()
     
-    given_ids = title_any.union(page_any).union(body_any).union(title_all).union(body_all).union(page_all).difference(title_not).difference(page_not).difference(body_not)
+    given_ids = title_any.union(body_any).union(title_all).union(body_all).union(page_any).union(page_all).difference(title_not).difference(body_not).difference(page_not)
     not_word_ids = title_not.union(body_not).union(page_not)
     query_tf = dict()
     exact_match_words = given_ids.union(not_word_ids)
 
     if query.strip() != '':
-        query_tf_dict = extract_keywords(query)
-        exact_match_words = exact_match_words.union(set(query_tf_dict.keys()))
-        where_clause = Keyword.word.in_(query_tf_dict.keys())
-        if fuzzy_matched:
-            where_clause = or_(Keyword.word.like(f'%{i}%') for i in query_tf_dict.keys())
-
-        terms = db.query(Keyword.word_id, Keyword.word).filter(where_clause).all()
-        terms = {i[1]: i[0] for i in terms}
-        terms_ids.update({i[0]: i[1] for i in terms})
-        
-        for k, v in query_tf_dict.items():
+        query_tf_dict, must_inc_word = extract_keywords(query, is_query=True)
+        if len(query_tf_dict) > 0:
+            exact_match_words = exact_match_words.union(set(query_tf_dict.keys()))
+            where_clause = Keyword.word.in_(set(query_tf_dict.keys()).union(must_inc_word))
             if fuzzy_matched:
-                w = [i for i in terms.keys() if k in i]
-                if len(w) > 0: 
-                    query_tf.update({
-                        terms[a]: v * substring_probability(k, a) for a in w if a in terms.keys()
-                    })
-            else:
-                word_id = terms.get(k, None)
-                if word_id is None: continue
-                if word_id < 0: continue
-                query_tf[word_id] = v
+                where_clause = or_(Keyword.word.like(f'%{i}%') for i in query_tf_dict.keys())
+
+            terms = db.query(Keyword.word_id, Keyword.word).filter(where_clause).all()
+            terms = {i[1]: i[0] for i in terms}
+            terms_ids.update({i[0]: i[1] for i in terms})
+
+            for k in must_inc_word:
+                must_inc.add(terms.get(k, -1))
+            
+            for k, v in query_tf_dict.items():
+                if fuzzy_matched:
+                    w = [i for i in terms.keys() if k in i]
+                    if len(w) > 0: 
+                        query_tf.update({
+                            terms[a]: v * substring_probability(k, a) for a in w if a in terms.keys()
+                        })
+                else:
+                    word_id = terms.get(k, None)
+                    if word_id is None: continue
+                    if word_id < 0: continue
+                    query_tf[word_id] = v
 
     for k in given_ids:
         if k in query_tf.keys(): query_tf[k] += 1
@@ -485,7 +601,7 @@ def compute_query_tfidf(
     for k in not_word_ids:
         query_tf[k] = -1
 
-    max_query_tf = max(max(query_tf.values()), 1)
+    max_query_tf = max(max(query_tf.values()), 1) if len(query_tf.values()) > 0 else 1
     for k, v in query_tf.items():
         query_tf[k] /= max_query_tf
 
@@ -503,7 +619,7 @@ def compute_query_tfidf(
             k: v for k, v in fuzzy_matched_words.items() if v in top_fuzzy_matched
         }
     
-    return tfidf, query_tf, fuzzy_matched_words
+    return tfidf, query_tf, fuzzy_matched_words, must_inc
 
 def compute_co_occurence_tfidf(
     query_tfs: dict[int, float], 
@@ -625,25 +741,15 @@ def get_keywords_with_freq(db=Session()) -> dict[str, tuple[int, int]]:
 if __name__ == '__main__':
     time_start = time.time()
     result = None
-    # relevant_urls = [
-    #     'https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm',
-    #     'https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm',
-    #     'https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm',
-    #     'https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm',
-    #     'https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm',
-    # ]
-    with Session() as sess:
-        result = joined_search(queries={
-            'type': 'merged',
-            'queries': [
-                {
-                    'query': 'cse'
-                },
-                {
-                    'query': 'hkust'
-                }
-            ]
-        }, db=sess)
-        
+    result = joined_search(queries={
+        'type': 'merged',
+        'queries': [
+            {
+                'query': 'cse'
+            },
+        ]
+    })
     print(result)
+    print(len(result[0]), len([a for a in result[0] if a[0]['original_score'] > 0]))
+    print(results)
     print('Time taken:', time.time() - time_start)

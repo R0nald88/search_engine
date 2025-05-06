@@ -1,29 +1,61 @@
+from collections import deque
+from concurrent.futures import Future, ThreadPoolExecutor
+from typing import Iterable
 import requests
 from bs4 import BeautifulSoup as bs
+from sqlalchemy import text
 from utils import *
-from collections import deque
+import time
 from db.database import *
-from typing import Iterable
+from queue import Queue
 
-def fetch_page(url: str) -> tuple[Any, str] | None:
+url_visited: set[str] = set()
+inactive_url = set()
+page_count = 0
+url_queue = Queue()
+page_ids: set[int] = set()
+word_ids: set[int] = set()
+
+def fetch_page(url: str) -> tuple[Any, str, str, set[str]] | None:
+    global url_visited, inactive_url, page_count, url_queue
+    if url in url_visited: return None
+
     try:
         print(f'Fetching {url}...')
         response = requests.get(url, allow_redirects=True)
         response.raise_for_status()
         print(f'Finish fetching {url}...')
-        return response.headers, response.text
+
+        page = response.text
+        soup = bs(page, 'html.parser')
+        child_links: set[str] = set()
+        links = soup.find_all('a', href=True)
+        url_visited.add(url)
+
+        for link in links:
+            link = link['href']
+            link = normalize_url(link, url)
+            if link is not None and (not remove_cyclic_relationship or link not in url_visited): 
+                child_links.add(link)
+                if url_queue.qsize() + page_count < max_page: url_queue.put(link)
+
+        page_count += 1
+
+        return response.headers, response.text, url, child_links
     except requests.RequestException as e:
         print(f"Failed to fetch {url}: {e}")
+        inactive_url.add(url)
         return None
     except Exception as e:
         print(f'Unknown error: {e}')
+        inactive_url.add(url)
         return None
 
 def extract_page_keywords(
     text: str, url: str, is_title: bool = True
     ) -> tuple[list[TitleIndex] | list[BodyIndex], set[str]]:
 
-    keywords_dict = extract_keywords(text)
+    keywords_dict, _ = extract_keywords(text, is_query=False)
     max_tf = max(keywords_dict.values())
     cls = TitleIndex if is_title else BodyIndex
     # return index list, keywords
@@ -34,12 +66,11 @@ def extract_page_keywords(
         ) for word, freq in keywords_dict.items() if len(word.strip()) > 0
     ], set(keywords_dict.keys())
     
-def extract_infos(parent_url: str, url_visited: set[str] = set(), 
-    remove_cyclic_relationship: bool = remove_cyclic_relationship,) -> \
-    tuple[Webpage, list[TitleIndex], list[BodyIndex], set[str], set[str]] | None: 
+def extract_infos(
+    parent_url: str, 
+    info: tuple[Any, str] | None,
+) -> tuple[Webpage, list[TitleIndex], list[BodyIndex], set[str]] | None: 
     # retrun webpage, parent-child relationship, index list, keywords, children links
-
-    info = fetch_page(parent_url)
     if info is None: return None
 
     headers, page = info
@@ -51,15 +82,7 @@ def extract_infos(parent_url: str, url_visited: set[str] = set(),
     title = soup.title.string if soup.title else ''
 
     # Extract child links
-    child_links: set[str] = set()
     body = soup.get_text()
-    links = soup.find_all('a', href=True)
-
-    for link in links:
-        link = link['href']
-        link = normalize_url(link, parent_url)
-        if link is not None and (not remove_cyclic_relationship or link not in url_visited): 
-            child_links.add(link)
 
     title_indexes, title_keywords = extract_page_keywords(title, url=parent_url, is_title=True)
     body_indexes, body_keywords = extract_page_keywords(body, url=parent_url, is_title=False)
@@ -69,9 +92,9 @@ def extract_infos(parent_url: str, url_visited: set[str] = set(),
     return Webpage(
         url=parent_url, title=title, size=size, is_active=True, is_crawled=True,
         last_modified_date=str_to_date(last_modified_date), 
-    ), title_indexes, body_indexes, keywords, child_links
+    ), title_indexes, body_indexes, keywords
 
-def save_to_db(
+def save_to_db_immediately(
     webpage: Webpage,
     children: Iterable[str],
     title_indexes: Iterable[TitleIndex],
@@ -145,119 +168,61 @@ def save_to_db(
 
     return page_ids, word_ids
 
-def bfs_crawl(
-    seed_url: str = seed_url, 
-    backup_url: str = backup_url,
-    max_page: int = max_page,
-    remove_cyclic_relationship: bool = remove_cyclic_relationship,
-    delete_unfounded_item: bool = delete_unfounded_item,
-):
+def crawl_webpage(url: str, info: tuple[Any, str] | None, child_links: set[str]):
+    global url_visited, inactive_url, page_ids, word_ids, url_queue, lock
 
-    url_visited: set[str] = set()
-    url_queue = deque([seed_url])
-    inactive_url = set()
-    page_count = 0
-    page_ids: set[int] = set()
-    word_ids: set[int] = set()
-
-    while url_queue and page_count < max_page:
-        url = url_queue.popleft()
-        if url in url_visited: continue
-
-        page_info = extract_infos(url, url_visited, remove_cyclic_relationship=remove_cyclic_relationship)
-        if page_info is None: 
-            if url == seed_url: url_queue.append(backup_url)
-            inactive_url.add(url)
-            url_visited.add(url)
-            continue
-
-        webpage, title_indexes, body_indexes, keywords, child_links = page_info
-        with Session() as sess:
-            p, w = save_to_db(
-                webpage=webpage,
-                title_indexes=title_indexes,
-                body_indexes=body_indexes,
-                keywords=keywords,
-                children=child_links,
-                sess=sess,
-                delete_unfound_item=delete_unfounded_item
-            )
-            page_ids.update(p)
-            word_ids.update(w)
-        
+    page_info = extract_infos(url, info)
+    if page_info == None: 
+        if url == seed_url: url_queue.put(backup_url)
+        inactive_url.add(url)
         url_visited.add(url)
-        if len(url_queue) + page_count < max_page: url_queue.extend(child_links)
-        page_count += 1
+        return
+
+    webpage, title_indexes, body_indexes, keywords = page_info
+    
+    lock.acquire()
+    db = Session()
+    p, w = save_to_db_immediately(
+        webpage=webpage,
+        title_indexes=title_indexes,
+        body_indexes=body_indexes,
+        keywords=keywords,
+        children=child_links,
+        sess=db,
+        delete_unfound_item=delete_unfounded_item
+    )
+    db.commit()
+    db.close()
+    page_ids.update(p)
+    word_ids.update(w)
+    lock.release()
+
+def bfs_crawl(max_page: int = max_page):
+    global url_visited, inactive_url, page_count, page_ids, word_ids, url_queue
+    url_queue.put(seed_url)
+
+    def future_callback(future: Future[tuple[Any, str, str, set[str]] | None]):
+        result = future.result()
+        if result == None: return
+        else: crawl_webpage(info=(result[0], result[1]), url=result[2], child_links=result[3])
+            
+    
+    with ThreadPoolExecutor(max_workers=max_thread_worker*2) as executor:
+        while page_count < max_page:
+            try:
+                url = url_queue.get(timeout=15)
+                future = executor.submit(fetch_page, url)
+                future.add_done_callback(fn=future_callback)
+            except: break
 
     with Session() as sess:
-        compute_pagerank(page_ids=page_ids, db=sess)
-        compute_pmi(word_ids=word_ids, db=sess)
+        i = sess.query(func.count(Webpage.is_active)).filter(Webpage.is_crawled == True).scalar()
+        print(f'Total {i} webpages crawled.')
+    compute_pmi(word_ids=word_ids)
+    compute_pagerank(page_ids=page_ids)
 
 if __name__ == '__main__':
-    # create_database(restore=True)
-    # bfs_crawl()
-    with Session() as sess:
-        # cls = BodyIndex
-
-        # ti1 = aliased(BodyIndex)
-        # ti2 = aliased(BodyIndex)
-
-        # cooccurence = sess.query(
-        #     ti1.word_id.label('word1'), 
-        #     ti2.word_id.label('word2'), 
-        #     cast(func.min(ti1.frequency, ti2.frequency), Float).label('co_count')
-        # ).join(
-        #     ti2, and_(
-        #         ti1.webpage_id == ti2.webpage_id,
-        #         ti1.word_id != ti2.word_id,
-        #         ti1.frequency >= 1,
-        #         ti2.frequency >= 1,
-        #         ti1.word_id.in_([1, 2, 3, 4, 5, 6]),
-        #     )
-        # ).join(Webpage, and_(
-        #     Webpage.webpage_id == ti1.webpage_id,
-        #     Webpage.is_crawled == True,
-        #     Webpage.is_active == True,
-        # )).subquery()
-
-        # word_freq = sess.query(
-        #     cls.word_id.label('word'),
-        #     cast(func.sum(cls.frequency), Float).label('freq')
-        # ).join(Webpage, and_(
-        #     Webpage.webpage_id == cls.webpage_id,
-        #     Webpage.is_crawled == True,
-        #     Webpage.is_active == True,
-        #     cls.frequency >= 1,
-        # )).group_by(cls.word_id).subquery()
-
-        # word1_freq = aliased(word_freq)
-        # word2_freq = aliased(word_freq)
-
-        # pmi_query = select(
-        #     cooccurence.c.word1.label('word1'), 
-        #     cooccurence.c.word2.label('word2'),
-        #     cast((cooccurence.c.co_count / (word1_freq.c.freq * word2_freq.c.freq)), Float).label('co_count')
-        # ).join_from(
-        #     cooccurence, word1_freq, 
-        #     cooccurence.c.word1 == word1_freq.c.word
-        # ).join(
-        #     word2_freq, cooccurence.c.word2 == word2_freq.c.word
-        # ).order_by(
-        #     cast((cooccurence.c.co_count / (word1_freq.c.freq * word2_freq.c.freq)), Float).desc()
-        # ).limit(max_query_co_occurence_terms)
-
-        # result = sess.execute(pmi_query).fetchall()
-
-        # print(result)
-        word_ids = sess.query(Keyword.word_id).all()
-        word_ids = set([word_id[0] for word_id in word_ids])
-        compute_pmi(word_ids=word_ids, db=sess)
-        result = sess.query(func.count(PMI.pmi)).scalar()
-        print(f'Total {result} PMIs computed.')
-        # write_webpage_infos(
-        #     db=sess, write_parent=False, 
-        #     limit=-1, relationship_limit=10,
-        #     keyword_limit=10,
-        # )
-        # i = sess.query(func.count(Webpage.is_active)).filter(Webpage.is_crawled == True).scalar()
-        # print(f'Total {i} webpages crawled.')
+    time_start = time.time()
+    create_database(restore=True)
+    bfs_crawl()
+    print('Time taken:', time.time() - time_start)

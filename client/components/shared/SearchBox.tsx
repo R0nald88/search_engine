@@ -1,10 +1,12 @@
 'use client'
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "../ui/command"
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { QuerySuggestion } from "@/types"
+import { debounce, objToUrl } from "@/utils"
+import { suggestQuery } from "@/utils/api"
 
 type SearchBoxProps = {
     query?: string
@@ -16,29 +18,14 @@ type SearchBoxProps = {
     needHistoryBtn?: boolean
 }
 
-const eSuggestion: QuerySuggestion = {
-    simialar_queries: [
-        ["example query", 0.9],
-        ["another example", 0.8],
-    ],
-    co_occuring_words: [
-        ["co-occuring term", 0.7, 0.6],
-        ["another co-occuring", 0.5, 0.4],
-    ],
-    relevant_words: [
-        ["relevant term", 0.3, 0.2],
-        ["another relevant", 0.1, 0.05],
-    ],
-    fuzzy_matched_words: [
-        ["fuzzy term", 0.9, 0.8],
-        ["another fuzzy", 0.7, 0.6],
-    ]
-}
-
 const replaceQuery = (query: string, suggestion: string): string => {
     const queryTerms = query.trim().split(' ')
     queryTerms.pop()
     return queryTerms.join(' ') + ' ' + suggestion.trim()
+}
+
+const addQuery = (query: string, suggestion: string): string => {
+    return query.trim() + ' ' + suggestion.trim()
 }
 
 const SearchBox: React.FC<SearchBoxProps> = ({
@@ -50,13 +37,26 @@ const SearchBox: React.FC<SearchBoxProps> = ({
     needSearchBtn = true,
     needHistoryBtn = false
 }) => {
-    const [suggestions, setSuggestions] = useState<QuerySuggestion>(eSuggestion)
+    const [suggestions, setSuggestions] = useState<QuerySuggestion>({})
     const [innerQuery, setInnerQuery] = useState<string>(query)
 
-    const handleQueryChange = (newQuery: string): void => {
-        setQuery(newQuery)
-        setInnerQuery(newQuery)
+    const handleQueryChange = (newQuery: [string, number]): void => {
+        setQuery(newQuery[0])
+        setInnerQuery(newQuery[0])
     }
+
+    useEffect(() => {
+        setInnerQuery(query)
+    }, [query])
+
+    useEffect(() => {
+        if (innerQuery.trim() === '') {
+            setSuggestions({})
+            return
+        }
+        const id = setTimeout(() => suggestQuery(innerQuery).then(v => setSuggestions(v)), 500)
+        return () => clearTimeout(id)
+    }, [innerQuery])
 
     return (
         <div 
@@ -74,7 +74,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
                 <CommandInput 
                     placeholder="Input Query to Search" 
                     value={innerQuery}
-                    onValueChange={handleQueryChange} />
+                    onValueChange={(s) => handleQueryChange([s, 0])} />
                 
                 {   open &&
                     <CommandList>
@@ -95,13 +95,13 @@ const SearchBox: React.FC<SearchBoxProps> = ({
                         <SuggestionItem
                             heading="Relevant Terms"
                             suggestions={suggestions.relevant_words}
-                            mapping={(suggestion) => replaceQuery(innerQuery, suggestion)}
+                            mapping={(suggestion) => addQuery(innerQuery, suggestion)}
                             handleQueryChange={handleQueryChange} />
 
                         <SuggestionItem
                             heading="Co-occuring Terms"
                             suggestions={suggestions.co_occuring_words}
-                            mapping={(suggestion) => replaceQuery(innerQuery, suggestion)}
+                            mapping={(suggestion) => addQuery(innerQuery, suggestion)}
                             handleQueryChange={handleQueryChange} />
                     </CommandList>
                 }
@@ -116,19 +116,19 @@ const SearchBox: React.FC<SearchBoxProps> = ({
                     <Button 
                         className={`w-full ${alignment === 'horizontal' ? '' : 'flex-1'}`} 
                         disabled={innerQuery.trim().length == 0}>
-                        <Link href={{
-                            pathname: '/search',
-                            query: {
-                                query: innerQuery.replaceAll(' ', '_')
-                            }
-                        }} className="w-full text-center">
+                        <Link
+                            target="_blank"
+                            rel='noreferrer noopener'
+                            href={'/search?query=' + objToUrl({ type: 'simple', query: innerQuery.trim() })} className="w-full text-center">
                             Search
                         </Link>
                     </Button>
                     <Button 
                         className={`w-full ${alignment === 'horizontal' ? '' : 'flex-1'}`} 
                         variant={'outline'}
-                    >Advanced Search</Button>
+                    ><Link href={'/advanced_search_form'} className="w-full text-center">
+                        Advanced Search
+                    </Link></Button>
                     {
                         needHistoryBtn && 
                         <Button 
@@ -145,11 +145,11 @@ const SearchBox: React.FC<SearchBoxProps> = ({
     )
 }
 
-const SuggestionItem: React.FC<{
+export const SuggestionItem: React.FC<{
     heading: string
     suggestions?: [string, number, number][] | [string, number][]
     mapping: (suggestion: string) => string
-    handleQueryChange: (query: string) => void
+    handleQueryChange: (query: [string, number]) => void
 }> = ({
     heading,
     suggestions,
@@ -163,7 +163,7 @@ const SuggestionItem: React.FC<{
                 suggestions.map((val) => (
                     <CommandItem 
                         key={val[0]} 
-                        onSelect={() => handleQueryChange(mapping(val[0]))}
+                        onSelect={() => handleQueryChange([mapping(val[0]), val[1]])}
                     >
                         {mapping(val[0])}
                     </CommandItem>

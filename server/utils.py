@@ -1,3 +1,4 @@
+import re
 from urllib.parse import urlparse
 import os
 from datetime import datetime
@@ -50,7 +51,7 @@ stopword = None
 def get_stopwords() -> set[str]:
     global stopword
     if stopword is None:
-        with open('server/stopwords.txt', 'r') as f:
+        with open('stopwords.txt', 'r') as f:
             stopword = {line.strip() for line in f.readlines()}
 
     return stopword
@@ -58,25 +59,55 @@ def get_stopwords() -> set[str]:
 nltk.download('punkt')
 stemmer = PorterStemmer()
 rake = Rake()
-def extract_keywords(text: str) -> dict[str, int]:
+def extract_keywords(text: str, is_query: bool = False) -> tuple[dict[str, int], set[str]]:
     global stemmer, rake
-    # remove punctuation
-    text = ''.join([c for c in text if c not in string.punctuation])
+
+    if is_query:
+        org_text = ''.join([c for c in text if c not in string.punctuation or c == '"']).strip()
+    # remove punctuation and clean the text
+    for c in string.punctuation:
+        text = text.replace(c, ' ')
+    text = text.replace('\n', ' ')
+    text = re.sub(r'\s+', ' ', text).strip()
     # Convert to lower case
-    words: str = text.lower().strip()
+    text: str = text.lower()
+    if len(text) <= 0: return dict()
     # Tokenize words
-    words: list[str] = word_tokenize(words)
+    words: list[str] = word_tokenize(text)
     # Remove stop words and stem words
     stopwords = get_stopwords()
     words: list[str] = [stemmer.stem(word.strip()) for word in words if word not in stopwords and len(word) > 0]
     # Count word frequencies
     word_counts = Counter(words)
     # Extract phrasal words
-    rake.extract_keywords_from_text(text)
-    phrases = rake.get_ranked_phrases()
+
+    phrases = list()
+    page_all = set()
+    error = False
+    try: 
+        rake.extract_keywords_from_text(text)
+    except:
+        print('Error, divide by 0', text)
+        error = True
+
+    try: 
+        phrases = rake.get_ranked_phrases()
+    except:
+        phrases = list()
+
+    must_inc_word = set()
+    if is_query:
+        page_all = set(extract_double_quoted_phrases(org_text))
+        print(page_all)
+        phrases += [a.strip() for a in page_all if ' ' in a.strip()]
+        for a in page_all:
+            if ' ' not in a.strip(): 
+                must_inc_word.add(stemmer.stem(a.strip()))
+
+    # if error: print('Phrases extracted: ', phrases)
     output: dict[str, int] = dict()
 
-    for phrase in phrases:
+    for phrase in set(phrases):
         if len(phrase) <= 0: continue
         w = [stemmer.stem(word.strip()) for word in str(phrase).split(' ') if word not in stopwords and len(word) > 0]
         
@@ -85,10 +116,11 @@ def extract_keywords(text: str) -> dict[str, int]:
         freq = min([word_counts.get(a, 0) for a in w])
         if freq <= 0: continue
         output[' '.join(w)] = freq
+        if phrase in page_all: must_inc_word.add(' '.join(w))
 
     frequencies = {**output, **word_counts}
 
-    return frequencies
+    return frequencies, must_inc_word
 
 def merge_dict(a: dict, b: dict, func: Callable[[Any, Any], Any]) -> dict:
     n = dict()
@@ -136,3 +168,7 @@ def substring_probability(substring: str, string: str) -> tuple:
     probability = count / total_possible_substrings if total_possible_substrings > 0 else 0.0
     
     return probability
+
+def extract_double_quoted_phrases(text: str) -> list[str]:
+    """Extract all double-quoted phrases from a given string."""
+    return [a.strip() for a in re.findall(r'"(.*?)"', text) if a.strip() != '']

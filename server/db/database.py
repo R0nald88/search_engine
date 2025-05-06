@@ -1,16 +1,18 @@
+from concurrent.futures import ThreadPoolExecutor
 from math import log2
 from sqlalchemy import String, Float, create_engine, and_, not_, update, or_, func, delete, select, cast, insert
 from sqlalchemy.orm import sessionmaker, aliased
 from constant import *
-import time
 
 try: from schemas import *
 except: from .schemas import *
 
-from typing import Callable, Any
+from typing import Any
 import sqlalchemy.dialects.sqlite as sqlite
+import threading
 
-engine = create_engine(db_uri, echo=True) # Create a SQLAlchemy engine , echo=True
+lock = threading.Lock()
+engine = create_engine(db_uri, echo=True, pool_size=16, max_overflow=16, connect_args={"check_same_thread": False}) # Create a SQLAlchemy engine , echo=True
 Session = sessionmaker(bind=engine) # Create a session to interact with the database
 
 def create_database(restore: bool = False):
@@ -160,53 +162,64 @@ def upsert(
     sess.execute(query)
     sess.commit()
 
-def compute_pagerank(page_ids: list[int] | None = None, db=Session()):
-    if page_ids is None:
-        active_webpage = db.query(Webpage).filter(
-            and_(Webpage.is_active == True, Webpage.is_crawled == True)
-        ).all()
-    else:
-        active_webpage = db.query(Webpage).filter(
-            and_(Webpage.is_active == True, Webpage.is_crawled == True, Webpage.webpage_id.in_(page_ids))
-        ).all()
-
+def compute_pagerank(page_ids: list[int] | None = None):
     pagerank: dict[int, float] = dict()
     parent_dict: dict[int, dict[int, int]] = dict() # child id: parent id: child count
 
-    # asyncronous computation of pagerank
-    for webpage in active_webpage:
-        for parent in webpage.child_relation:
-            if parent.is_active and parent.parent.is_crawled and parent.parent.is_active:
-                # counting parents' children
-                count = 0
-                for child in parent.parent.parent_relation:
-                    if child.is_active and child.child.is_crawled and child.child.is_active:
-                        count += 1
-                if count > 0:
-                    if webpage.webpage_id not in parent_dict.keys():
-                        parent_dict[webpage.webpage_id] = dict()
-                    parent_dict[webpage.webpage_id][parent.parent.webpage_id] = count  
-                    pagerank[parent.parent.webpage_id] = parent.parent.pagerank   
+    with Session() as db:
+        if page_ids is None:
+            active_webpage = db.query(Webpage).filter(
+                and_(Webpage.is_active == True, Webpage.is_crawled == True)
+            ).all()
+        else:
+            active_webpage = db.query(Webpage).filter(
+                and_(Webpage.is_active == True, Webpage.is_crawled == True, Webpage.webpage_id.in_(page_ids))
+            ).all()
 
-    pagerank.update({w.webpage_id: 1 for w in active_webpage})
-
-    for _ in range(pagerank_iteration):
+        # asyncronous computation of pagerank
         for webpage in active_webpage:
-            if webpage.webpage_id not in pagerank.keys(): continue
-            if webpage.webpage_id not in parent_dict.keys(): continue
-            for parent_id, count in parent_dict[webpage.webpage_id].items():
-                pagerank[webpage.webpage_id] += (pagerank[parent_id] / count) * pagerank_damping_factor
-            pagerank[webpage.webpage_id] = (1 - pagerank_damping_factor) + pagerank[webpage.webpage_id]
+            for parent in webpage.child_relation:
+                if parent.is_active and parent.parent.is_crawled and parent.parent.is_active:
+                    # counting parents' children
+                    count = 0
+                    for child in parent.parent.parent_relation:
+                        if child.is_active and child.child.is_crawled and child.child.is_active:
+                            count += 1
+                    if count > 0:
+                        if webpage.webpage_id not in parent_dict.keys():
+                            parent_dict[webpage.webpage_id] = dict()
+                        parent_dict[webpage.webpage_id][parent.parent.webpage_id] = count  
+                        pagerank[parent.parent.webpage_id] = parent.parent.pagerank   
 
-    for i in range(0, len(active_webpage), bulk_write_limit):
+        pagerank.update({w.webpage_id: 1 for w in active_webpage})
+
+    def calc_pagerank(webpage: Webpage):
+        if webpage.webpage_id not in pagerank.keys(): return
+        if webpage.webpage_id not in parent_dict.keys(): return
+        for parent_id, count in parent_dict[webpage.webpage_id].items():
+            print(type(count), type(pagerank[parent_id]))
+            pagerank[webpage.webpage_id] += (pagerank[parent_id] / count) * pagerank_damping_factor
+        pagerank[webpage.webpage_id] = (1 - pagerank_damping_factor) + pagerank[webpage.webpage_id]
+
+    def write_pagerank(webpages: list[Webpage]):
+        lock.acquire()
+        db = Session()
         db.execute(update(Webpage), [
             {'webpage_id': i.webpage_id, 'pagerank': pagerank[i.webpage_id]}
-            for i in active_webpage[i:i + bulk_write_limit] if i.webpage_id in pagerank.keys()
+            for i in webpages if i.webpage_id in pagerank.keys()
         ])
-    
-    db.commit()
+        db.commit()
+        db.close()
+        lock.release()
 
-def compute_pmi(word_ids: set[int], db=Session()) -> list[tuple[int, int, float]]:
+    with ThreadPoolExecutor(max_workers=max_thread_worker) as executor:
+        for _ in range(pagerank_iteration):
+            [executor.submit(calc_pagerank, w) for w in active_webpage]
+        
+    with ThreadPoolExecutor(max_workers=max_thread_worker) as executor:
+        [executor.submit(write_pagerank, active_webpage[i: i + bulk_write_limit]) for i in range(0, len(active_webpage), bulk_write_limit)]
+
+def compute_pmi(word_ids: set[int]) -> list[tuple[int, int, float]]:
     def query_coocurrence(word_ids: list[int], is_title: bool, db=Session()):
         cls = TitleIndex if is_title else BodyIndex
         ti1 = aliased(cls)
@@ -292,24 +305,25 @@ def compute_pmi(word_ids: set[int], db=Session()) -> list[tuple[int, int, float]
 
         return top_pmi
 
-    affected_words = word_ids
-    word_ids = list(word_ids)
-    
-    for i in range(0, len(word_ids), bulk_write_limit):
-        if db.query(func.count(PMI.pmi)).scalar() <= 0: break
+    def delete_words(word_ids: list[int]) -> set[int]: 
+        db = Session()
+        if db.query(func.count(PMI.pmi)).scalar() <= 0: 
+            db.close()
+            return set()
 
         result = db.execute(delete(PMI).where(or_(
-            PMI.word1_id.in_(word_ids[i:i + bulk_write_limit]),
-            PMI.word2_id.in_(word_ids[i:i + bulk_write_limit])
+            PMI.word1_id.in_(word_ids),
+            PMI.word2_id.in_(word_ids)
         )).returning(PMI.word1_id, PMI.word2_id)).fetchall()
-        affected_words.update({i[0] for i in result}.union({i[1] for i in result}))
-    db.commit()
+        db.commit()
+        db.close()
+        return {i[0] for i in result}.union({i[1] for i in result})
 
-    affected_words = list(affected_words)
-
-    for w in range(0, len(affected_words), bulk_write_limit):
-        title_pmi = query_coocurrence(affected_words[w: w + bulk_write_limit], True, db=db).subquery()
-        body_pmi = query_coocurrence(affected_words[w: w + bulk_write_limit], False, db=db).subquery()
+    def write_pmi(affected_words: list[int]):
+        lock.acquire()
+        db = Session()
+        title_pmi = query_coocurrence(affected_words, True, db=db).subquery()
+        body_pmi = query_coocurrence(affected_words, False, db=db).subquery()
 
         pmi = select(
             func.coalesce(title_pmi.c.pmi_id, body_pmi.c.pmi_id).label('pmi_id'),
@@ -331,7 +345,21 @@ def compute_pmi(word_ids: set[int], db=Session()) -> list[tuple[int, int, float]
             ['pmi_id', 'word1_id', 'word2_id', 'pmi'], pmi
         ).on_conflict_do_nothing()
         db.execute(insert_query)
-    db.commit()
+        db.commit()
+        db.close()
+        lock.release()
+
+    with ThreadPoolExecutor(max_workers=max_thread_worker) as executor: 
+        affected_words = word_ids
+        word_ids = list(word_ids)
+
+        futures = [executor.submit(delete_words, word_ids[i: i + bulk_write_limit]) for i in range(0, len(word_ids), bulk_write_limit)]
+        for f in futures: affected_words.update(f.result())
+    
+        affected_words = list(affected_words)
+        futures = [executor.submit(write_pmi, affected_words[i: i + bulk_write_limit]) for i in range(0, len(word_ids), bulk_write_limit)]
+        for f in futures: f.result()
+    
 
 def write_webpage_infos(
     limit: int = -1, db = Session(), write_parent: bool = True,

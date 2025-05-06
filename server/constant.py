@@ -1,6 +1,7 @@
-db_uri = "sqlite:///./server/db/project.db"
+db_uri = "sqlite:///./db/project.db"
 bulk_write_limit = 100
 relationship_limit = 5
+max_thread_worker = 20
 
 # crawler config
 seed_url = 'https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm'
