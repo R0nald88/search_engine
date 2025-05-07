@@ -42,6 +42,11 @@ const SearchResultPage: React.FC<{}> = () => {
                         return [...prev]
                     }),
                     getSimilarPage: (detail) => {
+                        setData(prev => {
+                            if (prev === undefined) return undefined
+                            prev[i].detail = { ...prev[i].detail, clicked: true }
+                            return [...prev]
+                        })
                         const query: SingleSearchQuery = {
                             type: 'single',
                             page_any: detail.top_tfs.map(v => [v[0], v[1]]),
@@ -72,13 +77,13 @@ const SearchResultPage: React.FC<{}> = () => {
         const id = setTimeout(() => setSingleCookie({
             ...history,
             webpages: data.filter(
-                d => d.detail.likeState === 'liked' || d.detail.clicked
+                d => d.detail.likeState === 'liked' || d.detail.clicked || d.detail.likeState === 'disliked'
             ).map(d => ({
                 ...d.detail,
                 setClicked: undefined,
                 setLikeState: undefined,
                 getSimilarPage: undefined,
-                relevance: d.detail.likeState === 'liked' || d.detail.clicked ? 1 : 0
+                relevance: d.detail.likeState === 'liked' || d.detail.clicked ? 1 : -1
             }))
         }, index), 500)
         return () => clearTimeout(id)

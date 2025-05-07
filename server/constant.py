@@ -25,7 +25,7 @@ max_query_co_occurence_terms = 5
 co_occurence_title_frequency_threshold = 1
 co_occurence_body_frequency_threshold = 3
 pmi_threshold = 0.3
-pmi_title_weight = 0.35
+pmi_title_weight = 0.3
 
 # pagerank
 pagerank_damping_factor = 0.85
