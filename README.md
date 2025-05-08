@@ -47,7 +47,7 @@ We assumed phrasal keywords from webpages contains only 2-3 single words.  `extr
 All database schemas are defined in `server/db/schemas.py`.
 
 ### Entity Relationship Diagram
-![ER Diagram](er_diagram.jpeg)
+![ER Diagram](er_diagram.png)
 
 #### Webpage Table
 Storing webpage data and mapping between webpage ID and URL. Attributes include:
