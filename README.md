@@ -140,11 +140,19 @@ Storing PMI pre-computed, which is used to measure the co-occurence of 2 terms.
 
 ## Searching
 
+### Webpage Selection
+
+Webpage with any terms matched with query is selected for ranking, while double quoted terms in query (either phrases or single word) should be appeared in all webpages as constraint.
+
 ### Webpage Document Vector
 
 The term weighting in doument vector is the weighted average of the $TitleTFIDF$ and $BodyTFIDF$ of the terms. Both TFIDF are computed independently. To favor title matching, the weights are set to $TitleWeight:BodyWeight=7:3$.
 
 $DocumentTermWeight(t) = 0.7 * TitleTFIDF(t) + 0.3 * BodyTFIDF(t)$
+
+For term frequency shown in resulting webpages, we use the similar approach as calculating term weights. The frequencty hence should be in range of [0, 1]
+
+$DocumentTF(t) = 0.7 * TITLETF(t) + 0.3 * BodyTF(t)$
 
 ### Query Vector
 

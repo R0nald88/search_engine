@@ -81,7 +81,7 @@ const columns: ColumnDef<SearchResultTableData>[] = [
                                 onClick={() => detail.setClicked(true, detail)} 
                                 target="_blank"><u>{detail.url}</u></Link><br/>
                             Size: {detail.size} bytes<br/>
-                            Top Term Frequencies: {detail.top_tfs.map(([term, freq]) => `${term} (${freq})`).join(', ')}
+                            Top Term Frequencies: {detail.top_tfs.map(([term, _, freq]) => `${term} (${freq.toPrecision(4)})`).join(', ')}
                         </p>
                     </Label>
                     {detail.parents.length > 0 && (
