@@ -15,8 +15,9 @@ UST COMP4321 Search Engine Project
 - `Node.JS` and `Next.JS` for front-end development
 
 ### Server Setup
-- Start a python virtual environment
-- Go to `server` folder by running `cd server` in command line
+- Open a terminal.
+- Start a python virtual environment.
+- Go to `server` folder by running `cd server` in command line.
 - Run `pip install -r requirements.txt` in command line to install necessary libraries and packages.
 - Run `spider.py` to crawl 300 pages and computing PMI and PageRank for webpage crawled (bounus features). Normal crawling takes around 1 minute while bonus features takes several minutes.
 - Run `uvicorn main:app --reload` to start the server.
@@ -24,6 +25,7 @@ UST COMP4321 Search Engine Project
 
 ### Client Setup
 - Install Node.js and Next.js.
+- Open another terminal.
 - Go to `client` folder by running `cd client` in command line.
 - Open `utils/api.ts` file and replace `api_url` constant with the server URL.
 - Run `npm run dev` and click on the URL in the command line to view the webpage (in developer mode).
