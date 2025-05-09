@@ -83,7 +83,7 @@ const SearchResultPage: React.FC<{}> = () => {
                 setClicked: undefined,
                 setLikeState: undefined,
                 getSimilarPage: undefined,
-                relevance: d.detail.likeState === 'liked' || d.detail.clicked ? 1 : -1
+                relevance: d.detail.likeState === 'disliked' ? -1 : 1
             }))
         }, index), 500)
         return () => clearTimeout(id)
