@@ -16,6 +16,7 @@ export type SearchResultTableData = {
         likeState: 'liked' | 'none' | 'disliked'
         setLikeState: (likeState: 'liked' | 'none' | 'disliked', detail: WebpageDetail) => void
         getSimilarPage: (detail: WebpageDetail) => void
+        similarPageLink: string
     }
 }
 
@@ -58,6 +59,7 @@ const columns: ColumnDef<SearchResultTableData>[] = [
                 likeState: 'liked' | 'none' | 'disliked'
                 setLikeState: (likeState: 'liked' | 'none' | 'disliked', detail: WebpageDetail) => void
                 getSimilarPage: (detail: WebpageDetail) => void
+                similarPageLink: string
             } = row.getValue("detail")
 
             return (
@@ -123,7 +125,13 @@ const columns: ColumnDef<SearchResultTableData>[] = [
                     <div className="flex flex-row gap-3 pt-3 pb-3">
                         <Button
                             onClick={() => detail.getSimilarPage(detail)}>
-                            Get Similar Pages
+                            <Link
+                                href={detail.similarPageLink}
+                                target="_blank"
+                                rel="noreferrer noopener"
+                            >
+                                Get Similar Pages
+                            </Link>
                         </Button>
                         <Button
                             disabled={detail.likeState == 'liked'}

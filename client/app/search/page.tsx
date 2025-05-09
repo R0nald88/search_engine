@@ -12,12 +12,10 @@ import { search } from "@/utils/api"
 import { addCookies, setSingleCookie } from "@/utils/cookie"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const SearchResultPage: React.FC<{}> = () => {
     const searchParams = useSearchParams()
-    const router = useRouter()
     const [data, setData] = useState<SearchResultTableData[] | undefined>(undefined)
     const [index, setIndex] = useState<number>(-1)
     const [history, setHistory] = useState<SearchHistory | undefined>(undefined)
@@ -47,12 +45,11 @@ const SearchResultPage: React.FC<{}> = () => {
                             prev[i].detail = { ...prev[i].detail, clicked: true }
                             return [...prev]
                         })
-                        const query: SingleSearchQuery = {
-                            type: 'single',
-                            page_any: detail.top_tfs.map(v => [v[0], v[1]]),
-                        }
-                        router.push('/search?query=' + objToUrl(query))
-                    }
+                    },
+                    similarPageLink: '/search?query=' + objToUrl({
+                        type: 'single',
+                        page_any: w[0].top_tfs.map(v => [v[0], v[1]]),
+                    }),
                 },
                 score: w[1],
                 original_score: w[0].original_score
@@ -83,7 +80,8 @@ const SearchResultPage: React.FC<{}> = () => {
                 setClicked: undefined,
                 setLikeState: undefined,
                 getSimilarPage: undefined,
-                relevance: d.detail.likeState === 'disliked' ? -1 : 1
+                relevance: d.detail.likeState === 'disliked' ? -1 : 1,
+                similarPageLink: undefined,
             }))
         }, index), 500)
         return () => clearTimeout(id)
