@@ -13,7 +13,7 @@ const HistoryPage: React.FC<{
     searchParams: { page?: string }
 }> = async ({ searchParams }) => {
     const page = parseInt((await searchParams).page ?? '0')
-    const queryHistory: SearchHistory[] = await getCookies()
+    const queryHistory: SearchHistory[] = (await getCookies()).reverse()
     const displayedQuery: SearchHistory[] = queryHistory.slice(
         historyPageSize * page,
         historyPageSize * (page + 1)

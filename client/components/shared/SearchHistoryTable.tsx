@@ -108,6 +108,8 @@ const columns: ColumnDef<SearchHistoryData>[] = [
                     <Button className="mb-3 w-[25%]">
                         <Link
                             href={'/search?query=' + objToUrl(similarPageQuery)}
+                            target="_blank"
+                            rel="noreferrer noopener"
                         >
                             Get Similar Page
                         </Link>

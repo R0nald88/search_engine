@@ -737,19 +737,3 @@ def get_keywords_with_freq(db=Session()) -> dict[str, tuple[int, int]]:
             (b[1] if b is not None else 0)
         )
     )
-
-if __name__ == '__main__':
-    time_start = time.time()
-    result = None
-    result = joined_search(queries={
-        'type': 'merged',
-        'queries': [
-            {
-                'query': 'cse'
-            },
-        ]
-    })
-    print(result)
-    print(len(result[0]), len([a for a in result[0] if a[0]['original_score'] > 0]))
-    print(results)
-    print('Time taken:', time.time() - time_start)

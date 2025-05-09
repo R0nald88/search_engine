@@ -15,6 +15,7 @@ UST COMP4321 Search Engine Project
 - `Node.JS` and `Next.JS` for front-end development
 
 ### Server Setup
+- Start a python virtual environment
 - Go to `server` folder by running `cd server` in command line
 - Run `pip install -r requirements.txt` in command line to install necessary libraries and packages.
 - Run `spider.py` to crawl 300 pages and computing PMI and PageRank for webpage crawled (bounus features). Normal crawling takes around 1 minute while bonus features takes several minutes.
