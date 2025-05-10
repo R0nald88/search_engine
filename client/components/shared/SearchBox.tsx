@@ -54,7 +54,9 @@ const SearchBox: React.FC<SearchBoxProps> = ({
             setSuggestions({})
             return
         }
-        const id = setTimeout(() => suggestQuery(innerQuery).then(v => setSuggestions(v)), 500)
+        const id = setTimeout(() => suggestQuery(innerQuery).then(v => {
+            setSuggestions(v)
+        }), 500)
         return () => clearTimeout(id)
     }, [innerQuery])
 
@@ -82,8 +84,8 @@ const SearchBox: React.FC<SearchBoxProps> = ({
 
                         <SuggestionItem
                             heading="Similar Queries"
-                            suggestions={suggestions.simialar_queries}
-                            mapping={(suggestion) => suggestion}
+                            suggestions={suggestions.similar_queries}
+                            mapping={(suggestion) => suggestion.trim()}
                             handleQueryChange={handleQueryChange} />
 
                         <SuggestionItem
@@ -156,7 +158,8 @@ export const SuggestionItem: React.FC<{
     mapping,
     handleQueryChange
 }) => {
-    if (suggestions == null || suggestions?.length === 0) return <></>
+    console.log(heading, suggestions)
+    if (suggestions === undefined || suggestions?.length === 0) return <></>
     return (
         <CommandGroup heading={heading}>
             {

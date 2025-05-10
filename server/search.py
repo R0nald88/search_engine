@@ -246,10 +246,12 @@ def suggest_query(
         [(suggest_word_id_dict[k], k, v) for k, v in fuzzy_matched_keywords.items() if v > 0],
         key=lambda kv: kv[2], reverse=True
     )
+    print(sim_queries)
     sim_queries = sorted(
         [(i, j) for i, j in sim_queries.items() if j > 0],
         key=lambda kv: kv[1], reverse=True
     )
+    print(sim_queries)
 
     return fuzzy_matched_keywords, pmi_words, relevant_words, sim_queries
 
@@ -279,13 +281,15 @@ def compute_relevance_feedback(
     cookies: list[dict[str, Any]] = list(),
 ) -> tuple[dict[int, float], dict[str, float]]:
     # compute relevance feedback
+    print(f'cookies: {cookies}')
+
     relevant_words: list[tuple[int, float]] = list()
     query_similarities: dict[float, list[int]] = dict()
     relevant_n = 0
     non_relevant_n = 0
 
     for i, cookie in enumerate(cookies):
-        query_similarity = round(compute_cosine_similarity(qtfidf, {k: v[0] for k, v in cookie['modified_query_vector'].items()}), 3)
+        query_similarity = round(compute_cosine_similarity(qtfidf, {v[0]: v[1] for k, v in cookie['modified_query_vector'].items()}), 3)
         if query_similarity not in query_similarities.keys():
             query_similarities[query_similarity] = [i]
         else: query_similarities[query_similarity].append(i) 
@@ -293,13 +297,15 @@ def compute_relevance_feedback(
     top_similarities = sorted(
         query_similarities.items(), key=lambda kv: kv[0], reverse=True
     )[:max_relevant_query_considered]
+    print(f'top sim: {top_similarities}')
     top_queries = dict()
     for similarity, qid in top_similarities:
         if similarity <= 0: continue
         for i in qid:
             cookie = cookies[i]
+            print('query: ' + cookie['query'])
 
-            if 'query' in cookie and cookie['query'] not in top_queries.keys():
+            if 'query' in cookie.keys():
                 top_queries[cookie['query']] = similarity
 
             for page in cookie['webpages']:
@@ -320,6 +326,7 @@ def compute_relevance_feedback(
         else:
             qtfidf[word_id] = w
 
+    print(f'top queries: {top_queries}')
     return qtfidf, top_queries
     
 def query_webpage_id(

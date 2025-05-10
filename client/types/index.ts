@@ -21,7 +21,7 @@ export type SearchResult = {
 }
 
 export type QuerySuggestion = {
-    simialar_queries?: [string, number][]
+    similar_queries?: [string, number][]
     co_occuring_words?: [string, number, number][]
     relevant_words?: [string, number, number][]
     fuzzy_matched_words?: [string, number, number][]
