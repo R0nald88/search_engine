@@ -21,13 +21,14 @@ Demo Video URL: https://youtu.be/X005Ww9pGyY
 - Start a python virtual environment.
 - Go to `server` folder by running `cd server` in command line.
 - Run `pip install -r requirements.txt` in command line to install necessary libraries and packages.
-- Run `spider.py` to crawl 300 pages and computing PMI and PageRank for webpage crawled (bounus features). Normal crawling takes around 1 minute while bonus features takes several minutes.
+- Run `spider.py` to crawl 300 pages. Normal crawling takes around 1-2 minutes to complete.
+- Run `bonus.py` to pre-compute PageRank and PMI. This should take less than 6 minutes.
 - Run `uvicorn main:app --reload` to start the server.
 - Record the server URL, which will be used in client setup.
 
 ### Client Setup
-- Install Node.js and Next.js.
-- Open another terminal.
+- Install Typescript, Node.js and Next.js.
+- Open another terminal (keep server terminal running).
 - Go to `client` folder by running `cd client` in command line.
 - Open `utils/api.ts` file and replace `api_url` constant with the server URL.
 - Run `npm run dev` and click on the URL in the command line to view the webpage (in developer mode).

@@ -218,8 +218,6 @@ def bfs_crawl(max_page: int = max_page):
     with Session() as sess:
         i = sess.query(func.count(Webpage.is_active)).filter(Webpage.is_crawled == True).scalar()
         print(f'Total {i} webpages crawled.')
-    compute_pmi(word_ids=word_ids)
-    compute_pagerank(page_ids=page_ids)
 
 if __name__ == '__main__':
     time_start = time.time()
