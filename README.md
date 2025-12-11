@@ -1,5 +1,5 @@
-# COMP4321 Project
-UST COMP4321 Search Engine Project
+# Search Engine Development Project
+Built using SQLite, SQLAlchemy, Flask, Next.js. Development process includes web crawling, indexing and search algorithm designing.
 
 Demo Video URL: https://youtu.be/X005Ww9pGyY 
 
